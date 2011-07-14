@@ -9,8 +9,10 @@
 
 <body>
 
-<table style="margin-left:auto; margin-right:auto;text-align:center;">
-	<td>
+<table style="margin-left:auto; margin-right:auto;text-align:center;width:600px;">
+	<tr>
+		<tr>
+		<td style="text-align:left;border:1px solid #000;border-radius:5em;--webkit-border-radius:5em;">
 		<h2>Item View</h2>
 		<form>
 		
@@ -20,25 +22,29 @@
 			<option value="WaterToys">Water Toys</option>
 			<option value="Camping">Camping</option>
 		</select><br />
-		Item Description: <input type="text" name="Description" /><br />
+		OM Item Title: <input type="text" name="Description" /><br />
 	
 		<button type="button">Previous Item</button>
 		<button type="button">Next Item</button><br />
-	
-	
+			
 		<textarea rows="4" cols="50">
 		This is where the item description will go for more extensive descriptions
 		</textarea><br />
-	
+			
 		<button type="button">Update Item</button>
 		<button type="button">New Item</button><br />
-	
-	
+		</td>
+		</tr>
+		<tr>
+		<td>
 		<img src="56621.jpg" alt="test image" /> 
 		</form>
+		</td>
+		</tr>
 
 
-
+		<tr>
+		<td>
 		<div id="tabvanilla" class="widget">  
   
 		<ul class="tabnav">  
@@ -93,8 +99,10 @@
 		</div><!--featured-->  
   
 		</div><!--/widget-->
+		</td>
+		</tr>
 	
-	</td>
+	</tr>
 </table>
 
 </body>
