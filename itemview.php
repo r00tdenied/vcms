@@ -12,39 +12,43 @@
 <table style="margin-left:auto; margin-right:auto;width:600px;">
 	<tr>
 		<tr>
-		<td style="text-align:left;border:1px solid #000;">
-		<h2>Item View</h2>
+		<td style="text-align:left;border:1px solid #000;padding:10px;">
+		<h3 style="text-align:center;">Single Item Edit View</h3><br/>
 		<form>
 		
-		Item Number: <input type="text" name="Item Number" /><br />
-		Item Category: <select name="Item Category">
-			<option value="SportsFitness">Sports And Fitness</option>
-			<option value="WaterToys">Water Toys</option>
-			<option value="Camping">Camping</option>
-		</select><br />
-		OM Item Title: <input type="text" name="Description" /><br />
+		<table>
+			<tr><td>Item Number:</td><td><input type="text" name="Item Number" /></td></tr>
+			<tr><td>Item Master Category:</td><td><select name="Item Category">			
+											<option value="AP">Apparel (AP)</option>
+											<option value="OS">Outdoors and Sports (OS)</option>
+											<option value="PS">Pool and Spa (OS)</option>
+											<option value="GT">Games and Toys (GT)</option>
+											<option valued="GE">Gadgets and Electronics (GE)</option>
+																					
+											</select></td></tr>
+			<tr><td>OM Item Title:</td><td><input type="text" name="Description" /></td></tr>
+		</table>
 	
 		<button type="button">Previous Item</button>
 		<button type="button">Next Item</button><br />
 			
-		<textarea rows="4" cols="50">
-		This is where the item description will go for more extensive descriptions
-		</textarea><br />
+		<textarea rows="8" cols="70">This is the generic non-channel specific item description</textarea><br />
 			
 		<button type="button">Update Item</button>
 		<button type="button">New Item</button><br />
-		</td>
-		</tr>
-		<tr>
-		<td>
-		<img src="56621.jpg" alt="test image" /> 
 		</form>
 		</td>
 		</tr>
+		<tr>
+		<td style="text-align:center;border:1px solid #000;padding:10px;">
+		<h3 style="text-align:center;">Current Repository Images</h3><br/>
+		<img src="56621.jpg" alt="test image" /> 
+		</td>
+		</tr>
 
 
 		<tr>
-		<td>
+		<td style="border:1px solid #000;padding:10px;">
 		<div id="tabvanilla" class="widget">  
   
 		<ul class="tabnav">  
