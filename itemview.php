@@ -9,10 +9,10 @@
 
 <body>
 
-<table style="margin-left:auto; margin-right:auto;text-align:center;width:600px;">
+<table style="margin-left:auto; margin-right:auto;width:600px;">
 	<tr>
 		<tr>
-		<td style="text-align:left;border:1px solid #000;border-radius:5px;--webkit-border-radius:5px;margin:10px;">
+		<td style="text-align:left;border:1px solid #000;">
 		<h2>Item View</h2>
 		<form>
 		
