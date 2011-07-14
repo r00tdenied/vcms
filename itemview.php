@@ -1,10 +1,10 @@
 <html>
 <head>
- <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
- <link href="itemview.css" rel="stylesheet" type="text/css" />
- <script type="text/javascript" src="sprinkle.js"></script>
-<script type="text/javascript" src="jquery-ui-1.8.14.custom.min.js"></script>
-<script type="text/javascript" src="jquery-1.5.1.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="css/itemview.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/sprinkle.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.14.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
 </head>
 
 <body>
