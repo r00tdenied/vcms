@@ -1,11 +1,11 @@
 <?php
 # Main includes
-	include "includes/defines.php";
-    include "includes/database.php";
-    include "includes/session.php";
-    include "includes/sql.php";
+	//include "includes/defines.php";
+    //include "includes/database.php";
+    //include "includes/session.php";
+    //include "includes/sql.php";
 #Header Page Elements
-	include "menu.php";		
+	//include "menu.php";		
 	
 ?>
 
