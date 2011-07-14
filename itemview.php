@@ -12,7 +12,7 @@
 <table style="margin-left:auto; margin-right:auto;text-align:center;width:600px;">
 	<tr>
 		<tr>
-		<td style="text-align:left;border:1px solid #000;border-radius:5px;--webkit-border-radius:5px;">
+		<td style="text-align:left;border:1px solid #000;border-radius:5px;--webkit-border-radius:5px;cellpadding:5px;">
 		<h2>Item View</h2>
 		<form>
 		
