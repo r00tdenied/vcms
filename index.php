@@ -19,7 +19,7 @@
 </head>
 <body>
 <?php 
-if (PageURL () == 'http://qa-vcms/') { include "home.php"; }
+//if (PageURL () == 'http://qa-vcms/') { include "home.php"; }
 
 // Page Control
 switch ($_GET[p])
@@ -39,6 +39,8 @@ switch ($_GET[p])
 	case 'itemview'; include "itemview.php"; break;
 	case 'portal'; include "portal.php"; break;
 }
+
+
 
 // Footer Page Elements
 	include "footer.php"
