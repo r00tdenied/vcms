@@ -1,3 +1,27 @@
 TODO List
 -------------
-Create table structure script
+
+-=High Priority=-
+*Build basic item alias and item master tables for sku generation
+*Build item alias and sku generation logic
+*Construct item alias and sku generator front-end
+
+-=Medium Priority=-
+*Continue revisions to item-single-view.php
+	-work on jQuery integration including image viewer and item config tabs
+	-remove styles and move to css file
+	-rename itemview.php to item-single-view.php
+	-update index.php controller to reflect file name change
+	
+*Create item-multi-view.php
+	-build basic mockup that allows edits of select fields
+	
+*Create portal.php
+	-Portal page used as a landing page when users login, display channel content stats, basic report of stale content/images, other data
+	-Build mockup
+
+*Create include/menu.php
+	-Primary php/jquery used to control vCMS navigation
+	
+
+	
