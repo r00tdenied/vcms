@@ -33,11 +33,10 @@ if ($numSkus == 0){
 echo '<tr><td colspan="2" style="text-align:center;"><font color="red">Please enter the number of skus to generate!</font></td></tr>';
 }
 elseif ($numSkus >=1001){
-echo '<tr><td colspan="2"style="text-align:center;" ><font color="red">You are not able to generate that many skus!</font></td></tr>';
+echo '<tr><td colspan="2" style="text-align:center;" ><font color="red">You are not able to generate that many skus!</font></td></tr>';
 }
 else {
-	echo '<tr><td colspan="2"><font color="green">You entered the correct number</font></td></tr>';
-	echo '<tr><td colspan="2">You entered '. $numSkus .' skus and selected the '. $catPref .' prefix</td></tr>';
+	echo '<tr><td colspan="2" style="text-align:center;"><font color="green">Generating '. $numSkus .' SKUs for the '. $catPref .' prefix</td></tr>';
 	$topPrefNum_check =  'Select parent_sku FROM item_alloc where sku_prefix ="'.$catPref.'" order by parent_sku desc limit 1';
 	$topPrefNum = mysql_query($topPrefNum_check, $DbLink);
 	$topPrefNum = mysql_fetch_assoc($topPrefNum);
