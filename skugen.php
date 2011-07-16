@@ -8,7 +8,8 @@ $item_prefix=mysql_query($item_prefix_query,$DbLink);
 
 ?>
 <form>
-<select name='catagory'>
+<table width='600px'>
+<tr><td>Select a catagory:</td><td><select name='catagory'>
 <?php 
 
 while ($row = mysql_fetch_assoc($item_prefix)) {
@@ -16,4 +17,6 @@ while ($row = mysql_fetch_assoc($item_prefix)) {
 }
 ?>
 </select>
+</td></tr>
+</table>
 </form>
