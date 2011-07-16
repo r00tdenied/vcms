@@ -7,9 +7,9 @@ $item_prefix_query='SELECT * from item_prefix';
 $item_prefix=mysql_query($item_prefix_query,$DbLink);
 
 ?>
-<form>
-<table width='600px'>
-<tr><td>Select a catagory:</td><td><select name='catagory'>
+<form action="" method="post">
+<table style='margin-left: auto; margin-right: auto; width: 600px;' >
+<tr><td>Select a catagory:</td><td><select name='catPref'>
 <?php 
 
 while ($row = mysql_fetch_assoc($item_prefix)) {
@@ -18,5 +18,18 @@ while ($row = mysql_fetch_assoc($item_prefix)) {
 ?>
 </select>
 </td></tr>
-</table>
+<tr><td># Skus to Create:</td><td><input type="text" name="numSkus" /></td></tr>
+<tr><td colspan='2'><input type="submit"></td></tr>
 </form>
+
+<?php 
+if ($_POST['numSkus'] == 0){
+echo '<tr><td colspan="2"><font color="red">Please enter the number of skus to generate!</font></td></tr>';
+}
+elseif ($_POST['numSkus'] > 0){
+	echo '<tr><td colspan="2"><font color="green">You entered the correct number</font></td></tr>';
+}
+
+?>
+
+</table>
