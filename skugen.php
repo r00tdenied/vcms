@@ -29,10 +29,10 @@ $numSkus = $_POST['numSkus'];
 $catPref = $_POST['catPref'];
 $varFlag = $_POST['varFlag'];
 
-if ($_POST['numSkus'] == 0){
+if ($numSkus == 0){
 echo '<tr><td colspan="2"><font color="red">Please enter the number of skus to generate!</font></td></tr>';
 }
-elseif ($_POST['numSkus'] > 0){
+elseif ($numSkus > 1){
 	echo '<tr><td colspan="2"><font color="green">You entered the correct number</font></td></tr>';
 	echo '<tr><td colspan="2">You entered '. $numSkus .' skus and selected the '. $catPref .' prefix</td></tr>';
 	$topPrefNum_check =  'Select parent_sku FROM item_alloc where sku_prefix ="'.$catPref.'" order by parent_sku desc limit 1';
@@ -41,7 +41,7 @@ elseif ($_POST['numSkus'] > 0){
 	$topPrefNum = explode('-',$topPrefNum['parent_sku']);
 	//echo $topPrefNum[1];
 	
-	while($i <= $numSkus) {
+	while($i < $numSkus) {
 	$topPrefNum[1] = $topPrefNum[1]+1;
 	$newSku = implode('-', array($catPref, $topPrefNum[1]));
 	echo '<tr><td>Generated: </td><td>'.$newSku.'</td></tr>';
