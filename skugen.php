@@ -12,7 +12,7 @@ $item_prefix=mysql_query($item_prefix_query,$DbLink);
 <?php 
 
 while ($row = mysql_fetch_assoc($item_prefix)) {
-	echo '<option value="'. $row['sku_prefix'] .'">' . $row['description'] .'('. $row['sku_prefix'] .')</option>';
+	echo '<option value="'. $row['sku_prefix'] .'">' . $row['description'] .' ('. $row['sku_prefix'] .')</option>';
 }
 ?>
 </select>
