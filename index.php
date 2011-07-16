@@ -24,6 +24,9 @@
 // Page Control
 switch ($_GET[p])
 {
+	//Portal
+	case '': include "portal.php"; break;
+		
 	//Admin Control pages
 	case 'acp': include "admin/main.php"; break;
 	case 'acp-users': include "admin/users.php"; break;
