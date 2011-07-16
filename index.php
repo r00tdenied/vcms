@@ -44,7 +44,7 @@ switch ($_GET[p])
 
 
 // Footer Page Elements
-	include "footer.php"
+//	include "footer.php"
 ?>
 </body>
 </html>
