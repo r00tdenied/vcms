@@ -41,8 +41,10 @@ elseif ($numSkus > 1){
 	$topPrefNum = explode('-',$topPrefNum['parent_sku']);
 	//echo $topPrefNum[1];
 	
-	while($i < $numSkus) {
+	while($i <= $numSkus) {
 	$topPrefNum[1] = $topPrefNum[1]+1;
+	$topPrefNum[1] = str_pad($topPrefNum[1],6,"0", STR_PAD_LEFT);
+
 	$newSku = implode('-', array($catPref, $topPrefNum[1]));
 	echo '<tr><td>Generated: </td><td>'.$newSku.'</td></tr>';
 	$i++;
