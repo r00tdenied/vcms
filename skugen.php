@@ -8,7 +8,7 @@ $item_prefix=mysql_query($item_prefix_query,$DbLink);
 
 ?>
 <form action="" method="post">
-<table style='margin-left: auto; margin-right: auto; width: 600px;border: 2px solid;border-radius: 3px;-webkit-border-radius:3px;' >
+<table style='margin-left: auto; margin-right: auto; width: 600px;border: 2px solid #ccc;border-radius: 5px;-webkit-border-radius:5px;' >
 <tr><td>Select item category:</td><td><select name='catPref'>
 <?php 
 
