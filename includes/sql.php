@@ -1,37 +1,40 @@
-<?
-// Class to connect to Database
-class SQL
-{
-        private $host;
-        private $user;
-        private $pass;
-        private $table;
+<?php
 
-        public function SQL($HostName, $UserName, $Password, $Table)
-        {
-                // Setup
-                $this->host = $HostName;
-                $this->user = $UserName;
-                $this->pass = $Password;
-                $this->table = $Table;
+function dbconn($strHostName, $strDbName, $strUserName, $strPassword) {
 
-                // Connect
-                $this->Connect();
-        }
+   //
+   // MYSQL CONNECTION FUNCTION
+   //
+   // 2006-08, 2008-09 http://kimbriggs.com/computers/
+   //
+   // Parameters: Host Name, Database Name, Username and Password for MySQL.
+   //
+   // Provides: MySQL Connection Resource and Database Selection.
+   //
 
+   // Make the connection global. Return it if it exists.
+   // Pilfered from the PHP online manual page:
+   // http://www.php.net/function.mysql-connect
+   global $rsrcDbLink;
+   if($rsrcDbLink) {
+      return $rsrcDbLink;
+   }
 
-        private function Connect()
-        {
-                $db = mysql_connect($this->host, $this->user, $this->pass); mysql_select_db($this->table);
-                if (!$db)
-                {
-                        mysql_error();
-                        exit();
-                        die;
-                }
-        }
+   // Use the mysql_connect funtion to connect to database
+   // or generate a readable error message.
+   $rsrcDbLink = mysql_connect(DB_ADDRESS,DB_USER,DB_PASS);
+   if (!$rsrcDbLink) {
+      echo "<br />MySQL SERVER CONNECTION ERROR.<br />\n";
+      return false;
+   }
+
+   //Use the mysql_select_db function to select a database
+   // or generate a readable error message.
+   if (!mysql_select_db(DB_NAME, $rsrcDbLink)) {
+      echo "<br />DATABASE SELECTION ERROR: ".mysql_error()."<br />\n";
+      return false;
+   }
+
 }
 
-// Setup connection
-$SQL = new SQL(DB_ADDRESS, DB_USER, DB_PASSWORD, DB_TABLE);
 ?>

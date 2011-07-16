@@ -1,9 +1,9 @@
 <?php
 # Main includes
-	//include "includes/defines.php";
+	include "includes/defines.php";
     //include "includes/database.php";
     //include "includes/session.php";
-    //include "includes/sql.php";
+    include "includes/sql.php";
 #Header Page Elements
 	//include "menu.php";		
 	
@@ -37,6 +37,7 @@ switch ($_GET[p])
 	
 	//Main Pages
 	case 'itemview'; include "itemview.php"; break;
+	case 'skugen'; include "skugen.php"; break;
 	case 'portal'; include "portal.php"; break;
 }
 
