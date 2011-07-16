@@ -8,7 +8,7 @@ $item_prefix=mysql_query($item_prefix_query,$DbLink);
 
 ?>
 <form action="" method="post">
-<table style='margin-left: auto; margin-right: auto; width: 600px;' >
+<table style='margin-left: auto; margin-right: auto; width: 600px;border: 2px solid;border-radius: 3px;-webkit-border-radius:3px;' >
 <tr><td>Select item category:</td><td><select name='catPref'>
 <?php 
 
@@ -20,7 +20,7 @@ while ($row = mysql_fetch_assoc($item_prefix)) {
 </td></tr>
 <tr><td>Total items to create:</td><td><input type="text" name="numSkus" /></td></tr>
 <tr><td>Build items with variation:</td><td><select name='varFlag'><option value='0'>Disabled</option><option value='1'>Enabled</option></select>
-<tr><td colspan='2'><input type="submit"></td></tr>
+<tr><td colspan='2' style="text-align:center;"><input type="submit" value="Generate Skus"></td></tr>
 </form>
 
 <?php 
@@ -30,10 +30,10 @@ $catPref = $_POST['catPref'];
 $varFlag = $_POST['varFlag'];
 
 if ($numSkus == 0){
-echo '<tr><td colspan="2"><font color="red">Please enter the number of skus to generate!</font></td></tr>';
+echo '<tr><td colspan="2" style="text-align:center;"><font color="red">Please enter the number of skus to generate!</font></td></tr>';
 }
 elseif ($numSkus >=1001){
-echo '<tr><td colspan="2"><font color="red">You are not able to generate that many skus!</font></td></tr>';
+echo '<tr><td colspan="2"style="text-align:center;" ><font color="red">You are not able to generate that many skus!</font></td></tr>';
 }
 else {
 	echo '<tr><td colspan="2"><font color="green">You entered the correct number</font></td></tr>';
