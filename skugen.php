@@ -33,7 +33,7 @@ if ($numSkus == 0){
 echo '<tr><td colspan="2" style="text-align:center;"><font color="red">Please enter the number of skus to generate!</font></td></tr>';
 }
 elseif ($numSkus >=1001){
-echo '<tr><td colspan="2" style="text-align:center;" ><font color="red">You are not able to generate that many skus!</font></td></tr>';
+echo '<tr><td colspan="2" style="text-align:center;" ><font color="red">You are not allowed to generate that many skus!</font></td></tr>';
 }
 else {
 	echo '<tr><td colspan="2" style="text-align:center;"><font color="green">Generating '. $numSkus .' SKUs for the '. $catPref .' prefix</td></tr>';
@@ -48,7 +48,7 @@ else {
 	$topPrefNum[1] = str_pad($topPrefNum[1],6,"0", STR_PAD_LEFT);
 
 	$newSku = implode('-', array($catPref, $topPrefNum[1]));
-	echo '<tr><td>Generated: </td><td>'.$newSku.'</td></tr>';
+	echo '<tr><td style="text-align:center;>Generated: </td><td style="text-align:center;>'.$newSku.'</td></tr>';
 	mysql_query("INSERT INTO item_master (item_sku,parent_sku,variant_flag) VALUES ('$newSku','$newSku','$varFlag')");
 	mysql_query("INSERT INTO item_alloc (parent_sku,sku_prefix,sku_number,status) VALUES ('$newSku','$catPref','$topPrefNum[1]','NEW')");
 	$i++;
