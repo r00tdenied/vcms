@@ -1,15 +1,11 @@
 <?php
-# Model include
+//Model include
 	include "model/includes.php";
-    
-#Controller include
+//Controller include
 	include "controller/includes.php";
-	
-#Header Page Elements
+//Menu Elements
 	//include "view/menu.php";		
-	
 ?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -19,9 +15,8 @@
 <style> @import "view/css/all.css"; </style>               
 </head>
 <body>
-<?php 
-//if (PageURL () == 'http://qa-vcms/') { include "home.php"; }
 
+<?php 
 // View Control
 switch ($_GET[v])
 {
@@ -44,7 +39,6 @@ switch ($_GET[v])
 	case 'skugen'; include "view/skugen.php"; break;
 	case 'portal'; include "view/portal.php"; break;
 }
-
 
 // Footer Page Elements
 //	include "view/footer.php"
