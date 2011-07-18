@@ -29,7 +29,7 @@
 
 .sticklr {
     position: fixed;
-    top: 40%;
+    top: 10%;
     left: 0;
     background-color: #f7f7f7;
     background-color: rgba(240, 240, 240, 0.95);
@@ -301,6 +301,18 @@
 }
 
 /* icons */
+
+.icon-database {
+	background-image: url('../images/pc.de/database.png');
+}
+
+.icon-sign-in {
+	background-image: url('../images/pc.de/sign-in.png');
+}
+
+.icon-home {
+	background-image: url('../images/pc.de/home.png');
+}
 
 .icon-zoom {
     background-image: url('../images/pc.de/zoom.png');

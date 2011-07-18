@@ -18,14 +18,17 @@
 <body>
 
     <ul id="example-1" class="sticklr">
-        <li>
-            <a href="#" class="icon-login" title="Site switcher"></a>
+    	<li>
+    		<a href="?v=portal" class="icon-home" title="Portal"></a>
+		</li>    
+    	<li>
+            <a href="#" class="icon-sign-in" title="Item Management"></a>
             <ul>
                 <li class="sticklr-title">
-                    <a href="#">This is a title</a>
+                    <a href="#">Item Management</a>
                 </li>
                 <li>
-                    <a href="http://themeforest.net/?ref=amatyr4n" class="icon-login">Amazon</a>
+                    <a href="?v=skugen" class="icon-database">Generate New Skus</a>
                 </li>
                 <li>
                     <a href="http://themeforest.net/?ref=amatyr4n" class="icon-facebook">Facebook</a>
