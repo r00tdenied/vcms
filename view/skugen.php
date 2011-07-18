@@ -32,11 +32,11 @@ $varFlag = $_POST['varFlag'];
 if ($numSkus == 0){
 echo '<tr><td colspan="2" style="text-align:center;"><font color="red">Please enter the number of skus to generate!</font></td></tr>';
 }
-elseif ($numSkus >=1001){
+elseif ($numSkus >=1000){
 echo '<tr><td colspan="2" style="text-align:center;" ><font color="red">You are not allowed to generate that many skus!</font></td></tr>';
 }
 else {
-	echo '<tr><td colspan="2" style="text-align:center;"><font color="green">Generating '. $numSkus .' SKUs for the '. $catPref .' prefix</td></tr>';
+	echo '<tr><td colspan="2" style="text-align:center;"><font color="green">Generated '. $numSkus .' SKUs for the '. $catPref .' prefix</td></tr>';
 	$topPrefNum_check =  'Select parent_sku FROM item_alloc where sku_prefix ="'.$catPref.'" order by parent_sku desc limit 1';
 	$topPrefNum = mysql_query($topPrefNum_check, $DbLink);
 	$topPrefNum = mysql_fetch_assoc($topPrefNum);
@@ -48,7 +48,7 @@ else {
 	$topPrefNum[1] = str_pad($topPrefNum[1],6,"0", STR_PAD_LEFT);
 
 	$newSku = implode('-', array($catPref, $topPrefNum[1]));
-	echo '<tr><td style="text-align:center;">Generated: </td><td style="text-align:center;">'.$newSku.'</td></tr>';
+	//echo '<tr><td style="text-align:center;">Generated: </td><td style="text-align:center;">'.$newSku.'</td></tr>';
 	mysql_query("INSERT INTO item_master (item_sku,parent_sku,variant_flag) VALUES ('$newSku','$newSku','$varFlag')");
 	mysql_query("INSERT INTO item_alloc (parent_sku,sku_prefix,sku_number,status) VALUES ('$newSku','$catPref','$topPrefNum[1]','NEW')");
 	$i++;

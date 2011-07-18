@@ -1,11 +1,9 @@
 <?php
 # Main includes
-	include "includes/defines.php";
-    //include "includes/database.php";
-    //include "includes/session.php";
-    include "includes/sql.php";
+	include "model/defines.php";
+    include "model/sql.php";
 #Header Page Elements
-	//include "menu.php";		
+	//include "view/menu.php";		
 	
 ?>
 
@@ -25,29 +23,29 @@
 switch ($_GET[p])
 {
 	//Portal
-	case '': include "portal.php"; break;
+	case '': include "view/portal.php"; break;
 		
 	//Admin Control pages
-	case 'acp': include "admin/main.php"; break;
-	case 'acp-users': include "admin/users.php"; break;
-	case 'acp-channels': include "admin/channels.php"; break;
-	case 'acp-categories': include "admin/categories.php"; break;
-	case 'acp-prefix': include "admin/prefix.php"; break;
+	case 'acp': include "view/admin/main.php"; break;
+	case 'acp-users': include "view/admin/users.php"; break;
+	case 'acp-channels': include "view/admin/channels.php"; break;
+	case 'acp-categories': include "view/admin/categories.php"; break;
+	case 'acp-prefix': include "view/admin/prefix.php"; break;
 	
 	//User Control Pages
-	case 'ucp': include "users/main.php"; break;
-	case 'ucp-profile': include "users/profile.php"; break;
+	case 'ucp': include "view/users/main.php"; break;
+	case 'ucp-profile': include "view/users/profile.php"; break;
 	
 	//Main Pages
-	case 'itemview'; include "itemview.php"; break;
-	case 'skugen'; include "skugen.php"; break;
-	case 'portal'; include "portal.php"; break;
+	case 'itemview'; include "view/itemview.php"; break;
+	case 'skugen'; include "view/skugen.php"; break;
+	case 'portal'; include "view/portal.php"; break;
 }
 
 
 
 // Footer Page Elements
-//	include "footer.php"
+//	include "view/footer.php"
 ?>
 </body>
 </html>
