@@ -1,7 +1,10 @@
 <?php
-# Main includes
-	include "model/defines.php";
-    include "model/sql.php";
+# Model include
+	include "model/includes.php";
+    
+#Controller include
+	include "controller/includes.php";
+	
 #Header Page Elements
 	//include "view/menu.php";		
 	
@@ -13,14 +16,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><? SetPageTitle(); ?></title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>              <!-- Googles Jquery -->
-<style> @import "css/all.css"; </style>               
+<style> @import "view/css/all.css"; </style>               
 </head>
 <body>
 <?php 
 //if (PageURL () == 'http://qa-vcms/') { include "home.php"; }
 
-// Page Control
-switch ($_GET[p])
+// View Control
+switch ($_GET[v])
 {
 	//Portal
 	case '': include "view/portal.php"; break;
@@ -41,7 +44,6 @@ switch ($_GET[p])
 	case 'skugen'; include "view/skugen.php"; break;
 	case 'portal'; include "view/portal.php"; break;
 }
-
 
 
 // Footer Page Elements

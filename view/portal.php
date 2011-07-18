@@ -3,7 +3,7 @@
 
 <tr><td colspan="2" style="text-align:center;"><h2>-=vCMS Portal=-</h2></td></tr>
 <tr><td><b><i>Project page name</i></b></td><td><b><i>Link</i></b></td></tr>
-<tr><td>Sku generation</td><td><a href="?p=skugen">[Start]</a></td></tr>
+<tr><td>Sku generation</td><td><a href="?v=skugen">[Start]</a></td></tr>
 
 
 
