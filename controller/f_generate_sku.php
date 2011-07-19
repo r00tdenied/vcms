@@ -28,6 +28,7 @@ function generate_sku($numSkus,$catPref,$varFlag)
 			$newSku = implode('-', array($catPref, $topPrefNum[1]));
 			mysql_query("INSERT INTO item_master (item_sku,parent_sku,variant_flag) VALUES ('$newSku','$newSku','$varFlag')");
 			mysql_query("INSERT INTO item_alloc (parent_sku,sku_prefix,sku_number,status) VALUES ('$newSku','$catPref','$topPrefNum[1]','NEW')");
+			
 			$i++;
 		}
 	}

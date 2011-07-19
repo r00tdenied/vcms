@@ -39,15 +39,8 @@
             </ul>
         </li>
         <li>
-            <a href="#" class="icon-zoom" title="Search"></a>
-            <ul>
-                <li>
-                    <form action="http://letmegooglethat4u.com" method="GET">
-                        <input type="text" name="q" value="" placeholder="Type then press Enter.." />
-                    </form>
-                </li>
-            </ul>
-        </li>
+            <a href="?v=itemsearch" class="icon-zoom" title="Item Search"></a>
+       </li>
     </ul>
 
 </body>

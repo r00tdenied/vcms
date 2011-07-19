@@ -3,8 +3,10 @@
 	include "model/includes.php";
 //Controller include
 	include "controller/includes.php";
+	
 //Menu Elements
-	include "view/menu.php";		
+	include "view/menu.php";
+			
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -37,6 +39,7 @@ switch ($_GET[v])
 	//Main Pages
 	case 'itemview'; include "view/itemview.php"; break;
 	case 'skugen'; include "view/skugen.php"; break;
+	case 'itemsearch'; include "view/itemsearch.php"; break;
 	case 'portal'; include "view/portal.php"; break;
 }
 
