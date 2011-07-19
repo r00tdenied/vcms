@@ -1,5 +1,5 @@
 <form action="" method="post">
-<table style='margin-left: auto; margin-right: auto; width: 600px;border: 2px solid #ccc;border-radius: 5px;-webkit-border-radius:5px;' >
+<table class="table_main" >
 <tr><td>Select item category:</td><td><select name='catPref'>
 <?php 
 item_prefix_select();

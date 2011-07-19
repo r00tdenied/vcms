@@ -12,7 +12,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><? SetPageTitle(); ?></title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>              <!-- Googles Jquery -->
-<style> @import "view/css/all.css"; </style>               
+<style> @import "view/css/main.css"; </style>               
 </head>
 <body>
 
