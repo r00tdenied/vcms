@@ -4,8 +4,6 @@
 //Controller include
 	include "controller/includes.php";
 	
-//Menu Elements
-	include "view/menu.php";
 			
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -13,12 +11,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><? SetPageTitle(); ?></title>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>              <!-- Googles Jquery -->
-<style> @import "view/css/main.css"; </style>               
+
+<script type="text/javascript" src="view/js/jquery-1.4.3.min.js"></script>
+<script type="text/javascript" src="view/js/jquery-sticklr-1.2.min.js"></script>
+
+<style> @import "view/css/main.css"; </style>      
+<link rel="stylesheet" type="text/css" media="screen,projection" href="view/css/jquery-sticklr-1.2-light-color.css" />
+         
 </head>
 <body>
 
 <?php 
+//Menu Elements
+	include "view/menu.php";
+
+
 // View Control
 switch ($_GET[v])
 {

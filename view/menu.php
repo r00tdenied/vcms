@@ -3,14 +3,14 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<link rel="stylesheet" type="text/css" media="screen,projection" href="view/css/jquery-sticklr-1.2-light-color.css" />
-	<script type="text/javascript" src="view/js/jquery-1.4.3.min.js"></script>
-	<script type="text/javascript" src="view/js/jquery-sticklr-1.2.min.js"></script>
+	
 	<script type="text/javascript">
 	    $(document).ready(function(){
 	        $('#example-1').sticklr({
 	            animate     : true,
-				showOn		: 'hover'
+				showOn		: 'hover',
+				relativeTo	: 'top',
+				relativeGap	: 10
 			});
 	    });
 	</script>
