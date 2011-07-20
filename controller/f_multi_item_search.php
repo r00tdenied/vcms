@@ -67,7 +67,7 @@ function multi_item_search($parentSku, $catPref, $itemType, $itemStatus) {
 		
 	}
 	
-	if(isset($parentSku) && $catPref != ''){
+	if($parentSku != '' && $catPref != ''){
 		//Only allow parentSku field
 		echo '<br/><table class="table_main">';
 		echo '<tr><td style="color:red;text-align:center;">Search by Parent SKU and Item Prefix is disallowed</td></tr>';
@@ -75,7 +75,7 @@ function multi_item_search($parentSku, $catPref, $itemType, $itemStatus) {
 		exit;
 	}
 	
-	if(isset($parentSku) && $itemType != ''){
+	if($parentSku != '' && $itemType != ''){
 		//Only allow parentSku field
 		echo '<br/><table class="table_main">';
 		echo '<tr><td style="color:red;text-align:center;">Search by Parent SKU and Item Type is disallowed</td></tr>';
@@ -83,7 +83,7 @@ function multi_item_search($parentSku, $catPref, $itemType, $itemStatus) {
 		exit;
 	}
 	
-		if(isset($parentSku) && $itemStatus != ''){
+		if($parentSku != '' && $itemStatus != ''){
 		//Only allow parentSku field
 		echo '<br/><table class="table_main">';
 		echo '<tr><td style="color:red;text-align:center;">Search by Parent SKU and Item Status is disallowed</td></tr>';
