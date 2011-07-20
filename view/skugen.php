@@ -12,6 +12,5 @@ if($_POST['process'] == 'generate_sku')
 {
 	generate_sku($_POST['numSkus'], $_POST['catPref'], $_POST['varFlag']);
 	echo '</table>';
-	multi_item_search('%', '%', 'NEW');
-}
+	}
 ?>
