@@ -2,26 +2,32 @@ TODO List
 -------------
 
 -=High Priority=-
-*Build basic item alias and item master tables for sku generation
-*Build item alias and sku generation logic
-*Construct item alias and sku generator front-end
+*Determine what fields should be editable via multi item view.
+	\-Certain things like vendor data and item alias can use a jquery window via a clicked link for the item
 
+*MAJOR REWRITE for single item view.
+	|-Implement pulling item data from db
+	|-Implement Multi tab specifics view for single items (http://plugins.jquery.com/project/slidingtabs)
+	|-Move all styles to central css
+	\-Reformat page with divs instead of tables
+	
 -=Medium Priority=-
-*Continue revisions to item-single-view.php
-	-work on jQuery integration including image viewer and item config tabs
-	-remove styles and move to css file
-	-rename itemview.php to item-single-view.php
-	-update index.php controller to reflect file name change
-	
-*Create item-multi-view.php
-	-build basic mockup that allows edits of select fields
-	
+*Research best method to implement user authentication and permission structure (assigned to zroed)
+
+*Research best method to build multi-channel order import automation to supplant OM functionality
+	|-Per channel modules with configurable settings like timing, mode (manual, auto), etc
+	|-vCMS not designed to handle order data directly but modules with be controlled via vcms interface
+	\-specific modules will pull data from channel and insert into MSSQL OM db via php odbc functions
+
+-=Low Priority=-
 *Create portal.php
-	-Portal page used as a landing page when users login, display channel content stats, basic report of stale content/images, other data
-	-Build mockup
-
-*Create include/menu.php
-	-Primary php/jquery used to control vCMS navigation
+	|-Portal page used as a landing page when users login, display channel content stats, basic report of stale content/images, other data
+	\-Build mockup
 	
+*Map out what item analytics type reports need to be built and what data is required
 
+-=Completed Tasks=-
+*Built controllers and views for sku generation.  Basic new sku data is auto-populated into the db
+*Built generic multi-item search functionality and a limited view based on query results (needs heavy tweaking not final vers)
+*Implemented sticklr jquery menu navigation, will need continual adjustments for new pages
 	
