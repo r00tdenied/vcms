@@ -1,5 +1,3 @@
-<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
-
 <table class="table_main">
 <tr><td colspan="2"><h3 style="text-align: center;">Sears Import Tool</h3></td></tr>
 <tr>
@@ -20,7 +18,7 @@ if($_POST['scan']) {
 	OM_Sears_Import('1');
 	}
 
-else {
+elseif($_POST['fetch']) {
 	OM_Sears_Import('2');
 }	
 
