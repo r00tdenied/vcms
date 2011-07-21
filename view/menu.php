@@ -22,7 +22,7 @@
     		<a href="?v=portal" class="icon-home" title="Portal"></a>
 		</li>    
     	<li>
-            <a href="#" class="icon-sign-in" title="Item Management"></a>
+            <a href="#" class="icon-product" title="Item Management"></a>
             <ul>
                 <li class="sticklr-title">
                     <a href="#">Item Management</a>
@@ -30,13 +30,18 @@
                 <li>
                     <a href="?v=skugen" class="icon-database">Generate New Skus</a>
                 </li>
-                <li>
-                    <a href="http://themeforest.net/?ref=amatyr4n" class="icon-facebook">Facebook</a>
+             </ul>
+        </li>
+        	<li>
+            <a href="#" class="icon-process" title="Order Management"></a>
+            <ul>
+                <li class="sticklr-title">
+                    <a href="#">Order Management</a>
                 </li>
                 <li>
-                    <a href="http://codecanyon.net/?ref=amatyr4n" class="icon-google">Google</a>
+                    <a href="?v=sears-importer" class="icon-database">Sears Import Controls</a>
                 </li>
-            </ul>
+           </ul>
         </li>
         <li>
             <a href="?v=itemsearch" class="icon-zoom" title="Item Search"></a>

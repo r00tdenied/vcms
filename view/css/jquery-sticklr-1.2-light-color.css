@@ -302,6 +302,14 @@
 
 /* icons */
 
+.icon-product {
+	background-image: url('../images/pc.de/product.png');
+}
+
+.icon-process {
+	background-image: url('../images/pc.de/process.png');
+}
+
 .icon-database {
 	background-image: url('../images/pc.de/database.png');
 }
