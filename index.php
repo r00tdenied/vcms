@@ -55,7 +55,7 @@ switch ($_GET[v])
 }
 
 // Footer Page Elements
-//	include "view/footer.php"
+	include "view/footer.php"
 ?>
 </body>
 </html>
