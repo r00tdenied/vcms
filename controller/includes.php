@@ -10,4 +10,6 @@ include 'controller/f_multi_item_search.php';
 include 'controller/f_item_status_select.php';
 //Function to write html select code for item prefix types
 include 'controller/f_item_prefix_type_select.php';
+//Function to trigger Sears import process
+include 'controller/f_OM_Sears_Importer.php';
 ?>

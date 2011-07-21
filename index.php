@@ -48,6 +48,10 @@ switch ($_GET[v])
 	case 'skugen'; include "view/skugen.php"; break;
 	case 'itemsearch'; include "view/itemsearch.php"; break;
 	case 'portal'; include "view/portal.php"; break;
+	
+	//External import tools
+	case 'sears-importer'; include "view/sears-importer.php"; break;
+	
 }
 
 // Footer Page Elements
