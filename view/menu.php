@@ -41,6 +41,9 @@
                 <li>
                     <a href="?v=sears-importer" class="icon-database">Sears Import Controls</a>
                 </li>
+                <li>
+                    <a href="?v=innovexport-search" class="icon-database">InnovExp Orders Search</a>
+                </li>
            </ul>
         </li>
         <li>

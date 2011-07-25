@@ -15,7 +15,7 @@
 <script type="text/javascript" src="view/js/jquery-1.4.3.min.js"></script>
 <script type="text/javascript" src="view/js/jquery-sticklr-1.2.min.js"></script>
 
-<style> @import "view/css/main.css"; </style>      
+<link rel="stylesheet" type="text/css" media="screen,projection" href="view/css/main.css" />      
 <link rel="stylesheet" type="text/css" media="screen,projection" href="view/css/jquery-sticklr-1.2-light-color.css" />
          
 </head>
@@ -52,6 +52,9 @@ switch ($_GET[v])
 	//External import tools
 	case 'sears-importer'; include "view/sears-importer.php"; break;
 	
+	//InnovExport Tools
+	case 'innovexport-search'; include "view/innovexport-search.php"; break;
+
 }
 
 // Footer Page Elements

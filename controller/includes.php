@@ -12,4 +12,6 @@ include 'controller/f_item_status_select.php';
 include 'controller/f_item_prefix_type_select.php';
 //Function to trigger Sears import process
 include 'controller/f_OM_Sears_Importer.php';
+//Function to Search InnovExport orders
+include 'controller/f_OM_innovexport_search.php';
 ?>
