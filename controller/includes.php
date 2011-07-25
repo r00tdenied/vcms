@@ -14,4 +14,6 @@ include 'controller/f_item_prefix_type_select.php';
 include 'controller/f_OM_Sears_Importer.php';
 //Function to Search InnovExport orders
 include 'controller/f_OM_innovexport_search.php';
+//Function to update fraud orders for release
+include 'controller/f_OM_innovexport_fraud_release.php';
 ?>

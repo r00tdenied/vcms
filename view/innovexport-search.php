@@ -7,11 +7,9 @@
 	<td><select name='export_stat_type'>
 			<option value=''>All Types</option>
 			<option value='0'>New Orders</option>
-			<option value='1'>In-Process</option>
 			<option value='2'>Item Mapping</option>
 			<option value='3'>Order Exception(Dropship, Customer Pickup, Discontinued)</option>
 			<option value='4'>Cancelled</option>
-			<option value='5'>Exported</option>
 			<option value='7'>Fraud Exception</option>
 		</select> </td>
 </tr>
@@ -25,6 +23,11 @@
 <?php 
 if($_POST['process'] == 'search') {
 	OM_InnovExport_Search($_POST['export_stat_type']);
+}
+
+if($_POST['process'] == 'update') {
+	OM_InnovExport_Fraud_Release($_POST['orderNumber']);
+	OM_InnovExport_Search('7');
 }
 
 ?>

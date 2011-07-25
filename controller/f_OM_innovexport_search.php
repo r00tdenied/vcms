@@ -22,10 +22,24 @@ function OM_InnovExport_Search($trigger)
    		     exit("Error in SQL");}
 			echo '<br/>';
    		    echo '<table class="table_main">';
-  		  	echo '<tr><td>Reference #</td><td>Order Date</td><td>Billing Name</td><td>Billing Zip</td><td>Shipping Name</td><td>Shipping Zip</td></tr>';
+  		  	echo "<tr>
+  		  			<td>Ref #</td>
+  		  			<td>Order Date</td>
+  		  			<td>Billing Name</td>
+  		  			<td>Billing Zip</td>
+  		  			<td>Shipping Name</td>
+  		  			<td>Shipping Zip</td>
+  		  		</tr>";
 			while (odbc_fetch_row($result))
 			{
-  		  	   echo '<tr><td>'.odbc_result($result,'OrderNumber').'</td><td>'.substr(odbc_result($result,'OrderDate'),0,-13).'</td><td>'.odbc_result($result,'Name').'</td><td>'.odbc_result($result,'Zip').'</td><td>'.odbc_result($result,'ShipName').'</td><td>'.odbc_result($result, 'ShipZip').'</td></tr>';
+  		  	   echo "<tr>
+  		  	   			<td>".odbc_result($result,'OrderNumber')."</td>
+  		  	   			<td>".substr(odbc_result($result,'OrderDate'),0,-13)."</td>
+  		  	   			<td>".odbc_result($result,'Name')."</td>
+  		  	   			<td>".odbc_result($result,'Zip')."</td>
+  		  	   			<td>".odbc_result($result,'ShipName')."</td>
+  		  	   			<td>".odbc_result($result, 'ShipZip')."</td>
+  		  	   		</tr>";
   		  	    
 			}
 		
@@ -40,10 +54,24 @@ function OM_InnovExport_Search($trigger)
    		     exit("Error in SQL");}
 			echo '<br/>';
    		    echo '<table class="table_main">';
-  		  	echo '<tr><td>Reference #</td><td>Order Date</td><td>Billing Name</td><td>Billing Zip</td><td>Shipping Name</td><td>Shipping Zip</td></tr>';
+  		  	echo "<tr>
+  		  			<td>Ref #</td>
+  		  			<td>Order Date</td>
+  		  			<td>Billing Name</td>
+  		  			<td>Billing Zip</td>
+  		  			<td>Shipping Name</td>
+  		  			<td>Shipping Zip</td>
+  		  		</tr>";
 			while (odbc_fetch_row($result))
 			{
-  		  	   echo '<tr><td>'.odbc_result($result,'OrderNumber').'</td><td>'.substr(odbc_result($result,'OrderDate'),0,-13).'</td><td>'.odbc_result($result,'Name').'</td><td>'.odbc_result($result,'Zip').'</td><td>'.odbc_result($result,'ShipName').'</td><td>'.odbc_result($result, 'ShipZip').'</td></tr>';
+  		  	   echo "<tr>
+  		  				<td>".odbc_result($result,'OrderNumber')."</td>
+  		  				<td>".substr(odbc_result($result,'OrderDate'),0,-13)."</td>
+  		  				<td>".odbc_result($result,'Name')."</td>
+  		  				<td>".odbc_result($result,'Zip')."</td>
+  		  				<td>".odbc_result($result,'ShipName')."</td>
+  		  				<td>".odbc_result($result, 'ShipZip')."</td>
+  		  			</tr>";
   		  	    
 			}
 			
@@ -62,10 +90,18 @@ function OM_InnovExport_Search($trigger)
    		     exit("Error in SQL");}
 			echo '<br/>';
    		    echo '<table class="table_main">';
-  		  	echo '<tr><td>Reference #</td><td>Order Date</td><td>QA Sku</td></tr>';
+  		  	echo "<tr>
+  		  			<td>Ref #</td>
+  		  			<td>Order Date</td>
+  		  			<td>QA Sku</td>
+  		  		  </tr>";
 			while (odbc_fetch_row($result))
 			{
-  		  	   echo '<tr><td>'.odbc_result($result,'OrderNumber').'</td><td>'.substr(odbc_result($result,'OrderDate'),0,-13).'</td><td>'.odbc_result($result,'SKU').'</td></tr>';
+  		  	   echo "<tr>
+  		  	   			<td>".odbc_result($result,'OrderNumber')."</td>
+  		  	   			<td>".substr(odbc_result($result,'OrderDate'),0,-13)."</td>
+  		  	   			<td>".odbc_result($result,'SKU')."</td>
+  		  	   		</tr>";
   		  	    
 			}
 	}
@@ -79,10 +115,24 @@ function OM_InnovExport_Search($trigger)
    		     exit("Error in SQL");}
 			echo '<br/>';
    		    echo '<table class="table_main">';
-  		  	echo '<tr><td>Reference #</td><td>Order Date</td><td>Billing Name</td><td>Billing Zip</td><td>Shipping Name</td><td>Shipping Zip</td></tr>';
+  		  	echo "<tr>
+  		  			<td>Ref #</td>
+  		  			<td>Order Date</td>
+  		  			<td>Billing Name</td>
+  		  			<td>Billing Zip</td>
+  		  			<td>Shipping Name</td>
+  		  			<td>Shipping Zip</td>
+  		  		</tr>";
 			while (odbc_fetch_row($result))
 			{
-  		  	   echo '<tr><td>'.odbc_result($result,'OrderNumber').'</td><td>'.substr(odbc_result($result,'OrderDate'),0,-13).'</td><td>'.odbc_result($result,'Name').'</td><td>'.odbc_result($result,'Zip').'</td><td>'.odbc_result($result,'ShipName').'</td><td>'.odbc_result($result, 'ShipZip').'</td></tr>';
+  		  	   echo "<tr>
+  		  	   			<td>".odbc_result($result,'OrderNumber')."</td>
+  		  	   			<td>".substr(odbc_result($result,'OrderDate'),0,-13)."</td>
+  		  	   			<td>".odbc_result($result,'Name')."</td>
+  		  	   			<td>".odbc_result($result,'Zip')."</td>
+  		  	   			<td>".odbc_result($result,'ShipName')."</td>
+  		  	   			<td>".odbc_result($result, 'ShipZip')."</td>
+  		  	   		</tr>";
   		  	    
 			}
 			
@@ -97,10 +147,24 @@ function OM_InnovExport_Search($trigger)
    		     exit("Error in SQL");}
 			echo '<br/>';
    		    echo '<table class="table_main">';
-  		  	echo '<tr><td>Reference #</td><td>Order Date</td><td>Billing Name</td><td>Billing Zip</td><td>Shipping Name</td><td>Shipping Zip</td></tr>';
+  		  	echo "<tr>
+  		  			<td>Ref #</td>
+  		  			<td>Order Date</td>
+  		  			<td>Billing Name</td>
+  		  			<td>Billing Zip</td>
+  		  			<td>Shipping Name</td>
+  		  			<td>Shipping Zip</td>
+  		  		</tr>";
 			while (odbc_fetch_row($result))
 			{
-  		  	   echo '<tr><td>'.odbc_result($result,'OrderNumber').'</td><td>'.substr(odbc_result($result,'OrderDate'),0,-13).'</td><td>'.odbc_result($result,'Name').'</td><td>'.odbc_result($result,'Zip').'</td><td>'.odbc_result($result,'ShipName').'</td><td>'.odbc_result($result, 'ShipZip').'</td></tr>';
+  		  	   echo "<tr>
+  		  	   			<td>".odbc_result($result,'OrderNumber')."</td>
+  		  	   			<td>".substr(odbc_result($result,'OrderDate'),0,-13)."</td>
+  		  	   			<td>".odbc_result($result,'Name')."</td>
+  		  	   			<td>".odbc_result($result,'Zip')."</td>
+  		  	   			<td>".odbc_result($result,'ShipName')."</td>
+  		  	   			<td>".odbc_result($result, 'ShipZip')."</td>
+  		  	   		</tr>";
   		  	    
 			}
 			
@@ -116,18 +180,31 @@ function OM_InnovExport_Search($trigger)
    		     exit("Error in SQL");}
 			echo '<br/>';
    		    echo '<table class="table_main">';
-  		  	echo '<tr><td>Reference #</td><td>Order Date</td><td>Billing Name</td><td>Billing Zip</td><td>Shipping Name</td><td>Shipping Zip</td></tr>';
+  		  	echo "<tr>
+  		  			<td>Ref #</td>
+  		  			<td>Order Date</td>
+  		  			<td>Billing Name</td>
+  		  			<td>Billing Zip</td>
+  		  			<td>Shipping Name</td>
+  		  			<td>Shipping Zip</td>
+  		  		</tr>";
 			while (odbc_fetch_row($result))
 			{
-  		  	   echo '<tr><td>'.odbc_result($result,'OrderNumber').'</td><td>'.substr(odbc_result($result,'OrderDate'),0,-13).'</td><td>'.odbc_result($result,'Name').'</td><td>'.odbc_result($result,'Zip').'</td><td>'.odbc_result($result,'ShipName').'</td><td>'.odbc_result($result, 'ShipZip').'</td></tr>';
-  		  	    
-			}
+  		  	   echo "<tr>
+  		  	   			<td>".odbc_result($result,'OrderNumber')."</td>
+  		  	   			<td>".substr(odbc_result($result,'OrderDate'),0,-13)."</td>
+  		  	   			<td>".odbc_result($result,'Name')."</td>
+  		  	   			<td>".odbc_result($result,'Zip')."</td>
+  		  	   			<td>".odbc_result($result,'ShipName')."</td>
+  		  	   			<td>".odbc_result($result, 'ShipZip')."</td>
+  		  	   		</tr>";
+  		  	}
 			
 	
 	}
 	
 	if($trigger=='7'){
-			$sql = "select TOP 20 * from Orders where InnovExport in ('7') order by OrderDate desc";
+			$sql = "select TOP 20 * from Orders where InnovExport = '7' and FraudScore is NULL order by OrderDate desc";
 
 			$result=odbc_exec($connect,$sql);
 			if (!$result)
@@ -136,10 +213,27 @@ function OM_InnovExport_Search($trigger)
    		     
 			echo '<br/>';
    		    echo '<table class="table_main">';
-  		  	echo '<tr><td>Reference #</td><td>Order Date</td><td>Billing Name</td><td>Billing Zip</td><td>Shipping Name</td><td>Shipping Zip</td></tr>';
+  		  	echo "<tr>
+  		  			<td>Ref #</td>
+  		  			<td>Order Date</td>
+  		  			<td>Billing Name</td>
+  		  			<td>Billing Zip</td>
+  		  			<td>Shipping Name</td>
+  		  			<td>Shipping Zip</td>
+  		  		</tr>";
 			while (odbc_fetch_row($result))
 			{
-  		  	   echo '<tr><td>'.odbc_result($result,'OrderNumber').'</td><td>'.substr(odbc_result($result,'OrderDate'),0,-13).'</td><td>'.odbc_result($result,'Name').'</td><td>'.odbc_result($result,'Zip').'</td><td>'.odbc_result($result,'ShipName').'</td><td>'.odbc_result($result, 'ShipZip').'</td></tr>';
+  		  	   echo "<tr>
+  		  	   			<td>
+  		  	   				<form method='post' url='?v=innovexport-search'>
+  		  	   				<input type='hidden' name='process' value='update'/>
+  		  	   				<input type='submit' name='orderNumber' value='".odbc_result($result,'OrderNumber')."'/></td>
+  		  	   			<td>".substr(odbc_result($result,'OrderDate'),0,-13)."</td>
+  		  	   			<td>".odbc_result($result,'Name')."</td>
+  		  	   			<td>".odbc_result($result,'Zip')."</td>
+  		  	   			<td>".odbc_result($result,'ShipName')."</td>
+  		  	   			<td>".odbc_result($result, 'ShipZip')."</td>
+  		  	   		</tr>";
   		  	    
 			}
 			echo '<tr><td colspan="6" style="text-align:center;">Displaying TOP 20 Records</td></tr>';
@@ -148,5 +242,6 @@ function OM_InnovExport_Search($trigger)
 	
 	
 }
+
 
 ?>
