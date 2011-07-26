@@ -221,10 +221,10 @@ function OM_InnovExport_Search($trigger)
   		  	echo "<tr>
   		  			<td>Ref #</td>
   		  			<td>Order Date</td>
-  		  			<td>Billing Name</td>
-  		  			<td>Billing Zip</td>
-  		  			<td>Shipping Name</td>
-  		  			<td>Shipping Zip</td>
+  		  			<td>Bill/<br/>Ship Name</td>
+  		  			<td>Bill/<br/>Ship Zip</td>
+  		  			<td>Bill/<br/>Ship Phone</td>
+  		  			
   		  			<td></td>
   		  			<td></td>
   		  		</tr>";
@@ -233,10 +233,9 @@ function OM_InnovExport_Search($trigger)
   		  	   echo "<tr>
   		  	   			<td>".odbc_result($result,'OrderNumber')."</td>
   		  	   			<td>".substr(odbc_result($result,'OrderDate'),0,-13)."</td>
-  		  	   			<td>".odbc_result($result,'Name')."</td>
-  		  	   			<td>".odbc_result($result,'Zip')."</td>
-  		  	   			<td>".odbc_result($result,'ShipName')."</td>
-  		  	   			<td>".odbc_result($result, 'ShipZip')."</td>
+  		  	   			<td>".odbc_result($result,'Name')."<br/>".odbc_result($result,'ShipName')."</td>
+  		  	   			<td>".odbc_result($result,'Zip')."<br/>".odbc_result($result, 'ShipZip')."</td>
+  		  	   			<td>".odbc_result($result,'Phone')."<br/>".odbc_result($result,'ShipPhone')."</td>
   		  	   			<td><form method='post' url='?v=innovexport-search'>
   		  	   				<input type='hidden' name='process' value='release'/>
   		  	   				<input type='hidden' name='orderNumber' value='".odbc_result($result,'OrderNumber')."'/>
