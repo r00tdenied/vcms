@@ -42,7 +42,7 @@ function OM_InnovExport_Search($trigger)
   		  	   		</tr>";
   		  	    
 			}
-		
+			echo '<tr><td colspan="6" style="text-align:center;">Displaying TOP 20 Records</td></tr>';
 	}
 	
 	if($trigger=='1'){
@@ -74,7 +74,7 @@ function OM_InnovExport_Search($trigger)
   		  			</tr>";
   		  	    
 			}
-			
+			echo '<tr><td colspan="6" style="text-align:center;">Displaying TOP 20 Records</td></tr>';
 	
 	}
 	if($trigger=='2'){
@@ -104,6 +104,7 @@ function OM_InnovExport_Search($trigger)
   		  	   		</tr>";
   		  	    
 			}
+			echo '<tr><td colspan="6" style="text-align:center;">Displaying TOP 20 Records</td></tr>';
 	}
 	
 	if($trigger=='3'){
@@ -135,7 +136,7 @@ function OM_InnovExport_Search($trigger)
   		  	   		</tr>";
   		  	    
 			}
-			
+			echo '<tr><td colspan="6" style="text-align:center;">Displaying TOP 20 Records</td></tr>';
 	
 	}
 	if($trigger=='4'){
@@ -167,7 +168,7 @@ function OM_InnovExport_Search($trigger)
   		  	   		</tr>";
   		  	    
 			}
-			
+			echo '<tr><td colspan="6" style="text-align:center;">Displaying TOP 20 Records</td></tr>';
 	
 	}
 	
@@ -199,12 +200,12 @@ function OM_InnovExport_Search($trigger)
   		  	   			<td>".odbc_result($result, 'ShipZip')."</td>
   		  	   		</tr>";
   		  	}
-			
+			echo '<tr><td colspan="6" style="text-align:center;">Displaying TOP 20 Records</td></tr>';
 	
 	}
 	
 	if($trigger=='7'){
-			$sql = "select * from Orders where InnovExport = '7' and FraudScore is NULL order by OrderDate desc";
+			$sql = "select TOP 20 * from Orders where InnovExport = '7' and FraudScore is NULL order by OrderDate desc";
 
 			$result=odbc_exec($connect,$sql);
 			if (!$result)
@@ -220,19 +221,20 @@ function OM_InnovExport_Search($trigger)
   		  			<td>Billing Zip</td>
   		  			<td>Shipping Name</td>
   		  			<td>Shipping Zip</td>
+  		  			<td>Release</td>
   		  		</tr>";
 			while (odbc_fetch_row($result))
 			{
   		  	   echo "<tr>
-  		  	   			<td>
-  		  	   				<form method='post' url='?v=innovexport-search'>
-  		  	   				<input type='hidden' name='process' value='update'/>
-  		  	   				<input style='font-size:11px;' type='submit' name='orderNumber' value='".odbc_result($result,'OrderNumber')."'/></td>
+  		  	   			<td>".odbc_result($result,'OrderNumber')."</td>
   		  	   			<td>".substr(odbc_result($result,'OrderDate'),0,-13)."</td>
   		  	   			<td>".odbc_result($result,'Name')."</td>
   		  	   			<td>".odbc_result($result,'Zip')."</td>
   		  	   			<td>".odbc_result($result,'ShipName')."</td>
   		  	   			<td>".odbc_result($result, 'ShipZip')."</td>
+  		  	   			<td><form method='post' url='?v=innovexport-search'>
+  		  	   				<input type='hidden' name='process' value='update'/>
+  		  	   				<input style='font-size:11px;' type='submit' name='orderNumber' value='".odbc_result($result,'OrderNumber')."'/></td>
   		  	   		</tr>";
   		  	    
 			}
