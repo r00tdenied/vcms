@@ -81,7 +81,7 @@ function OM_InnovExport_Search($trigger)
 			$sql = "select * from Orders ord 
 					join [Order Details] od on ord.OrderNumber = od.OrderNumber
 					where ord.InnovExport ='2'
-					and od.SKU not in ('Shipping','Sales Tax 1','Product')
+					and od.SKU not in ('Shipping','Sales Tax 1','Product','Sales Tax 3')
 					order by OrderDate desc ";
 
 			$result=odbc_exec($connect,$sql);
@@ -204,7 +204,7 @@ function OM_InnovExport_Search($trigger)
 	}
 	
 	if($trigger=='7'){
-			$sql = "select TOP 20 * from Orders where InnovExport = '7' and FraudScore is NULL order by OrderDate desc";
+			$sql = "select * from Orders where InnovExport = '7' and FraudScore is NULL order by OrderDate desc";
 
 			$result=odbc_exec($connect,$sql);
 			if (!$result)
