@@ -25,8 +25,13 @@ if($_POST['process'] == 'search') {
 	OM_InnovExport_Search($_POST['export_stat_type']);
 }
 
-if($_POST['process'] == 'update') {
+if($_POST['process'] == 'release') {
 	OM_InnovExport_Fraud_Release($_POST['orderNumber']);
+	OM_InnovExport_Search('7');
+}
+
+if($_POST['process'] == 'cancel') {
+	OM_InnovExport_Fraud_Cancel($_POST['orderNumber']);
 	OM_InnovExport_Search('7');
 }
 

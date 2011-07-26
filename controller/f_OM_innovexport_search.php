@@ -221,7 +221,8 @@ function OM_InnovExport_Search($trigger)
   		  			<td>Billing Zip</td>
   		  			<td>Shipping Name</td>
   		  			<td>Shipping Zip</td>
-  		  			<td>Release</td>
+  		  			<td></td>
+  		  			<td></td>
   		  		</tr>";
 			while (odbc_fetch_row($result))
 			{
@@ -233,8 +234,14 @@ function OM_InnovExport_Search($trigger)
   		  	   			<td>".odbc_result($result,'ShipName')."</td>
   		  	   			<td>".odbc_result($result, 'ShipZip')."</td>
   		  	   			<td><form method='post' url='?v=innovexport-search'>
-  		  	   				<input type='hidden' name='process' value='update'/>
-  		  	   				<input style='font-size:11px;' type='submit' name='orderNumber' value='".odbc_result($result,'OrderNumber')."'/></td>
+  		  	   				<input type='hidden' name='process' value='release'/>
+  		  	   				<input type='hidden' name='orderNumber' value='".odbc_result($result,'OrderNumber')."'/>
+  		  	   				<input style='font-size:11px;' type='submit' name='submit' value='Release'/></form></td>
+  		  	   			<td><form method='post' url='?v=innovexport-search'>
+  		  	   				<input type='hidden' name='process' value='cancel'/>
+  		  	   				<input type='hidden' name='orderNumber' value='".odbc_result($result,'OrderNumber')."'/>
+  		  	   				<input style='font-size:11px;' type='submit' name='submit' value='Cancel'/></form></td>
+  		  	   			
   		  	   		</tr>";
   		  	    
 			}

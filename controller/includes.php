@@ -16,4 +16,6 @@ include 'controller/f_OM_Sears_Importer.php';
 include 'controller/f_OM_innovexport_search.php';
 //Function to update fraud orders for release
 include 'controller/f_OM_innovexport_fraud_release.php';
+//Function to cancel fraud orders from OM
+include 'controller/f_OM_innovexport_fraud_cancel.php';
 ?>
