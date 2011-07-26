@@ -30,6 +30,9 @@
                 <li>
                     <a href="?v=skugen" class="icon-database">Generate New Skus</a>
                 </li>
+                <li>
+            		<a href="?v=itemsearch" class="icon-zoom" title="Item Search">Item Search</a>
+     			</li>
              </ul>
         </li>
         	<li>
@@ -46,9 +49,7 @@
                 </li>
            </ul>
         </li>
-        <li>
-            <a href="?v=itemsearch" class="icon-zoom" title="Item Search"></a>
-       </li>
+      
     </ul>
 
 </body>
