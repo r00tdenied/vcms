@@ -21,7 +21,7 @@ function OM_InnovExport_Search($trigger)
  		 	{     odbc_errormsg($connect);
    		     exit("Error in SQL");}
 			echo '<br/>';
-   		    echo '<table class="table_main">';
+   		    echo '<table class="table_main" style="font-size:11px;">';
   		  	echo "<tr>
   		  			<td>Ref #</td>
   		  			<td>Order Date</td>
@@ -53,7 +53,7 @@ function OM_InnovExport_Search($trigger)
  		 	{     odbc_errormsg($connect);
    		     exit("Error in SQL");}
 			echo '<br/>';
-   		    echo '<table class="table_main">';
+   		    echo '<table class="table_main" style="font-size:11px;">';
   		  	echo "<tr>
   		  			<td>Ref #</td>
   		  			<td>Order Date</td>
@@ -89,7 +89,7 @@ function OM_InnovExport_Search($trigger)
  		 	{     odbc_errormsg($connect);
    		     exit("Error in SQL");}
 			echo '<br/>';
-   		    echo '<table class="table_main">';
+   		    echo '<table class="table_main" style="font-size:11px;">';
   		  	echo "<tr>
   		  			<td>Ref #</td>
   		  			<td>Order Date</td>
@@ -114,7 +114,7 @@ function OM_InnovExport_Search($trigger)
  		 	{     odbc_errormsg($connect);
    		     exit("Error in SQL");}
 			echo '<br/>';
-   		    echo '<table class="table_main">';
+   		    echo '<table class="table_main" style="font-size:11px;">';
   		  	echo "<tr>
   		  			<td>Ref #</td>
   		  			<td>Order Date</td>
@@ -146,7 +146,7 @@ function OM_InnovExport_Search($trigger)
  		 	{     odbc_errormsg($connect);
    		     exit("Error in SQL");}
 			echo '<br/>';
-   		    echo '<table class="table_main">';
+   		    echo '<table class="table_main" style="font-size:11px;">';
   		  	echo "<tr>
   		  			<td>Ref #</td>
   		  			<td>Order Date</td>
@@ -179,7 +179,7 @@ function OM_InnovExport_Search($trigger)
  		 	{     odbc_errormsg($connect);
    		     exit("Error in SQL");}
 			echo '<br/>';
-   		    echo '<table class="table_main">';
+   		    echo '<table class="table_main" style="font-size:11px;">';
   		  	echo "<tr>
   		  			<td>Ref #</td>
   		  			<td>Order Date</td>
@@ -212,7 +212,7 @@ function OM_InnovExport_Search($trigger)
    		     exit("Error in SQL");}
    		     
 			echo '<br/>';
-   		    echo '<table class="table_main">';
+   		    echo '<table class="table_main" style="font-size:11px;">';
   		  	echo "<tr>
   		  			<td>Ref #</td>
   		  			<td>Order Date</td>
@@ -227,7 +227,7 @@ function OM_InnovExport_Search($trigger)
   		  	   			<td>
   		  	   				<form method='post' url='?v=innovexport-search'>
   		  	   				<input type='hidden' name='process' value='update'/>
-  		  	   				<input type='submit' name='orderNumber' value='".odbc_result($result,'OrderNumber')."'/></td>
+  		  	   				<input style='font-size:11px;' type='submit' name='orderNumber' value='".odbc_result($result,'OrderNumber')."'/></td>
   		  	   			<td>".substr(odbc_result($result,'OrderDate'),0,-13)."</td>
   		  	   			<td>".odbc_result($result,'Name')."</td>
   		  	   			<td>".odbc_result($result,'Zip')."</td>
