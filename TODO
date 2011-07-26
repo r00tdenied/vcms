@@ -1,6 +1,13 @@
 TODO List
 -------------
 
+-=LOL WUT Priority=-
+*InnovExport Utilities
+	|-Continual refinement of Fraud Check process for OM
+	|-Add AVS/CVV fields, modify SPROCs to trigger on AVS as well
+	|-Order Viewer similiar for single item view w/ tabbed interface
+	\-Custom Reports
+
 -=High Priority=-
 *Determine what fields should be editable via multi item view.
 	\-Certain things like vendor data and item alias can use a jquery window via a clicked link for the item
