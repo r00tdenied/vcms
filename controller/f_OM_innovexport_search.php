@@ -108,7 +108,7 @@ function OM_InnovExport_Search($trigger)
 	}
 	
 	if($trigger=='3'){
-			$sql = "select TOP 20 * from Orders where InnovExport ='3' order by OrderDate desc";
+			$sql = "select TOP 20 * from Orders where InnovExport ='3' and Cancelled = '0' order by OrderDate desc";
 
 			$result=odbc_exec($connect,$sql);
 			if (!$result)
