@@ -245,7 +245,7 @@ function OM_InnovExport_Search($trigger)
   		  	   		</tr>";
   		  	    
 			}
-			echo '<tr><td colspan="6" style="text-align:center;">Displaying TOP 20 Records</td></tr>';
+			echo '<tr><td colspan="8" style="text-align:center;">Displaying TOP 20 Records</td></tr>';
 	
 	}
 	
