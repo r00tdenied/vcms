@@ -13,19 +13,35 @@
 <title><? SetPageTitle(); ?></title>
 
 <script type="text/javascript" src="view/js/jquery-1.4.3.min.js"></script>
-<script type="text/javascript" src="view/js/jquery-sticklr-1.2.min.js"></script>
+<?php 
+if($_GET[v] != 'single_item_view'){
+	echo '<script type="text/javascript" src="view/js/jquery-sticklr-1.2.min.js"></script>';
+	echo '<link rel="stylesheet" type="text/css" media="screen,projection" href="view/css/jquery-sticklr-1.2-light-color.css" />';
+	include "view/ui_menu.php";
+}
+?>
 
-<link rel="stylesheet" type="text/css" media="screen,projection" href="view/css/main.css" />      
-<link rel="stylesheet" type="text/css" media="screen,projection" href="view/css/jquery-sticklr-1.2-light-color.css" />
+<script type="text/javascript" src="view/js/jquery.colorbox.js"></script>
+
+<link rel="stylesheet" type="text/css" media="screen,projection" href="view/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen,projection" href="view/css/colorbox.css" />
+
+<!-- Begin Jquery Colorbox script -->
+
+<script>
+		$(document).ready(function(){
+			//Examples of how to assign the ColorBox event to elements
+			$(".example7").colorbox({width:"85%", height:"98%", iframe:true, top:"10px", opacity:".70"});
+			
+		});
+	</script>
+         
+<!-- End Jquery Colorbox script -->
          
 </head>
 <body>
 
 <?php 
-//Menu Elements
-	include "view/ui_menu.php";
-
-
 // View Control
 switch ($_GET[v])
 {

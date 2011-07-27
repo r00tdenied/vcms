@@ -100,10 +100,10 @@ function multi_item_search($parentSku, $catPref, $itemType, $itemStatus) {
 	echo '<br/>';
 	echo '<table class="table_main">';
 	echo  "<tr>
-			<td>Actions</td>
-			<td>Sku</td>
-			<td>Variation</td>
-			<td>Product Title</td>
+			<td><b>Actions</b></td>
+			<td><b>Sku</b></td>
+			<td><b>Variation</b></td>
+			<td><b>Product Title</b></td>
 		</tr>";
 	while($row = mysql_fetch_assoc($item_data))
 	{
@@ -111,7 +111,7 @@ function multi_item_search($parentSku, $catPref, $itemType, $itemStatus) {
 		echo 	"<td style='width:80px;'>";
 			if($row['status'] == 'NEW' || $row['status'] == 'USED')
 				{
-					echo '<img src="view/images/pc.de/sign-in.png"/> Edit Item';
+					echo '<img src="view/images/pc.de/sign-in.png"/><a class="example7" href="?v=single_item_view">Edit Item</a>';
 				}
 			elseif($row['status'] == 'LOCKED' || $row['status'] == 'RESERVED')
 				{
