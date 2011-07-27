@@ -1,6 +1,7 @@
 <?php
 function multi_item_search($parentSku, $catPref, $itemType, $itemStatus) {
 	global $DbLink;
+	$i=0;
 	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
 
 	if($parentSku =='' && $catPref == '' && $itemType == '' && $itemStatus == ''){
@@ -96,10 +97,10 @@ function multi_item_search($parentSku, $catPref, $itemType, $itemStatus) {
 	echo '<tr><td>Parent Sku</td><td>Item Sku</td><td>Internal Title</td><td>Variation</td></tr>';
 	while($row = mysql_fetch_assoc($item_data))
 	{
-		echo '<tr>';
-			echo '<td>'.$row['parent_sku'].'</td>';
-			echo '<td>'.$row['item_sku'].'</td>';
-			echo '<td>'.$row['master_title'].'</td>';
+		echo "<tr class='table_row" . ($i++ % 2) ."'>
+			 	<td>".$row['parent_sku']."</td>
+				<td>".$row['item_sku']."</td>
+				<td>".$row['master_title']."</td>";
 			if($row['variant_flag'] == '1')
 				{
 					echo '<td>Enabled</td>';
