@@ -23,7 +23,7 @@
 
 <?php 
 //Menu Elements
-	include "view/menu.php";
+	include "view/ui_menu.php";
 
 
 // View Control
@@ -44,16 +44,16 @@ switch ($_GET[v])
 	case 'ucp-profile': include "view/users/profile.php"; break;
 	
 	//Main Pages
-	case 'itemview'; include "view/itemview.php"; break;
-	case 'skugen'; include "view/skugen.php"; break;
-	case 'itemsearch'; include "view/itemsearch.php"; break;
+	case 'single_item_view'; include "view/v_single_item_view.php"; break;
+	case 'generate_sku'; include "view/v_generate_sku.php"; break;
+	case 'item_search'; include "view/v_item_search.php"; break;
 	case 'portal'; include "view/portal.php"; break;
 	
 	//External import tools
-	case 'sears-importer'; include "view/sears-importer.php"; break;
+	case 'OM_sears_importer'; include "view/v_OM_sears_importer.php"; break;
 	
 	//InnovExport Tools
-	case 'innovexport-search'; include "view/innovexport-search.php"; break;
+	case 'OM_innovexport_order_search'; include "view/v_OM_innovexport_order_search.php"; break;
 
 }
 

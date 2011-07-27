@@ -28,10 +28,10 @@
                     <a href="#">Item Management</a>
                 </li>
                 <li>
-                    <a href="?v=skugen" class="icon-database">Generate New Skus</a>
+                    <a href="?v=generate_sku" class="icon-database">Generate New Skus</a>
                 </li>
                 <li>
-            		<a href="?v=itemsearch" class="icon-zoom" title="Item Search">Item Search</a>
+            		<a href="?v=item_search" class="icon-zoom" title="Item Search">Item Search</a>
      			</li>
              </ul>
         </li>
@@ -42,10 +42,10 @@
                     <a href="#">Order Management</a>
                 </li>
                 <li>
-                    <a href="?v=sears-importer" class="icon-database">Sears Import Controls</a>
+                    <a href="?v=OM_sears_importer" class="icon-database">Sears Import Controls</a>
                 </li>
                 <li>
-                    <a href="?v=innovexport-search" class="icon-database">InnovExp Orders Search</a>
+                    <a href="?v=OM_innovexport_order_search" class="icon-database">InnovExp Orders Search</a>
                 </li>
            </ul>
         </li>

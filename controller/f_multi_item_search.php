@@ -9,7 +9,8 @@ function multi_item_search($parentSku, $catPref, $itemType, $itemStatus) {
 		$item_query = "	SELECT 	im.parent_sku,
 							 	im.item_sku, 
 							 	im.master_title, 
-							 	im.variant_flag
+							 	im.variant_flag,
+							 	alloc.status
 						from item_master im
 						join item_alloc alloc on im.parent_sku = alloc.parent_sku";
 		$item_data = mysql_query($item_query, $DbLink);
@@ -20,7 +21,8 @@ function multi_item_search($parentSku, $catPref, $itemType, $itemStatus) {
 		$item_query = "	SELECT 	im.parent_sku,
 							 	im.item_sku, 
 							 	im.master_title, 
-							 	im.variant_flag
+							 	im.variant_flag,
+							 	alloc.status
 						from item_master im
 						join item_alloc alloc on im.parent_sku = alloc.parent_sku
 						where alloc.sku_prefix ='$catPref'";
@@ -33,7 +35,8 @@ function multi_item_search($parentSku, $catPref, $itemType, $itemStatus) {
 		$item_query = "	SELECT 	im.parent_sku,
 							 	im.item_sku, 
 							 	im.master_title, 
-							 	im.variant_flag
+							 	im.variant_flag,
+							 	alloc.status
 						from item_master im
 						join item_alloc alloc on im.parent_sku = alloc.parent_sku
 						where alloc.status ='$itemStatus'";
@@ -46,7 +49,8 @@ function multi_item_search($parentSku, $catPref, $itemType, $itemStatus) {
 		$item_query = "	SELECT 	im.parent_sku,
 							 	im.item_sku, 
 							 	im.master_title, 
-							 	im.variant_flag
+							 	im.variant_flag,
+							 	alloc.status
 						from item_master im
 						join item_alloc alloc on im.parent_sku = alloc.parent_sku
 						join item_prefix pref on alloc.sku_prefix = pref.sku_prefix
@@ -60,7 +64,8 @@ function multi_item_search($parentSku, $catPref, $itemType, $itemStatus) {
 		$item_query = "	SELECT 	im.parent_sku,
 							 	im.item_sku, 
 							 	im.master_title, 
-							 	im.variant_flag
+							 	im.variant_flag,
+							 	alloc.status
 						from item_master im
 						join item_alloc alloc on im.parent_sku = alloc.parent_sku
 						where im.parent_sku ='$parentSku'";
@@ -94,21 +99,36 @@ function multi_item_search($parentSku, $catPref, $itemType, $itemStatus) {
 	
 	echo '<br/>';
 	echo '<table class="table_main">';
-	echo '<tr><td>Parent Sku</td><td>Item Sku</td><td>Internal Title</td><td>Variation</td></tr>';
+	echo  "<tr>
+			<td>Actions</td>
+			<td>Sku</td>
+			<td>Variation</td>
+			<td>Product Title</td>
+		</tr>";
 	while($row = mysql_fetch_assoc($item_data))
 	{
-		echo "<tr class='table_row" . ($i++ % 2) ."'>
-			 	<td>".$row['parent_sku']."</td>
-				<td>".$row['item_sku']."</td>
-				<td>".$row['master_title']."</td>";
+		echo "<tr class='table_row" . ($i++ % 2) ."'>";
+		echo 	"<td style='width:80px;'>";
+			if($row['status'] == 'NEW' || $row['status'] == 'USED')
+				{
+					echo '<img src="view/images/pc.de/sign-in.png"/> Edit Item';
+				}
+			elseif($row['status'] == 'LOCKED' || $row['status'] == 'RESERVED')
+				{
+					echo '<img src="view/images/pc.de/lock.png"/> Locked';
+				}
+		echo "</td>				
+			<td style='width:80px;'>".$row['parent_sku']."</td>";
 			if($row['variant_flag'] == '1')
 				{
-					echo '<td>Enabled</td>';
+					echo "<td style='width:40px;'>Edit Variation</td>";
 				}
 			elseif($row['variant_flag'] == '0') 
 				{
-					echo '<td>Disabled</td>';
+					echo "<td style='width:80px;'></td>";
 				}
+		echo '<td>'.$row['master_title'].'</td>';
+		
 		echo '</tr>';
 	}
 	
