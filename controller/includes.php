@@ -18,4 +18,6 @@ include 'controller/f_OM_innovexport_search.php';
 include 'controller/f_OM_innovexport_fraud_release.php';
 //Function to cancel fraud orders from OM
 include 'controller/f_OM_innovexport_fraud_cancel.php';
+//Function to call single_item_view fields
+include 'controller/f_single_item_view.php';
 ?>

@@ -111,7 +111,7 @@ function multi_item_search($parentSku, $catPref, $itemType, $itemStatus) {
 		echo 	"<td style='width:80px;'>";
 			if($row['status'] == 'NEW' || $row['status'] == 'USED')
 				{
-					echo '<img src="view/images/pc.de/sign-in.png"/><a class="example7" href="?v=single_item_view">Edit Item</a>';
+					echo '<img src="view/images/pc.de/sign-in.png"/><a class="example7" href="?v=single_item_view&sku='.$row['parent_sku'].'">Edit Item</a>';
 				}
 			elseif($row['status'] == 'LOCKED' || $row['status'] == 'RESERVED')
 				{
