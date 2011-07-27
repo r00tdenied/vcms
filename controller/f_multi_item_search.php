@@ -68,7 +68,7 @@ function multi_item_search($parentSku, $catPref, $itemType, $itemStatus) {
 							 	alloc.status
 						from item_master im
 						join item_alloc alloc on im.parent_sku = alloc.parent_sku
-						where im.parent_sku ='$parentSku'";
+						where im.parent_sku like'%$parentSku%'";
 		$item_data = mysql_query($item_query, $DbLink);
 		
 	}
