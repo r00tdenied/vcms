@@ -38,4 +38,4 @@ TODO List
 *Built generic multi-item search functionality and a limited view based on query results (needs heavy tweaking not final vers)
 *Implemented sticklr jquery menu navigation, will need continual adjustments for new pages
 *Implemented Sears import tool for ajillson required includes are not on committed for security reasons
-	
+*Implements InnovExport: New Orders, Item Mapping, 

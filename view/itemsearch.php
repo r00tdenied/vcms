@@ -1,6 +1,6 @@
 <form url="" method="post">
 <table class="table_main">
-<tr><td colspan="4">Item Search</td></tr>
+<tr><td colspan="4"><h3>Item Search</h3></td></tr>
 <tr>
 	<td><b>Parent SKU:</b></td>
 	<td><input type="text" name="parentSku"></input></td>

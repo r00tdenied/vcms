@@ -1,7 +1,7 @@
 
 <form url="" method="post">
 <table class="table_main">
-<tr><td colspan="4">InnovExport Order Search</td></tr>
+<tr><td colspan="4"><h3>InnovExport Order Search</h3></td></tr>
 <tr>
 	<td><b>Status Type:</b></td>
 	<td><select name='export_stat_type'>

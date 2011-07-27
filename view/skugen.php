@@ -1,5 +1,6 @@
 <form action="" method="post">
 <table class="table_main" >
+<tr><td colspan="4"><h3>Generate New Skus</h3></td></tr>
 <tr><td>Select item category:</td><td>
 <?php item_prefix_select('0') ?>
 </td></tr>

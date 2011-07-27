@@ -1,5 +1,5 @@
 <table class="table_main">
-<tr><td colspan="2"><h3 style="text-align: center;">Sears Import Tool</h3></td></tr>
+<tr><td colspan="2"><h3>Sears Import Controls</h3></td></tr>
 <tr>
 		<td style="text-align: center;"><form url="" method="post">
 											<input type=hidden name='scan' value='scan'></input>
