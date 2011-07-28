@@ -32,7 +32,7 @@ if($_GET[v] != 'single_item_view'){
 <script>
 		$(document).ready(function(){
 			//Examples of how to assign the ColorBox event to elements
-			$(".example7").colorbox({innerWidth:"880px", innerHeight:"565px", iframe:true, top:"10px", opacity:".70"});
+			$(".example7").colorbox({innerWidth:"880px", innerHeight:"575px", iframe:true, top:"10px", opacity:".70"});
 			
 		});
 	</script>
