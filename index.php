@@ -23,6 +23,7 @@ if($_GET[v] != 'single_item_view'){
 
 <script type="text/javascript" src="view/js/jquery.colorbox.js"></script>
 
+<link rel="stylesheet" type="text/css" media="screen,projection" href="view/css/slidingtabs-horizontal.css" />
 <link rel="stylesheet" type="text/css" media="screen,projection" href="view/css/main.css" />
 <link rel="stylesheet" type="text/css" media="screen,projection" href="view/css/colorbox.css" />
 
@@ -31,12 +32,38 @@ if($_GET[v] != 'single_item_view'){
 <script>
 		$(document).ready(function(){
 			//Examples of how to assign the ColorBox event to elements
-			$(".example7").colorbox({innerWidth:"85%", innerHeight:"90%", iframe:true, top:"10px", opacity:".70"});
+			$(".example7").colorbox({innerWidth:"860px", innerHeight:"90%", iframe:true, top:"10px", opacity:".70"});
 			
 		});
 	</script>
          
 <!-- End Jquery Colorbox script -->
+
+<!--  Begin Sliding Tabs script -->
+  <script type="text/javascript" src="view/js/slidingtabs/plugins/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="view/js/slidingtabs/plugins/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="view/js/slidingtabs/jquery.slidingtabs.pack.js"></script>
+    <script type="text/javascript">  
+  	$(document).ready(function() {
+  				
+  		// Horizontal Sliding Tabs demo
+  		$('div#st_horizontal').slideTabs({  			
+			// Options  			
+			contentAnim: 'slideH',
+			contentAnimTime: 600,
+			contentEasing: 'easeInOutExpo',
+			orientation: 'horizontal',
+			tabsAnimTime: 300			
+  		});		  		  		
+  	
+  	});		
+    </script>
+<!--  End Sliding Tabs script -->    
+
+
+
+
+
          
 </head>
 <body>
