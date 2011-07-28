@@ -59,10 +59,10 @@ $parent_sku = $_GET['sku'];
 							<td colspan="4"><h3>Units of Measure</h3></td>
 						</tr>
 						<tr>
-							<td><b>Length</b></td>
-							<td><b>Width</b></td>
-							<td><b>Height</b></td>
-							<td><b>Weight</b></td>
+							<td><b>Length<br/>(inches)</b></td>
+							<td><b>Width<br/>(inches)</b></td>
+							<td><b>Height<br/>(inches)</b></td>
+							<td><b>Weight<br/>(pounds)</b></td>
 						</tr>
 						<tr>
 							<td><?php db_obj_view($parent_sku, 'item_uom', 'length')?></td>

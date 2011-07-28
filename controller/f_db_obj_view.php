@@ -25,6 +25,7 @@ function db_obj_view($parent_sku,$table,$field)
 	}
 	else 
 	{
+		//If no rows throw error
 		echo 'ERR';
 	}
 }
