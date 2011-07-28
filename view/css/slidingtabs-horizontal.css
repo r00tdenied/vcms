@@ -135,7 +135,7 @@ div.st_horizontal div.st_view_container { /* Main content container */
 	z-index:5;
 	float:left;
 	width:808px; /* STEP 3 (final): Changing the tabs width - The full width (775px) -minus the padding (40px) and borders (2px) */
-	height:278px;
+	height:478px;
 	padding:20px; /* Set the padding for the content here */
 	border:1px solid #d4d4d4;
 	background-color:#fff;

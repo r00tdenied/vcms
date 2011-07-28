@@ -58,6 +58,14 @@ $parent_sku = $_GET['sku'];
                         <p>Nam et iaculis est. Phasellus nec tempor arcu. Praesent at risus vitae lacus facilisis tempus et sed tortor. Duis cursus sapien eget neque laoreet quis fermentum mauris semper. Nulla a diam quis tellus lobortis congue ut vitae massa, sed a ante eros.</p>
                         
                         <p>Donec lacinia aliquet porttitor. Pellentesque vel sem et dui sagittis aliquet. Ut et est eget augue tristique pharetra sit amet quis orci. Quisque elit sem, feugiat a auctor ac, congue vitae massa. Nulla convallis tortor eget ligula elementum in fringilla augue elementum. Ut bibendum accumsan nibh non fringilla. Fusce nec elementum enim. Duis condimentum cursus massa, elit bibendum turpis auctor elementum. Quisque ante felis, tincidunt vel iaculis non, volutpat non neque.</p>
+                    
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a tellus nec tellus volutpat interdum vel vel nisi. Vestibulum vestibulum porta ultrices. Suspendisse pharetra nisi eu orci sollicitudin nec suscipit tellus lacinia. Cras porta metus sit amet dolor imperdiet at mollis est malesuada. Nulla ligula dolor, porta vel odio. Sed sodales nulla blandit mauris commodo eu varius purus rhoncus. Nam imperdiet elementum egestas. Proin sapien metus, viverra quis tristique a, malesuada a nibh.</p>                                                                
+                        
+                        <blockquote>Nam et iaculis est. Phasellus nec tempor arcu. Praesent risus vitae eget facilisis tempus fermentum eget mauris semper.</blockquote>                                                                        
+                        
+                        <p>Nam et iaculis est. Phasellus nec tempor arcu. Praesent at risus vitae lacus facilisis tempus et sed tortor. Duis cursus sapien eget neque laoreet quis fermentum mauris semper. Nulla a diam quis tellus lobortis congue ut vitae massa, sed a ante eros.</p>
+                        
+                        <p>Donec lacinia aliquet porttitor. Pellentesque vel sem et dui sagittis aliquet. Ut et est eget augue tristique pharetra sit amet quis orci. Quisque elit sem, feugiat a auctor ac, congue vitae massa. Nulla convallis tortor eget ligula elementum in fringilla augue elementum. Ut bibendum accumsan nibh non fringilla. Fusce nec elementum enim. Duis condimentum cursus massa, elit bibendum turpis auctor elementum. Quisque ante felis, tincidunt vel iaculis non, volutpat non neque.</p>                    
                     </div>
                 </div>
                 
