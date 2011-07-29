@@ -14,8 +14,8 @@ $parent_sku = $_GET['sku'];
             
                 <ul class="st_tabs">
                     <li><a href="#st_content_1" rel="tab_1" class="st_tab st_tab_active">Item Header</a></li>
-                    <li><a href="#st_content_2" rel="tab_2" class="st_tab">Horizontal Tab #2</a></li>                                     
-                    <li><a href="#st_content_3" rel="tab_3" class="st_tab">Horizontal Tab #3</a></li>
+                    <li><a href="#st_content_2" rel="tab_2" class="st_tab">Vendor Data</a></li>                                     
+                    <li><a href="#st_content_3" rel="tab_3" class="st_tab">Image Repository</a></li>
                                                                          
                 </ul>
             
@@ -40,8 +40,8 @@ $parent_sku = $_GET['sku'];
 						
 						<tr>
 							<td><?php echo $parent_sku; ?></td>
-							<td><?php db_obj_view($parent_sku,'item_master','variant_flag')?></td>
-							<td><?php db_obj_view($parent_sku,'item_master','master_title')?></td>
+							<td><?php echo db_obj_item_view($parent_sku,'item_master','variant_flag')?></td>
+							<td><?php echo db_obj_item_view($parent_sku,'item_master','master_title')?></td>
 						</tr>
 					</table>
 					<br>
@@ -50,7 +50,7 @@ $parent_sku = $_GET['sku'];
 							<td><h3>Internal Item Description</h3></td>
 						</tr>
 						<tr>
-							<td><?php db_obj_view($parent_sku,'item_master','master_desc')?> </td>
+							<td><?php echo db_obj_item_view($parent_sku,'item_master','master_desc')?> </td>
 						</tr>
 					</table>
 					<br>
@@ -65,12 +65,14 @@ $parent_sku = $_GET['sku'];
 							<td><b>Weight<br/>(pounds)</b></td>
 						</tr>
 						<tr>
-							<td><?php db_obj_view($parent_sku, 'item_uom', 'length')?></td>
-							<td><?php db_obj_view($parent_sku, 'item_uom', 'width')?></td>
-							<td><?php db_obj_view($parent_sku, 'item_uom', 'height')?></td>
-							<td><?php db_obj_view($parent_sku, 'item_uom', 'weight')?></td>
+							<td><?php echo db_obj_item_view($parent_sku, 'item_uom', 'length')?></td>
+							<td><?php echo db_obj_item_view($parent_sku, 'item_uom', 'width')?></td>
+							<td><?php echo db_obj_item_view($parent_sku, 'item_uom', 'height')?></td>
+							<td><?php echo db_obj_item_view($parent_sku, 'item_uom', 'weight')?></td>
 						</tr>
-						
+						<tr>
+							<td colspan="4"><?php echo db_obj_item_channels($parent_sku) ?></td>
+						</tr>
 					</table>
 					
                                    

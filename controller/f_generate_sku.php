@@ -26,9 +26,14 @@ function generate_sku($numSkus,$catPref,$varFlag)
 			$topPrefNum[1] = $topPrefNum[1]+1;
 			$topPrefNum[1] = str_pad($topPrefNum[1],6,"0", STR_PAD_LEFT);
 			$newSku = implode('-', array($catPref, $topPrefNum[1]));
-			mysql_query("INSERT INTO item_master (item_sku,parent_sku,variant_flag) VALUES ('$newSku','$newSku','$varFlag')");
-			mysql_query("INSERT INTO item_alloc (parent_sku,sku_prefix,sku_number,status) VALUES ('$newSku','$catPref','$topPrefNum[1]','NEW')");
-			
+			mysql_query("INSERT INTO item_master (parent_sku,variant_flag) VALUES ('$newSku','$varFlag')");
+			mysql_query("INSERT INTO item_alloc (parent_sku,sku_prefix,status) VALUES ('$newSku','$catPref','NEW')");
+			mysql_query("INSERT INTO item_uom (parent_sku) VALUES ('$newSku')");
+			mysql_query("INSERT INTO listed_item (parent_sku) VALUES ('$newSku')");
+			mysql_query("INSERT INTO item_vendor (parent_sku) VALUES  ('$newSku')");
+			mysql_query("INSERT INTO item_alias  (parent_sku) VALUES  ('$newSku')");
+			mysql_query("INSERT INTO content_log (parent_sku,type,message,user) VALUES ('$newSku','item_created','Item inserted into vcms','admin')");
+						
 			$i++;
 		}
 	}

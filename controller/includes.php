@@ -15,7 +15,10 @@ include 'controller/f_item_status_select.php';
 //Function to write html select code for item prefix types
 include 'controller/f_item_prefix_type_select.php';
 //Function to call values from specific fields in tables
-include 'controller/f_db_obj_view.php';
+include 'controller/f_db_obj_item_view.php';
+//Function to identify channels for a given item
+include 'controller/f_db_obj_item_channels.php';
+
 
 
 /*

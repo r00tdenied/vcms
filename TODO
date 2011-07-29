@@ -9,14 +9,14 @@ TODO List
 	\-Custom Reports
 
 -=High Priority=-
-*Determine what fields should be editable via multi item view.
-	\-Certain things like vendor data and item alias can use a jquery window via a clicked link for the item
+*Write function to identify what content is available for specific parent_sku
+
+	
 
 *MAJOR REWRITE for single item view.
-	|-Implement pulling item data from db
-	|-Implement Multi tab specifics view for single items (http://plugins.jquery.com/project/slidingtabs)
-	|-Move all styles to central css
-	\-Reformat page with divs instead of tables
+	|-Implement Multi tab specifics view for single items (in progress)
+	\-Move all styles to central css
+
 	
 -=Medium Priority=-
 *Research best method to implement user authentication and permission structure (assigned to zroed)
@@ -39,3 +39,4 @@ TODO List
 *Implemented sticklr jquery menu navigation, will need continual adjustments for new pages
 *Implemented Sears import tool for ajillson required includes are not on committed for security reasons
 *Implements InnovExport: New Orders, Item Mapping, 
+*Wrote function that will accept parent_sku, table, field as input and output field results used for single item view

@@ -7,7 +7,6 @@ function multi_item_search($parentSku, $catPref, $itemType, $itemStatus) {
 	if($parentSku =='' && $catPref == '' && $itemType == '' && $itemStatus == ''){
 		//Query for all items EVER!
 		$item_query = "	SELECT 	im.parent_sku,
-							 	im.item_sku, 
 							 	im.master_title, 
 							 	im.variant_flag,
 							 	alloc.status
@@ -19,7 +18,6 @@ function multi_item_search($parentSku, $catPref, $itemType, $itemStatus) {
 	if($catPref != '' && $itemType == '' && $itemStatus ==''){
 		//Query for catPref only
 		$item_query = "	SELECT 	im.parent_sku,
-							 	im.item_sku, 
 							 	im.master_title, 
 							 	im.variant_flag,
 							 	alloc.status
@@ -33,7 +31,6 @@ function multi_item_search($parentSku, $catPref, $itemType, $itemStatus) {
 	if($catPref == '' && $itemType == '' && $itemStatus !=''){
 		//Query for itemStatus only
 		$item_query = "	SELECT 	im.parent_sku,
-							 	im.item_sku, 
 							 	im.master_title, 
 							 	im.variant_flag,
 							 	alloc.status
@@ -47,7 +44,6 @@ function multi_item_search($parentSku, $catPref, $itemType, $itemStatus) {
 	if($catPref == '' && $itemType != '' && $itemStatus ==''){
 		//Query for itemType only
 		$item_query = "	SELECT 	im.parent_sku,
-							 	im.item_sku, 
 							 	im.master_title, 
 							 	im.variant_flag,
 							 	alloc.status
@@ -62,7 +58,6 @@ function multi_item_search($parentSku, $catPref, $itemType, $itemStatus) {
 	if( $parentSku != '' && $catPref == '' && $itemType == '' && $itemStatus ==''){
 		//Query for parentSku only
 		$item_query = "	SELECT 	im.parent_sku,
-							 	im.item_sku, 
 							 	im.master_title, 
 							 	im.variant_flag,
 							 	alloc.status
