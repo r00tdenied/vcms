@@ -62,16 +62,24 @@ function single_item_view($parent_sku)
 							<td colspan="4"><h3>Units of Measure</h3></td>
 						</tr>
 						<tr>
-							<td><b>Length<br/>(inches)</b></td>
-							<td><b>Width<br/>(inches)</b></td>
-							<td><b>Height<br/>(inches)</b></td>
-							<td><b>Weight<br/>(pounds)</b></td>
+							<td style="text-align:center;"><b>Length<br/>(inches)</b></td>
+							<td style="text-align:center;"><b>Width<br/>(inches)</b></td>
+							<td style="text-align:center;"><b>Height<br/>(inches)</b></td>
+							<td style="text-align:center;"><b>Weight<br/>(pounds)</b></td>
 						</tr>
 						<tr>
-							<td><input size="3" name="length" value="<?php echo db_obj_item_view($parent_sku, 'item_uom', 'length')?>"/></td>
-							<td><input size="3" name="width" value="<?php echo db_obj_item_view($parent_sku, 'item_uom', 'width')?>"/></td>
-							<td><input size="3" name="height" value="<?php echo db_obj_item_view($parent_sku, 'item_uom', 'height')?>"/></td>
-							<td><input size="3" name="weight" value="<?php echo db_obj_item_view($parent_sku, 'item_uom', 'weight')?>"/></td>
+							<td style="text-align:center;">
+								<input size="3" name="length" value="<?php echo db_obj_item_view($parent_sku, 'item_uom', 'length')?>"/>
+							</td>
+							<td style="text-align:center;">
+								<input size="3" name="width" value="<?php echo db_obj_item_view($parent_sku, 'item_uom', 'width')?>"/>
+							</td>
+							<td style="text-align:center;">
+								<input size="3" name="height" value="<?php echo db_obj_item_view($parent_sku, 'item_uom', 'height')?>"/>
+							</td>
+							<td style="text-align:center;">
+								<input size="3" name="weight" value="<?php echo db_obj_item_view($parent_sku, 'item_uom', 'weight')?>"/>
+							</td>
 						</tr>
 					</table>
 					<br>

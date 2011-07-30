@@ -17,17 +17,17 @@ include 'controller/f_db_obj_item_channels.php';
 //UI Functions and Objects
 
 //Function for dynamic tab single item view UI
-include 'controller/f_single_item_view.php';
+include 'controller/f_vCMS_ui_single_item_view.php';
 //Function to write html select code for all available item prefixes
-include 'controller/f_item_prefix_select.php';
+include 'controller/f_vCMS_ui_item_prefix_select.php';
 //Function to write html select code for item allocation status
-include 'controller/f_item_status_select.php';
+include 'controller/f_vCMS_ui_item_status_select.php';
 //Function to write html select code for item prefix types
-include 'controller/f_item_prefix_type_select.php';
+include 'controller/f_vCMS_ui_item_prefix_type_select.php';
 //Function for search and generating lists of multiple items based on specific criteria
-include 'controller/f_multi_item_search.php';
+include 'controller/f_vCMS_ui_multi_item_search.php';
 //Function to build form dropdown for available channels
-include 'controller/f_channel_master_select.php';
+include 'controller/f_vCMS_ui_channel_master_select.php';
 
 
 /**
