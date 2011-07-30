@@ -52,7 +52,7 @@ function single_item_view($parent_sku)
 						</tr>
 						<tr>
 							<td>
-								<textarea rows="5" cols="95" name="master_desc"><?php echo db_obj_item_view($parent_sku,'item_master','master_desc')?></textarea>
+								<textarea rows="3" cols="95" name="master_desc"><?php echo db_obj_item_view($parent_sku,'item_master','master_desc')?></textarea>
 							</td>
 						</tr>
 					</table>
