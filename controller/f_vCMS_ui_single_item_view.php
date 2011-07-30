@@ -134,6 +134,8 @@ function single_item_view($parent_sku)
 							{
 								$tab_cont = $i+4;
 								echo "<div id='#st_content_$cont' class='st_tab_view'>";
+								echo "<h3>Placeholder</h3>";
+								echo "</div>";
 								$i++;
 		
 							}
