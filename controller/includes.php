@@ -7,11 +7,11 @@
 //Logic Functions
 
 //Function to generate the next available sku based on item prefix
-include 'controller/f_generate_sku.php';
+include 'controller/f_vCMS_generate_sku.php';
 //Function to call values from specific fields in tables
-include 'controller/f_db_obj_item_view.php';
+include 'controller/f_vCMS_db_obj_item_view.php';
 //Function to identify channels for a given item
-include 'controller/f_db_obj_item_channels.php';
+include 'controller/f_vCMS_db_obj_item_channels.php';
 
 
 //UI Functions and Objects

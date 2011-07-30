@@ -16,7 +16,21 @@ function single_item_view($parent_sku)
                     <li><a href="#st_content_1" rel="tab_1" class="st_tab st_tab_active">Item Header</a></li>
                     <li><a href="#st_content_2" rel="tab_2" class="st_tab">Vendor Data</a></li>                                     
                     <li><a href="#st_content_3" rel="tab_3" class="st_tab">Image Repository</a></li>
-                                                                         
+                     <?php $chan_array = explode(':',db_obj_item_channels($parent_sku));
+							$i = 0;
+							$array_count = count($chan_array);
+	
+							if($array_count > '0')
+							{
+								while($i<=$array_count)
+								{
+									$cont = $i+4;
+									echo "<li><a href='#st_content_$cont' rel='tab_$cont' class='st_tab'>".$chan_array[$i]."</a></li>";
+									$i++;
+		
+								}
+							}    
+                    ?>                                                     
                 </ul>
             
             </div> <!-- /.st_slide_container -->
@@ -104,16 +118,27 @@ function single_item_view($parent_sku)
                 </div>
                 
                 <div id="st_content_2" class="st_tab_view">
-                    <h2>Horizontal Tab #2</h2>
+              		<h2>Vendor placeholder</h2>
                     
                     
                 </div>
                 
                 <div id="st_content_3" class="st_tab_view">
-                    <h2>Horizontal Tab #3</h2>
+                    <h2>Image Repo Placeholder</h2>
+               </div>
+               <?php $chan_array = explode(':',db_obj_item_channels($parent_sku));
+							$i = 0;
+							$array_count = count($chan_array);
+	
+							while($i<=$array_count)
+							{
+								$tab_cont = $i+4;
+								echo "<div id='#st_content_$cont' class='st_tab_view'>";
+								$i++;
+		
+							}
                     
-                   
-                </div>
+                    ?>          
                 
                           
             </div> <!-- /.st_view -->
