@@ -11,16 +11,7 @@ function db_obj_item_channels($parent_sku)
 	$row = mysql_fetch_assoc($exec_query);
 	return $row['active_channels'];
  	
-	
-	//$i = 0;
-	//$array_count = count($chan_array);
-	
-	//while($i<=$array_count)
-	//{
-	//	echo $chan_array[$i].'<br/>';
-	//	$i++;
-		
-	//}
+
 	
 	
 }

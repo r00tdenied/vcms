@@ -25,7 +25,7 @@ function single_item_view($parent_sku)
 								while($tab_head<$array_count)
 								{
 									$cont = $tab_head+4;
-									echo '<li><a href="#st_content_$cont" rel="tab_$cont" class="st_tab">'.$chan_array[$tab_head].'</a></li>';
+									echo '<li><a href="#st_content_'.$cont.'" rel="tab_'.$cont.'" class="st_tab">'.$chan_array[$tab_head].'</a></li>';
 									$tab_head++;
 		
 								}
@@ -133,7 +133,7 @@ function single_item_view($parent_sku)
 							while($tab_div<$array_count)
 							{
 								$tab_cont = $tab_div+4;
-								echo '<div id="#st_content_'.$tab_cont.'" class="st_tab_view">';
+								echo '<div id="st_content_'.$tab_cont.'" class="st_tab_view">';
 								echo "<h2>Placeholder</h2>";
 								echo "</div>";
 								$tab_div++;
