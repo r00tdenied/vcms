@@ -77,12 +77,19 @@ function single_item_view($parent_sku)
 					<br>
 					<table class="table_window">
 						<tr>
-							<td>
+							<td style="text-align:left;">
 								<input type="hidden" name="update" value="itemHeader"/>
 								<input type="submit" value="Update Item Header"/>
 								</form>
 							</td>
-						</td>
+							<td style="text-align:right;">
+								<form method="post" url="">
+								<input type="hidden" name="insert" value="addChannel"/>
+								<?php channel_master_select(); ?>
+								<input type="submit" value="Add item to Channel"/>
+								</form>
+							</td>
+						</tr>
 					</table>
 					
                                    

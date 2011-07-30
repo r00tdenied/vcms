@@ -26,6 +26,8 @@ include 'controller/f_item_status_select.php';
 include 'controller/f_item_prefix_type_select.php';
 //Function for search and generating lists of multiple items based on specific criteria
 include 'controller/f_multi_item_search.php';
+//Function to build form dropdown for available channels
+include 'controller/f_channel_master_select.php';
 
 
 /**
