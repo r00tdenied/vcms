@@ -17,16 +17,16 @@ function single_item_view($parent_sku)
                     <li><a href="#st_content_2" rel="tab_2" class="st_tab">Vendor Data</a></li>                                     
                     <li><a href="#st_content_3" rel="tab_3" class="st_tab">Image Repository</a></li>
                      <?php $chan_array = explode(':',db_obj_item_channels($parent_sku));
-							$i = 0;
+							$tab_head = 0;
 							$array_count = count($chan_array);
 	
-							if($array_count > '0')
+							if($array_count > '0' && $chan_array[0] != '')
 							{
-								while($i<=$array_count)
+								while($tab_head<$array_count)
 								{
-									$cont = $i+4;
-									echo "<li><a href='#st_content_$cont' rel='tab_$cont' class='st_tab'>".$chan_array[$i]."</a></li>";
-									$i++;
+									$cont = $tab_head+4;
+									echo '<li><a href="#st_content_$cont" rel="tab_$cont" class="st_tab">'.$chan_array[$tab_head].'</a></li>';
+									$tab_head++;
 		
 								}
 							}    
@@ -127,16 +127,16 @@ function single_item_view($parent_sku)
                     <h2>Image Repo Placeholder</h2>
                </div>
                <?php $chan_array = explode(':',db_obj_item_channels($parent_sku));
-							$i = 0;
+							$tab_div = 0;
 							$array_count = count($chan_array);
 	
-							while($i<=$array_count)
+							while($tab_div<$array_count)
 							{
-								$tab_cont = $i+4;
-								echo "<div id='#st_content_$cont' class='st_tab_view'>";
-								echo "<h3>Placeholder</h3>";
+								$tab_cont = $tab_div+4;
+								echo '<div id="#st_content_'.$tab_cont.'" class="st_tab_view">';
+								echo "<h2>Placeholder</h2>";
 								echo "</div>";
-								$i++;
+								$tab_div++;
 		
 							}
                     
