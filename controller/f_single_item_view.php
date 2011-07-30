@@ -73,9 +73,16 @@ function single_item_view($parent_sku)
 							<td><input size="3" name="height" value="<?php echo db_obj_item_view($parent_sku, 'item_uom', 'height')?>"/></td>
 							<td><input size="3" name="weight" value="<?php echo db_obj_item_view($parent_sku, 'item_uom', 'weight')?>"/></td>
 						</tr>
+					</table>
+					<br>
+					<table class="table_window">
 						<tr>
-							<td colspan="4"><?php echo db_obj_item_channels($parent_sku) ?></td>
-						</tr>
+							<td>
+								<input type="hidden" name="update" value="itemHeader"/>
+								<input type="submit" value="Update Item Header"/>
+								</form>
+							</td>
+						</td>
 					</table>
 					
                                    
