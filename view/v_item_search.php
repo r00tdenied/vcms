@@ -18,13 +18,13 @@
 </tr>
 
 <tr>
-	<td colspan="4"><input type="hidden" name="process" value="search"></input><input type="submit" name="Search"></input></td>
+	<td colspan="4"><input type="hidden" name="process" value="itemSearch"></input><input type="submit" name="Search"></input></td>
 </tr>
 </form>
 </table>
 
 <?php 
-if($_POST['process'] == 'search') {
+if($_POST['process'] == 'itemSearch') {
 	multi_item_search($_POST['parentSku'], $_POST['catPref'],$_POST['itemType'], $_POST['itemStatus']);
 }
 

@@ -444,7 +444,6 @@ function item_header_table($parent_sku)
 							<td><b>Variation</b></td>
 							<td><b>Item Title</b></td>
 						</tr>
-						
 						<tr>
 							<td><form method="post" url=""><?php echo $parent_sku; ?></td>
 							<td><?php echo db_obj_item_view($parent_sku,'item_master','variant_flag')?></td>
@@ -452,7 +451,7 @@ function item_header_table($parent_sku)
 							</td>
 						</tr>
 					</table>
-					<br>
+					
 					<table class="table_window">
 						<tr>
 							<td><h3>Internal Item Description</h3></td>
@@ -463,7 +462,7 @@ function item_header_table($parent_sku)
 							</td>
 						</tr>
 					</table>
-					<br>
+					
 					<table class="table_window">
 						<tr>
 							<td colspan="4"><h3>Units of Measure</h3></td>
@@ -489,7 +488,7 @@ function item_header_table($parent_sku)
 							</td>
 						</tr>
 					</table>
-					<br>
+					
 					<table class="table_window">
 						<tr>
 							<td style="text-align:left;">

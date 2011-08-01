@@ -1,5 +1,9 @@
 <?php
+/**
+ * OM ui core functions
+ */
 
+//Search and build tables based on InnovExport flag
 function OM_InnovExport_Search($trigger)
 {
 	$i=0;
@@ -245,6 +249,3 @@ function OM_InnovExport_Search($trigger)
 	
 	
 }
-
-
-?>
