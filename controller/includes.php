@@ -28,6 +28,10 @@ include 'controller/f_vCMS_ui_item_prefix_type_select.php';
 include 'controller/f_vCMS_ui_multi_item_search.php';
 //Function to build form dropdown for available channels
 include 'controller/f_vCMS_ui_channel_master_select.php';
+//Function to build item header table for specific parent sku
+include 'controller/f_vCMS_ui_item_header_table.php';
+//Function to build item vendor table for specific parent sku
+include 'controller/f_vCMS_ui_item_vendor_table.php';
 
 
 /**
