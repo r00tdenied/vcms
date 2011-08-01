@@ -1,4 +1,4 @@
-<form url="" method="post">
+<form action="?p=vCMS" method="post">
 <table class="table_main">
 <tr><td colspan="4"><h3>Item Search</h3></td></tr>
 <tr>
@@ -22,10 +22,3 @@
 </tr>
 </form>
 </table>
-
-<?php 
-if($_POST['process'] == 'itemSearch') {
-	multi_item_search($_POST['parentSku'], $_POST['catPref'],$_POST['itemType'], $_POST['itemStatus']);
-}
-
-?>

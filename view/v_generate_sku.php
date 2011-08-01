@@ -1,4 +1,4 @@
-<form action="" method="post">
+<form action="?p=vCMS" method="post">
 <table class="table_main" >
 <tr><td colspan="4"><h3>Generate New Skus</h3></td></tr>
 <tr><td>Select item category:</td><td>
@@ -8,10 +8,3 @@
 <tr><td>Build items with variation:</td><td><select name='varFlag'><option value='0'>Disabled</option><option value='1'>Enabled</option></select>
 <tr><td style="text-align:center;" colspan="2"><input type="hidden" name="process" value="generateSku"></input><input type="submit" name="submit" value="Generate Skus"></form></td></tr>
 </form>
-<?php 
-if($_POST['process'] == 'generateSku')
-{
-	generate_sku($_POST['numSkus'], $_POST['catPref'], $_POST['varFlag']);
-	echo '</table>';
-	}
-?>

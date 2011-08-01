@@ -76,15 +76,15 @@ switch ($_GET[v])
 	case '': include "view/portal.php"; break;
 		
 	//Admin Control pages
-	case 'acp': include "view/admin/main.php"; break;
-	case 'acp-users': include "view/admin/users.php"; break;
-	case 'acp-channels': include "view/admin/channels.php"; break;
-	case 'acp-categories': include "view/admin/categories.php"; break;
-	case 'acp-prefix': include "view/admin/prefix.php"; break;
+	case 'acp'; include "view/admin/main.php"; break;
+	case 'acp-users'; include "view/admin/users.php"; break;
+	case 'acp-channels'; include "view/admin/channels.php"; break;
+	case 'acp-categories'; include "view/admin/categories.php"; break;
+	case 'acp-prefix'; include "view/admin/prefix.php"; break;
 	
 	//User Control Pages
-	case 'ucp': include "view/users/main.php"; break;
-	case 'ucp-profile': include "view/users/profile.php"; break;
+	case 'ucp'; include "view/users/main.php"; break;
+	case 'ucp-profile'; include "view/users/profile.php"; break;
 	
 	//Main Pages
 	case 'single_item_view'; include "view/v_single_item_view.php"; break;
@@ -98,6 +98,13 @@ switch ($_GET[v])
 	//InnovExport Tools
 	case 'OM_innovexport_order_search'; include "view/v_OM_innovexport_order_search.php"; break;
 
+}
+
+//Processors
+switch ($_GET[p])
+{
+	case 'vCMS' ; include "controller/vCMS_processor.php"; break;
+	case 'OM' ; include "controller/OM_processor.php"; break;
 }
 
 	// Footer Page Elements
