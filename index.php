@@ -14,7 +14,7 @@
 
 <script type="text/javascript" src="view/js/jquery-1.4.3.min.js"></script>
 <?php 
-if($_GET[v] != 'item_view'){
+if($_GET[v] != 'item_view' && $_GET[p] != 'vCMS-tab'){
 	echo '<script type="text/javascript" src="view/js/jquery-sticklr-1.2.min.js"></script>';
 	echo '<link rel="stylesheet" type="text/css" media="screen,projection" href="view/css/jquery-sticklr-1.2-light-color.css" />';
 	include "view/ui_menu.php";
@@ -59,12 +59,6 @@ if($_GET[v] != 'item_view'){
   	});		
     </script>
 <!--  End Sliding Tabs script -->    
-
-
-
-
-
-         
 </head>
 <body>
 
@@ -93,7 +87,9 @@ switch ($_GET[v])
 switch ($_GET[p])
 {
 	case 'vCMS' ; include "controller/vCMS_processor.php"; break;
+	case 'vCMS-tab' ; include "controller/vCMS_processor.php"; break;
 	case 'OM' ; include "controller/OM_processor.php"; break;
+	case 'OM-tab' ; include "controller/OM_processor.php"; break;
 }
 
 	// Footer Page Elements

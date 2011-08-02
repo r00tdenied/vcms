@@ -444,7 +444,8 @@ function item_header_table($parent_sku)
 							<td><b>Item Title</b></td>
 						</tr>
 						<tr>
-							<td><form method="post" url=""><?php echo $parent_sku; ?></td>
+							<td><form method="post" action="?p=vCMS-tab"><?php echo $parent_sku; ?>
+							<input type="hidden" name="parent_sku" value="<?php echo $parent_sku; ?>"/></td>
 							<td><?php echo db_obj_item_view($parent_sku,'item_master','variant_flag')?></td>
 							<td><input size= "100" type="text" name="master_title" value="<?php echo db_obj_item_view($parent_sku,'item_master','master_title')?>"/>
 							</td>

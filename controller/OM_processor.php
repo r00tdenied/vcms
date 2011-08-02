@@ -14,4 +14,3 @@ if($_POST['process'] == 'omCancel') {
 	OM_InnovExport_Fraud_Cancel($_POST['orderNumber']);
 	OM_InnovExport_Search('7');
 }
-
