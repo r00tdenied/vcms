@@ -42,10 +42,10 @@
                     <a href="#">Order Management</a>
                 </li>
                 <li>
-                    <a href="?v=OM_sears_importer" class="icon-database">Sears Import Controls</a>
+                    <a href="?v=OM_sears_importer" class="icon-database">Importer Controls</a>
                 </li>
                 <li>
-                    <a href="?v=OM_innovexport_order_search" class="icon-database">InnovExp Orders Search</a>
+                    <a href="?v=OM_innovexport_order_search" class="icon-database">Exporter Orders Search</a>
                 </li>
            </ul>
         </li>
