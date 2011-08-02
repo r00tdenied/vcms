@@ -176,7 +176,7 @@ function single_item_view($parent_sku)
 //
 //Accepts post input and generates item list table based on search criteria
 //
-function multi_item_search($parentSku, $catPref, $itemType, $itemStatus) {
+function item_search($parentSku, $catPref, $itemType, $itemStatus) {
 	global $DbLink;
 	$i=0;
 	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
