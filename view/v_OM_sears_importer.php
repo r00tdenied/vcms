@@ -1,5 +1,7 @@
 <table class="table_main">
-<tr><td colspan="2"><h3>Sears Import Controls</h3></td></tr>
+<td><h3>Sears Import Controls</h3></td>
+</table>
+<table class="table_main">
 <tr>
 		<td style="text-align: center;"><form url="" method="post">
 											<input type=hidden name='process' value='searsScan'></input>
