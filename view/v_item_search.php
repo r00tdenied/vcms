@@ -1,6 +1,8 @@
 <form action="?p=vCMS" method="post">
 <table class="table_main">
-<tr><td colspan="4"><h3>Item Search</h3></td></tr>
+<td><h3>Item Search</h3></td>
+</table>
+<table class="table_main">
 <tr>
 	<td><b>Parent SKU:</b></td>
 	<td><input type="text" name="parentSku"></input></td>
