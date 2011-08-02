@@ -19,7 +19,6 @@ function OM_InnovExport_Fraud_Release($OrderNumber)
  		{     odbc_errormsg($connect);
    		exit("Error in SQL");}
    		     
-		echo '<br/>';
    		echo '<table class="table_main">';
   		echo "<tr><td colspan='6' style='text-align:center;color:green;'>Released $OrderNumber from Fraud Exception</td></tr>";
 		echo '</table>';
@@ -40,9 +39,8 @@ function OM_InnovExport_Fraud_Cancel($OrderNumber)
 		$result=odbc_exec($connect,$sql);
 		if (!$result)
  		{     odbc_errormsg($connect);
-   		exit("Error in SQL");}
-   		     
-		echo '<br/>';
+   		exit("Error in SQL");
+ 		}
    		echo '<table class="table_main">';
   		echo "<tr><td colspan='6' style='text-align:center;color:green;'>Cancelled $OrderNumber from Fraud Exception</td></tr>";
 		echo '</table>';

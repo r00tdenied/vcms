@@ -1,6 +1,8 @@
 <form action="?p=vCMS" method="post">
 <table class="table_main" >
-<tr><td colspan="4"><h3>Generate New Skus</h3></td></tr>
+<td><h3>Generate New Skus</h3></td>
+</table>
+<table class="table_main">
 <tr><td>Select item category:</td><td>
 <?php item_prefix_select('0') ?>
 </td></tr>
