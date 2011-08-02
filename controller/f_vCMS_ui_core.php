@@ -94,6 +94,7 @@ function channel_master_select()
 //
 function item_view($parent_sku,$tab)
 {
+	db_obj_item_update($parent_sku, 'item_alloc', 'status', 'LOCKED');
 ?>
     <!-- Start HTML - Horizontal tabs -->
     <div id="st_horizontal" class="st_horizontal">                                                
