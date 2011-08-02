@@ -14,7 +14,7 @@
 
 <script type="text/javascript" src="view/js/jquery-1.4.3.min.js"></script>
 <?php 
-if($_GET[v] != 'single_item_view'){
+if($_GET[v] != 'item_view'){
 	echo '<script type="text/javascript" src="view/js/jquery-sticklr-1.2.min.js"></script>';
 	echo '<link rel="stylesheet" type="text/css" media="screen,projection" href="view/css/jquery-sticklr-1.2-light-color.css" />';
 	include "view/ui_menu.php";
@@ -74,22 +74,11 @@ switch ($_GET[v])
 {
 	//Portal
 	case '': include "view/portal.php"; break;
-		
-	//Admin Control pages
-	case 'acp'; include "view/admin/main.php"; break;
-	case 'acp-users'; include "view/admin/users.php"; break;
-	case 'acp-channels'; include "view/admin/channels.php"; break;
-	case 'acp-categories'; include "view/admin/categories.php"; break;
-	case 'acp-prefix'; include "view/admin/prefix.php"; break;
-	
-	//User Control Pages
-	case 'ucp'; include "view/users/main.php"; break;
-	case 'ucp-profile'; include "view/users/profile.php"; break;
-	
+
 	//Main Pages
-	case 'single_item_view'; include "view/v_single_item_view.php"; break;
-	case 'generate_sku'; include "view/v_generate_sku.php"; break;
-	case 'item_search'; include "view/v_item_search.php"; break;
+	case 'item_view'; include "view/v_vCMS_item_view.php"; break;
+	case 'generate_sku'; include "view/v_vCMS_generate_sku.php"; break;
+	case 'item_search'; include "view/v_vCMS_item_search.php"; break;
 	case 'portal'; include "view/portal.php"; break;
 	
 	//External import tools

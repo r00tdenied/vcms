@@ -92,7 +92,7 @@ function channel_master_select()
 //
 //Generates single item view tabbed ui
 //
-function single_item_view($parent_sku)
+function item_view($parent_sku)
 {
 ?>
     <!-- Start HTML - Horizontal tabs -->
@@ -247,7 +247,7 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus) {
 	
 	if($parentSku != '' && $catPref != ''){
 		//Only allow parentSku field
-		include 'view/v_item_search.php';
+		include 'view/v_vCMS_item_search.php';
 		echo '<table class="table_main">';
 		echo '<tr><td style="color:red;text-align:center;">Search by Parent SKU and Item Prefix is disallowed</td></tr>';
 		echo '</table>';
@@ -256,7 +256,7 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus) {
 	
 	if($parentSku != '' && $itemType != ''){
 		//Only allow parentSku field
-		include 'view/v_item_search.php';
+		include 'view/v_vCMS_item_search.php';
 		echo '<table class="table_main">';
 		echo '<tr><td style="color:red;text-align:center;">Search by Parent SKU and Item Type is disallowed</td></tr>';
 		echo '</table>';
@@ -265,14 +265,14 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus) {
 	
 		if($parentSku != '' && $itemStatus != ''){
 		//Only allow parentSku field
-		include 'view/v_item_search.php';
+		include 'view/v_vCMS_item_search.php';
 		echo '<table class="table_main">';
 		echo '<tr><td style="color:red;text-align:center;">Search by Parent SKU and Item Status is disallowed</td></tr>';
 		echo '</table>';
 		exit;
 	}
 	
-	include 'view/v_item_search.php';
+	include 'view/v_vCMS_item_search.php';
 	echo '<table class="table_main">';
 	echo  "<tr>
 			<td><b>Actions</b></td>
@@ -286,7 +286,7 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus) {
 		echo 	"<td style='width:80px;'>";
 			if($row['status'] == 'NEW' || $row['status'] == 'USED')
 				{
-					echo '<img src="view/images/pc.de/sign-in.png"/><a class="example7" href="?v=single_item_view&sku='.$row['parent_sku'].'">Edit Item</a>';
+					echo '<img src="view/images/pc.de/sign-in.png"/><a class="example7" href="?v=item_view&sku='.$row['parent_sku'].'">Edit Item</a>';
 				}
 			elseif($row['status'] == 'LOCKED' || $row['status'] == 'RESERVED')
 				{

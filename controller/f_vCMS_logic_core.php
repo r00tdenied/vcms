@@ -16,21 +16,21 @@ function generate_sku($numSkus,$catPref,$varFlag)
 
 	if ($numSkus == 0)
 	{
-		include 'view/v_generate_sku.php';
+		include 'view/v_vCMS_generate_sku.php';
 		echo '<table class="table_main">';
 		echo '<td style="text-align:center;"><font color="red">Please enter the number of skus to generate!</font></td>';
 		echo '</table>';
 	}
 	elseif ($numSkus >=1000)
 	{
-		include 'view/v_generate_sku.php';
+		include 'view/v_vCMS_generate_sku.php';
 		echo '<table class="table_main">';
 		echo '<td style="text-align:center;" ><font color="red">You are not allowed to generate that many skus!</font></td>';
 		echo '</table>';
 	}
 	else 
 	{
-		include 'view/v_generate_sku.php';
+		include 'view/v_vCMS_generate_sku.php';
 		echo '<table class="table_main">';
 		echo '<td style="text-align:center;"><font color="green">Generated '. $numSkus .' SKUs for the '. $catPref .' prefix</td>';
 		echo '</table>';
