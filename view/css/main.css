@@ -13,6 +13,9 @@
 	border: 1px solid #ccc;
 	border-radius: 5px;
 	-webkit-border-radius:5px;
+	-moz-box-shadow: 5px 5px 5px #ccc;
+ 	-webkit-box-shadow: 5px 5px 5px #ccc;
+	box-shadow: 5px 5px 5px #ccc;
 }
 
 .table_main td {
@@ -67,6 +70,9 @@
 	border: 1px solid #ccc;
 	border-radius: 5px;
 	-webkit-border-radius:5px;
+	-moz-box-shadow: 5px 5px 5px #ccc;
+  	-webkit-box-shadow: 5px 5px 5px #ccc;
+ 	box-shadow: 5px 5px 5px #ccc;
 }
 
 .table_window td {
