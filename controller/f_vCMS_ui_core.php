@@ -92,7 +92,7 @@ function channel_master_select()
 //
 //Generates single item view tabbed ui
 //
-function item_view($parent_sku)
+function item_view($parent_sku,$tab)
 {
 ?>
     <!-- Start HTML - Horizontal tabs -->
