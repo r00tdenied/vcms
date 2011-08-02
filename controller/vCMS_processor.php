@@ -20,7 +20,7 @@ if($_POST['update'] == 'itemHeader') {
 	db_obj_item_update($_POST['parent_sku'], 'item_master', 'width', $_POST['width']);
 	db_obj_item_update($_POST['parent_sku'], 'item_master', 'height', $_POST['height']);
 	db_obj_item_update($_POST['parent_sku'], 'item_master', 'weight', $_POST['weight']);
-	include 'view/v_vCMS_item_view.php';
+	echo '<meta http-equiv="refresh" content=".5;url=?v=item_view&sku='.$_POST['parent_sku'].'">';
 }
 
 ?>
