@@ -17,17 +17,23 @@ function generate_sku($numSkus,$catPref,$varFlag)
 	if ($numSkus == 0)
 	{
 		include 'view/v_generate_sku.php';
-		echo '<tr><td colspan="2" style="text-align:center;"><font color="red">Please enter the number of skus to generate!</font></td></tr>';
+		echo '<table class="table_main">';
+		echo '<td style="text-align:center;"><font color="red">Please enter the number of skus to generate!</font></td>';
+		echo '</table>';
 	}
 	elseif ($numSkus >=1000)
 	{
 		include 'view/v_generate_sku.php';
-		echo '<tr><td colspan="2" style="text-align:center;" ><font color="red">You are not allowed to generate that many skus!</font></td></tr>';
+		echo '<table class="table_main">';
+		echo '<td style="text-align:center;" ><font color="red">You are not allowed to generate that many skus!</font></td>';
+		echo '</table>';
 	}
 	else 
 	{
 		include 'view/v_generate_sku.php';
-		echo '<tr><td colspan="2" style="text-align:center;"><font color="green">Generated '. $numSkus .' SKUs for the '. $catPref .' prefix</td></tr>';
+		echo '<table class="table_main">';
+		echo '<td style="text-align:center;"><font color="green">Generated '. $numSkus .' SKUs for the '. $catPref .' prefix</td>';
+		echo '</table>';
 		$topPrefNum_check =  'Select parent_sku FROM item_alloc where sku_prefix ="'.$catPref.'" order by parent_sku desc limit 1';
 		$topPrefNum = mysql_query($topPrefNum_check, $DbLink);
 		$topPrefNum = mysql_fetch_assoc($topPrefNum);

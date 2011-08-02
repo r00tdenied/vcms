@@ -22,5 +22,5 @@
 			<option value='1'>Enabled</option>
 		</select>	
 </tr>
-
+</table>
 </form>
