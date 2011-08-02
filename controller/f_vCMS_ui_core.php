@@ -248,7 +248,7 @@ function multi_item_search($parentSku, $catPref, $itemType, $itemStatus) {
 	if($parentSku != '' && $catPref != ''){
 		//Only allow parentSku field
 		include 'view/v_item_search.php';
-		echo '<br/><table class="table_main">';
+		echo '<table class="table_main">';
 		echo '<tr><td style="color:red;text-align:center;">Search by Parent SKU and Item Prefix is disallowed</td></tr>';
 		echo '</table>';
 		exit;
@@ -257,7 +257,7 @@ function multi_item_search($parentSku, $catPref, $itemType, $itemStatus) {
 	if($parentSku != '' && $itemType != ''){
 		//Only allow parentSku field
 		include 'view/v_item_search.php';
-		echo '<br/><table class="table_main">';
+		echo '<table class="table_main">';
 		echo '<tr><td style="color:red;text-align:center;">Search by Parent SKU and Item Type is disallowed</td></tr>';
 		echo '</table>';
 		exit;
@@ -266,14 +266,13 @@ function multi_item_search($parentSku, $catPref, $itemType, $itemStatus) {
 		if($parentSku != '' && $itemStatus != ''){
 		//Only allow parentSku field
 		include 'view/v_item_search.php';
-		echo '<br/><table class="table_main">';
+		echo '<table class="table_main">';
 		echo '<tr><td style="color:red;text-align:center;">Search by Parent SKU and Item Status is disallowed</td></tr>';
 		echo '</table>';
 		exit;
 	}
 	
 	include 'view/v_item_search.php';
-	echo '<br/>';
 	echo '<table class="table_main">';
 	echo  "<tr>
 			<td><b>Actions</b></td>
