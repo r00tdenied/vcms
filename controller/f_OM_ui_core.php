@@ -12,6 +12,7 @@ function OM_InnovExport_Search($trigger)
   	{exit("Connection Failed: " . $connect);}
 
 	if($trigger==''){
+			include 'view/v_OM_innovexport_order_search.php';
 			echo '<table class="table_main">';
 			echo '<tr><td style="text-align:center;">Not yet allowed to search by All Types yet :( </td></tr>';	
 	}
@@ -24,6 +25,7 @@ function OM_InnovExport_Search($trigger)
  		 	{     odbc_errormsg($connect);
    		     exit("Error in SQL");
  		 	}
+ 		 	include 'view/v_OM_innovexport_order_search.php';
    		    echo '<table class="table_main">';
   		  	echo "<tr>
 					<td><b>Ref #</b></td>
@@ -54,6 +56,7 @@ function OM_InnovExport_Search($trigger)
  		 	{     odbc_errormsg($connect);
    		     exit("Error in SQL");
  		 	}
+ 		 	include 'view/v_OM_innovexport_order_search.php';
    		    echo '<table class="table_main">';
   		  	echo "<tr>
 					<td><b>Ref #</b></td>
@@ -88,6 +91,7 @@ function OM_InnovExport_Search($trigger)
  		 	{     odbc_errormsg($connect);
    		     exit("Error in SQL");
  		 	}
+ 		 	include 'view/v_OM_innovexport_order_search.php';
    		    echo '<table class="table_main">';
   		  	echo "<tr>
   		  			<td><b>Ref #</b></td>
@@ -114,6 +118,7 @@ function OM_InnovExport_Search($trigger)
  		 	{     odbc_errormsg($connect);
    		     exit("Error in SQL");
  		 	}
+ 		 	include 'view/v_OM_innovexport_order_search.php';
    		    echo '<table class="table_main">';
   		  	echo "<tr>
 					<td><b>Ref #</b></td>
@@ -144,6 +149,7 @@ function OM_InnovExport_Search($trigger)
  		 	{     odbc_errormsg($connect);
    		     exit("Error in SQL");
  		 	}
+ 		 	include 'view/v_OM_innovexport_order_search.php';
    		    echo '<table class="table_main">';
   		  	echo "<tr>
 					<td><b>Ref #</b></td>
@@ -173,7 +179,9 @@ function OM_InnovExport_Search($trigger)
 			$result=odbc_exec($connect,$sql);
 			if (!$result)
  		 	{     odbc_errormsg($connect);
-   		     exit("Error in SQL");}
+   		     exit("Error in SQL");
+ 		 	}
+ 		 	include 'view/v_OM_innovexport_order_search.php';
    		    echo '<table class="table_main">';
   		  	echo "<tr>
 					<td><b>Ref #</b></td>
@@ -208,6 +216,7 @@ function OM_InnovExport_Search($trigger)
  		 	{     odbc_errormsg($connect);
    		     exit("Error in SQL");
  		 	}
+ 		 	include 'view/v_OM_innovexport_order_search.php';
    		    echo '<table class="table_main">';
   		  	echo "<tr>
   		  			<td><b>Ref #</b></td>
@@ -227,12 +236,12 @@ function OM_InnovExport_Search($trigger)
   		  	   			<td>".odbc_result($result,'Name')."<br/>".odbc_result($result,'ShipName')."</td>
   		  	   			<td>".odbc_result($result,'Zip')."<br/>".odbc_result($result, 'ShipZip')."</td>
   		  	   			<td>".odbc_result($result,'Phone')."<br/>".odbc_result($result,'ShipPhone')."</td>
-  		  	   			<td><form class='table_row_button' method='post' url='?v=innovexport-search'>
-  		  	   				<input type='hidden' name='process' value='release'/>
+  		  	   			<td><form class='table_row_button' method='post' action='?p=OM'>
+  		  	   				<input type='hidden' name='process' value='omRelease'/>
   		  	   				<input type='hidden' name='orderNumber' value='".odbc_result($result,'OrderNumber')."'/>
   		  	   				<input type='submit' name='submit' value='Release'/></form></td>
-  		  	   			<td><form class='table_row_button' method='post' url='?v=innovexport-search'>
-  		  	   				<input type='hidden' name='process' value='cancel'/>
+  		  	   			<td><form class='table_row_button' method='post' action='?p=OM'>
+  		  	   				<input type='hidden' name='process' value='omCancel'/>
   		  	   				<input type='hidden' name='orderNumber' value='".odbc_result($result,'OrderNumber')."'/>
   		  	   				<input type='submit' name='submit' value='Cancel'/></form></td>
   		  	   			

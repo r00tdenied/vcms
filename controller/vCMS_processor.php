@@ -1,6 +1,6 @@
 <?php
 
-//Process sku generation
+//Process for sku generator
 if($_POST['process'] == 'generateSku')
 {
 	generate_sku($_POST['numSkus'], $_POST['catPref'], $_POST['varFlag']);
