@@ -12,8 +12,6 @@ function OM_InnovExport_Search($trigger)
   	{exit("Connection Failed: " . $connect);}
 
 	if($trigger==''){
-			
-			echo '<br/>';
 			echo '<table class="table_main">';
 			echo '<tr><td style="text-align:center;">Not yet allowed to search by All Types yet :( </td></tr>';	
 	}
@@ -24,8 +22,8 @@ function OM_InnovExport_Search($trigger)
 			$result=odbc_exec($connect,$sql);
 			if (!$result)
  		 	{     odbc_errormsg($connect);
-   		     exit("Error in SQL");}
-			echo '<br/>';
+   		     exit("Error in SQL");
+ 		 	}
    		    echo '<table class="table_main">';
   		  	echo "<tr>
 					<td><b>Ref #</b></td>
@@ -54,8 +52,8 @@ function OM_InnovExport_Search($trigger)
 			$result=odbc_exec($connect,$sql);
 			if (!$result)
  		 	{     odbc_errormsg($connect);
-   		     exit("Error in SQL");}
-			echo '<br/>';
+   		     exit("Error in SQL");
+ 		 	}
    		    echo '<table class="table_main">';
   		  	echo "<tr>
 					<td><b>Ref #</b></td>
@@ -88,8 +86,8 @@ function OM_InnovExport_Search($trigger)
 			$result=odbc_exec($connect,$sql);
 			if (!$result)
  		 	{     odbc_errormsg($connect);
-   		     exit("Error in SQL");}
-			echo '<br/>';
+   		     exit("Error in SQL");
+ 		 	}
    		    echo '<table class="table_main">';
   		  	echo "<tr>
   		  			<td><b>Ref #</b></td>
@@ -114,8 +112,8 @@ function OM_InnovExport_Search($trigger)
 			$result=odbc_exec($connect,$sql);
 			if (!$result)
  		 	{     odbc_errormsg($connect);
-   		     exit("Error in SQL");}
-			echo '<br/>';
+   		     exit("Error in SQL");
+ 		 	}
    		    echo '<table class="table_main">';
   		  	echo "<tr>
 					<td><b>Ref #</b></td>
@@ -144,8 +142,8 @@ function OM_InnovExport_Search($trigger)
 			$result=odbc_exec($connect,$sql);
 			if (!$result)
  		 	{     odbc_errormsg($connect);
-   		     exit("Error in SQL");}
-			echo '<br/>';
+   		     exit("Error in SQL");
+ 		 	}
    		    echo '<table class="table_main">';
   		  	echo "<tr>
 					<td><b>Ref #</b></td>
@@ -176,7 +174,6 @@ function OM_InnovExport_Search($trigger)
 			if (!$result)
  		 	{     odbc_errormsg($connect);
    		     exit("Error in SQL");}
-			echo '<br/>';
    		    echo '<table class="table_main">';
   		  	echo "<tr>
 					<td><b>Ref #</b></td>
@@ -209,9 +206,8 @@ function OM_InnovExport_Search($trigger)
 			$result=odbc_exec($connect,$sql);
 			if (!$result)
  		 	{     odbc_errormsg($connect);
-   		     exit("Error in SQL");}
-   		     
-			echo '<br/>';
+   		     exit("Error in SQL");
+ 		 	}
    		    echo '<table class="table_main">';
   		  	echo "<tr>
   		  			<td><b>Ref #</b></td>
