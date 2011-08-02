@@ -385,8 +385,6 @@ function item_vendor_table($parent_sku)
 ?>	
 	
 		</table>
-		<br/>
-
 		<table class='table_window'>
     		<tr><td colspan='3'><h3>Item Vendor</h3></td></tr>
 			<tr>
@@ -411,7 +409,7 @@ function item_vendor_table($parent_sku)
 			</tr>
 <?php 
 	}
-	if(is_null($row['vendor_code']))
+	if(is_null($row['vendor_sku']))
 	{
 ?>
 			<tr>
@@ -425,10 +423,8 @@ function item_vendor_table($parent_sku)
 					<input type='text' size='10' name='vendorSku'/>
 				</td>
 			</tr>	
-			<tr><td colspan='3' style='text-align:center;'><i>No vendor data is specified. Please add one</i></td></tr>
 <?php 
 	}	
-
 ?>
 	<tr><td></td><td></td><td style='text-align:right;'><input type='submit' value='Add Vendor'/></form></td></tr>
 	</table>
@@ -509,7 +505,6 @@ function item_header_table($parent_sku)
 							</td>
 						</tr>
 					</table>
-	
 <?php	
 }
 	
