@@ -16,7 +16,6 @@ TODO List
 	|-Handling of updates for multiple vendors on Item vendor/alias tab
 	|-Implement tabbed view save state after submit (change active tab to keep them on the same one after form submit)
 	|-Deterministic channel tabs fields based off channel platform type
-	|-Channel master select function needs to be more dynamic based on listed_item table for parent_sku
 	\-Move all styles to central css
 
 -=Medium Priority=-
@@ -55,3 +54,4 @@ TODO List
 *Wrote function that will accept parent_sku, table, field as input and output field results used for single item view
 *Wrote function that will accept parent_sku, table, field and values to update specific fields in the db, used mainly by form processor
 *Restructured all individual functions by ui and logical functions, built f_vCMS_ui_core.php and f_vCMS_logic_core.php
+*Channel master select function is now more dynamic based on listed_item table for parent_sku
