@@ -1,42 +1,57 @@
 TODO List
 -------------
 
+-=High Priority=-
+*Write function to identify what content is available for specific parent_sku
+*Continued work on vCMS_processor.php to accept form inputs and trigger actions based on hidden fields
+*Code normalization, restructure portions of f_vCMS_ui_core.php to meet coding standards
+*Determine/implement best method to lock and unlock items to prevent edit collisions
+*Item Search paging!!!11111one
+*Form validation(integer only, html allowed/disallowed, stripslashes, htmlspecialchars_encode/decode, etc)
+*Item search icon key table (right float??)
+*Add item header item status for discontinued items??? maybe add icon to item search for discontinued??
+
+*Item view tasks
+	|-Item alias form for Item vendor/alias tab 
+	|-Handling of updates for multiple vendors on Item vendor/alias tab
+	|-Implement tabbed view save state after submit (change active tab to keep them on the same one after form submit)
+	|-Deterministic channel tabs fields based off channel platform type
+	|-Channel master select function needs to be more dynamic based on listed_item table for parent_sku
+	\-Move all styles to central css
+
+-=Medium Priority=-
+*Research best method to implement user authentication and permission structure (assigned to zroed)
+*Determine file format export requirements based on channel platform type (assigned to zroed)
+*Examine channel api requirements based on platform type (assigned to zroed)
+
+-=Low Priority=-
+*Create portal.php (assigned to zroed)
+	|-Portal page used as a landing page when users login, display channel content stats, basic report of stale content/images, other data
+	\-Build mockup
+	
+*Map out what item analytics type reports need to be built and what data is required
+
 -=LOL WUT Priority=-
 *InnovExport Utilities
 	|-Continual refinement of Fraud Check process for OM
 	|-Add AVS/CVV fields, modify SPROCs to trigger on AVS as well
 	|-Order Viewer similiar for single item view w/ tabbed interface
 	\-Custom Reports
-
--=High Priority=-
-*Write function to identify what content is available for specific parent_sku
-
-	
-
-*MAJOR REWRITE for single item view.
-	|-Implement Multi tab specifics view for single items (in progress)
-	\-Move all styles to central css
-
-	
--=Medium Priority=-
-*Research best method to implement user authentication and permission structure (assigned to zroed)
-
 *Research best method to build multi-channel order import automation to supplant OM functionality
 	|-Per channel modules with configurable settings like timing, mode (manual, auto), etc
 	|-vCMS not designed to handle order data directly but modules with be controlled via vcms interface
 	\-specific modules will pull data from channel and insert into MSSQL OM db via php odbc functions
 
--=Low Priority=-
-*Create portal.php
-	|-Portal page used as a landing page when users login, display channel content stats, basic report of stale content/images, other data
-	\-Build mockup
-	
-*Map out what item analytics type reports need to be built and what data is required
-
 -=Completed Tasks=-
-*Built controllers and views for sku generation.  Basic new sku data is auto-populated into the db
+*Built controllers and views for sku generation.  Basic new sku data is auto-populated into the db.
+*Updated db schema so parent_sku is used in all major tables.  Parent_sku is used to join most tables.
+*Updated skugen to insert into all the necessary tables for item data based on parent_sku.  Variation data only matters in variant_header 
 *Built generic multi-item search functionality and a limited view based on query results (needs heavy tweaking not final vers)
+*UI CSS updates, 1px table border with nice css3 box-shadow.
+*Added item search icon for USED status item_alloc items.
 *Implemented sticklr jquery menu navigation, will need continual adjustments for new pages
 *Implemented Sears import tool for ajillson required includes are not on committed for security reasons
 *Implements InnovExport: New Orders, Item Mapping, 
 *Wrote function that will accept parent_sku, table, field as input and output field results used for single item view
+*Wrote function that will accept parent_sku, table, field and values to update specific fields in the db, used mainly by form processor
+*Restructured all individual functions by ui and logical functions, built f_vCMS_ui_core.php and f_vCMS_logic_core.php
