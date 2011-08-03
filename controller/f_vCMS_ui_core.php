@@ -348,8 +348,9 @@ function item_vendor_table($parent_sku)
 	
 	<tr>
 		<td style='text-align:center;'>
-			<form method='post' url=''>
+			<form method='post' action='?p=vCMS-tab'>
 			<input type='hidden' name='update' value='itemMfg'/>
+			<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
 			<input type='text' size='20' name='mfgName' value='<?php echo db_obj_item_view($parent_sku, 'item_vendor', 'mfg_name')?>'/>
 		</td>
 		<td style='text-align:center;'>
@@ -366,8 +367,9 @@ function item_vendor_table($parent_sku)
 ?>
 		<tr>
 				<td style='text-align:center;'>
-					<form method='post' url=''>
+					<form method='post' action='?p=vCMS-tab'>
 					<input type='hidden' name='insert' value='itemMfg'/>
+					<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
 					<input type='text' size='20' name='mfgName'/>
 				</td>
 				<td style='text-align:center;'>
@@ -401,6 +403,7 @@ function item_vendor_table($parent_sku)
 				<td style='text-align:center;'>
 					<form method='post' url=''>
 					<input type='hidden' name='update' value='itemVendor'/>
+					<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
 					<input type='text' size='3' name='vendorCode' value='<?php echo $row['vendor_code']?>'/>
 				</td>
 				<td style='text-align:center;'>
@@ -417,6 +420,7 @@ function item_vendor_table($parent_sku)
 				<td style='text-align:center;'>
 					<form method='post' url=''>
 					<input type='hidden' name='insert' value='itemVendor'/>
+					<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
 					<input type='text' size='3' name='vendorCode'/>
 				</td>
 				<td style='text-align:center;'>

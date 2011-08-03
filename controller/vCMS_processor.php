@@ -21,7 +21,16 @@ if($_POST['update'] == 'itemHeader') {
 	db_obj_item_update($_POST['parent_sku'], 'item_uom', 'height', $_POST['height']);
 	db_obj_item_update($_POST['parent_sku'], 'item_uom', 'weight', $_POST['weight']);
 	db_obj_item_update($_POST['parent_sku'], 'item_alloc', 'status', 'USED');
-	echo '<meta http-equiv="refresh" content=".5;url=?v=item_view&sku='.$_POST['parent_sku'].'#st_content_2">';
+	echo '<meta http-equiv="refresh" content=".5;url=?v=item_view&sku='.$_POST['parent_sku'].'&tab=item_header">';
 }
+
+//Process updates for individual item mfg
+if($_POST['update'] == 'itemMfg') {
+	db_obj_item_update($_POST['parent_sku'], 'item_vendor', 'mfg_name', $_POST['mfgName']);
+	db_obj_item_update($_POST['parent_sku'], 'item_vendor', 'mfg_upc', $_POST['mfgUPC']);
+	db_obj_item_update($_POST['parent_sku'], 'item_alloc', 'status', 'USED');
+	echo '<meta http-equiv="refresh" content=".5;url=?v=item_view&sku='.$_POST['parent_sku'].'&tab=item_vendor">';
+}
+
 
 ?>
