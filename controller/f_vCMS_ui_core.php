@@ -366,21 +366,6 @@ function item_vendor_table($parent_sku)
 	{
 ?>
 		<tr>
-				<td style='text-align:center;'>
-					<form method='post' action='?p=vCMS-tab'>
-					<input type='hidden' name='insert' value='itemMfg'/>
-					<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
-					<input type='text' size='20' name='mfgName'/>
-				</td>
-				<td style='text-align:center;'>
-					<input type='text' size='20' name='mfgUPC''/>
-				</td>
-				<td style='text-align:right;'>
-					<input type='submit' value='Add Mfg'/>
-					</form>
-				</td>
-		</tr>
-		<tr>
 			<td colspan='3' style='text-align:center;'><i>No manufacturer data is specified. Please add it and insert</i></td></tr>
 <?php 			
 	}
