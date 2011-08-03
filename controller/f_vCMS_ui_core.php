@@ -72,18 +72,29 @@ function item_status_select($allow_any_status)
 //
 //Generates form select options based on db channel master
 //
-function channel_master_select()
+function channel_master_select($parent_sku)
 {
 	global $DbLink;
 	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
 	$channels_query="SELECT * from channel_master";
 	$channels=mysql_query($channels_query,$DbLink);
 
+	$used_channels = db_obj_item_channels($parent_sku);
+	$used_channels = explode(':', $used_channels);
+	
+	
 	echo '<select name="channels">';
 	
 	while ($row = mysql_fetch_assoc($channels)) 
 	{
-		echo "<option value=".$row['channel_code'].">".$row['channel_description']." (".$row['channel_code'].")</option>";
+		if(in_array($row['channel_code'],$used_channels ))
+		{
+			//Do nothing because the item is using that channel
+		}
+		else 
+		{
+			echo "<option value=".$row['channel_code'].">".$row['channel_description']." (".$row['channel_code'].")</option>";
+		}
 	}
 	echo '</select>';
 }
@@ -492,7 +503,7 @@ function item_header_table($parent_sku)
 							<td style="text-align:right;">
 								<form method="post" url="">
 								<input type="hidden" name="insert" value="addChannel"/>
-								<?php channel_master_select(); ?>
+								<?php channel_master_select($parent_sku); ?>
 								<input type="submit" value="Add item to Channel"/>
 								</form>
 							</td>

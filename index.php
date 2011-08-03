@@ -2,9 +2,7 @@
 //Model include
 	include "model/includes.php";
 //Controller include
-	include "controller/includes.php";
-	
-			
+	include "controller/includes.php";			
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -14,7 +12,7 @@
 
 <script type="text/javascript" src="view/js/jquery-1.4.3.min.js"></script>
 <?php 
-if($_GET[v] != 'item_view' && $_GET[p] != 'vCMS-tab'){
+if($_GET[v] != 'item_view' && $_GET[p] != 'vCMS-tab' & $_GET[p] !='OM-tab'){
 	echo '<script type="text/javascript" src="view/js/jquery-sticklr-1.2.min.js"></script>';
 	echo '<link rel="stylesheet" type="text/css" media="screen,projection" href="view/css/jquery-sticklr-1.2-light-color.css" />';
 	include "view/ui_menu.php";
@@ -35,8 +33,7 @@ if($_GET[v] != 'item_view' && $_GET[p] != 'vCMS-tab'){
 			$(".example7").colorbox({innerWidth:"880px", innerHeight:"575px", iframe:true, top:"10px", opacity:".70"});
 			
 		});
-	</script>
-         
+	</script>     
 <!-- End Jquery Colorbox script -->
 
 <!--  Begin Sliding Tabs script -->
@@ -44,8 +41,7 @@ if($_GET[v] != 'item_view' && $_GET[p] != 'vCMS-tab'){
 	<script type="text/javascript" src="view/js/slidingtabs/plugins/jquery.easing.1.3.js"></script>
 	<script type="text/javascript" src="view/js/slidingtabs/jquery.slidingtabs.pack.js"></script>
     <script type="text/javascript">  
-  	$(document).ready(function() {
-  				
+  	$(document).ready(function() {		
   		// Horizontal Sliding Tabs demo
   		$('div#st_horizontal').slideTabs({  			
 			// Options  			
@@ -54,8 +50,7 @@ if($_GET[v] != 'item_view' && $_GET[p] != 'vCMS-tab'){
 			contentEasing: 'easeInOutExpo',
 			orientation: 'horizontal',
 			tabsAnimTime: 300			
-  		});		  		  		
-  	
+  		});		  		  			
   	});		
     </script>
 <!--  End Sliding Tabs script -->    
@@ -80,9 +75,7 @@ switch ($_GET[v])
 	
 	//InnovExport Tools
 	case 'OM_innovexport_order_search'; include "view/v_OM_innovexport_order_search.php"; break;
-
 }
-
 //Processors
 switch ($_GET[p])
 {
