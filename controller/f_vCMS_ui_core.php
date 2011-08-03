@@ -94,7 +94,6 @@ function channel_master_select()
 //
 function item_view($parent_sku,$tab)
 {
-	db_obj_item_update($parent_sku, 'item_alloc', 'status', 'LOCKED');
 ?>
     <!-- Start HTML - Horizontal tabs -->
     <div id="st_horizontal" class="st_horizontal">                                                
@@ -285,11 +284,15 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus) {
 	{
 		echo "<tr class='table_row" . ($i++ % 2) ."'>";
 		echo 	"<td style='width:80px;'>";
-			if($row['status'] == 'NEW' || $row['status'] == 'USED')
+			if($row['status'] == 'NEW')
 				{
-					echo '<img src="view/images/pc.de/sign-in.png"/><a class="example7" href="?v=item_view&sku='.$row['parent_sku'].'">Edit Item</a>';
+					echo '<img alt="New Item" src="view/images/pc.de/sign-in.png"/>&nbsp;&nbsp;<a class="example7" href="?v=item_view&sku='.$row['parent_sku'].'">Edit Item</a>';
 				}
-			elseif($row['status'] == 'LOCKED' || $row['status'] == 'RESERVED')
+			if($row['status'] == 'USED')
+			{
+					echo '<img src="view/images/pc.de/issue.png"/>&nbsp;&nbsp;<a class="example7" href="?v=item_view&sku='.$row['parent_sku'].'">Edit Item</a>';
+			}
+			if($row['status'] == 'LOCKED' || $row['status'] == 'RESERVED')
 				{
 					echo '<img src="view/images/pc.de/lock.png"/> Locked';
 				}
