@@ -113,3 +113,20 @@ function db_obj_item_update($parent_sku,$table,$field,$value)
 	$exec_query = mysql_query($query, $DbLink);
 	
 }
+
+function last_generated_sku($catPref)
+{
+	global $DbLink;
+	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
+	$last_gen_query="SELECT parent_sku from item_alloc where sku_prefix='".$catPref."' order by parent_sku desc limit 1";
+	$result=mysql_query($last_gen_query,$DbLink);
+	$fetch = mysql_fetch_row($result);
+	if(is_null($fetch[0]))
+	{
+		echo '<font color="Red">None</font>';
+	}
+	else 
+	{	
+		echo '<font color="Green">'.$fetch[0].'</font>';
+	}
+}

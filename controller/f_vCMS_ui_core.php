@@ -511,4 +511,4 @@ function item_header_table($parent_sku)
 					</table>
 <?php	
 }
-	
+
