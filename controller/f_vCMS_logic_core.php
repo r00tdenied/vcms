@@ -114,6 +114,7 @@ function db_obj_item_update($parent_sku,$table,$field,$value)
 	
 }
 
+//Based off the catPref variable, outputs the last used parent sku for that prefix
 function last_generated_sku($catPref)
 {
 	global $DbLink;

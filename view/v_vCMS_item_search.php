@@ -35,6 +35,6 @@
 	<td><b>Item Status:</b></td>
 	<td><?php item_status_select('1')?></td>
 </tr>
-
 </form>
 </table>
+

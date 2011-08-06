@@ -187,23 +187,42 @@ function item_view($parent_sku,$tab)
 //
 //Accepts post input and generates item list table based on search criteria
 //
-function item_search($parentSku, $catPref, $itemType, $itemStatus) {
+function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max) {
 	global $DbLink;
 	$i=0;
 	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
 
+	$_POST['min'] = $min;
+	$_POST['max'] = $max;
+	
+	if(is_null($min)){$min = 0;}
+	if(is_null($max)){$max = 20;}
+	
+	
 	if($parentSku =='' && $catPref == '' && $itemType == '' && $itemStatus == ''){
+		//Row count
+
+		$item_count = 'SELECT * from item_alloc';
+		$item_count = mysql_query($item_count, $DbLink);
+		$rows = mysql_num_rows($item_count);
+					
 		//Query for all items EVER!
 		$item_query = "	SELECT 	im.parent_sku,
 							 	im.master_title, 
 							 	im.variant_flag,
 							 	alloc.status
 						from item_master im
-						join item_alloc alloc on im.parent_sku = alloc.parent_sku";
+						join item_alloc alloc on im.parent_sku = alloc.parent_sku
+						limit $min , $max";
 		$item_data = mysql_query($item_query, $DbLink);
 	}
 	
 	if($catPref != '' && $itemType == '' && $itemStatus ==''){
+		
+		$item_count = "SELECT * from item_alloc where sku_prefix ='$catPref'";
+		$item_count = mysql_query($item_count, $DbLink);
+		$rows = mysql_num_rows($item_count);
+		
 		//Query for catPref only
 		$item_query = "	SELECT 	im.parent_sku,
 							 	im.master_title, 
@@ -211,12 +230,18 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus) {
 							 	alloc.status
 						from item_master im
 						join item_alloc alloc on im.parent_sku = alloc.parent_sku
-						where alloc.sku_prefix ='$catPref'";
+						where alloc.sku_prefix ='$catPref'
+						limit $min , $max";
 		$item_data = mysql_query($item_query, $DbLink);
 		
 	}
 	
 	if($catPref == '' && $itemType == '' && $itemStatus !=''){
+		
+		$item_count = "SELECT * from item_allow where status='$itemStatus'";
+		$item_count = mysql_query($item_count, $DbLink);
+		$rows = mysql_num_rows($item_count);
+		
 		//Query for itemStatus only
 		$item_query = "	SELECT 	im.parent_sku,
 							 	im.master_title, 
@@ -224,12 +249,20 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus) {
 							 	alloc.status
 						from item_master im
 						join item_alloc alloc on im.parent_sku = alloc.parent_sku
-						where alloc.status ='$itemStatus'";
+						where alloc.status ='$itemStatus'
+						limit $min , $max";
 		$item_data = mysql_query($item_query, $DbLink);
 		
 	}
 	
 	if($catPref == '' && $itemType != '' && $itemStatus ==''){
+		
+		$item_count = "SELECT * from item_alloc alloc 
+						join item_prefix pref on alloc.sku_prefix = pre.sku_prefix
+						where pref.prefix_type='$itemType'";
+		$item_count = mysql_query($item_count, $DbLink);
+		$rows = mysql_num_rows($item_count);
+		
 		//Query for itemType only
 		$item_query = "	SELECT 	im.parent_sku,
 							 	im.master_title, 
@@ -238,12 +271,18 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus) {
 						from item_master im
 						join item_alloc alloc on im.parent_sku = alloc.parent_sku
 						join item_prefix pref on alloc.sku_prefix = pref.sku_prefix
-						where pref.prefix_type ='$itemType'";
+						where pref.prefix_type ='$itemType'
+						limit $min , $max";
 		$item_data = mysql_query($item_query, $DbLink);
 		
 	}
 	
 	if( $parentSku != '' && $catPref == '' && $itemType == '' && $itemStatus ==''){
+		
+		$item_count = "SELECT * from item_master where parent_sku like '%$parentSku%'";
+		$item_count = mysql_query($item_count, $DbLink);
+		$rows = mysql_num_rows($item_count);
+		
 		//Query for parentSku only
 		$item_query = "	SELECT 	im.parent_sku,
 							 	im.master_title, 
@@ -251,7 +290,8 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus) {
 							 	alloc.status
 						from item_master im
 						join item_alloc alloc on im.parent_sku = alloc.parent_sku
-						where im.parent_sku like'%$parentSku%'";
+						where im.parent_sku like'%$parentSku%'
+						limit $min , $max";
 		$item_data = mysql_query($item_query, $DbLink);
 		
 	}
@@ -318,9 +358,65 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus) {
 					echo "<td style='width:80px;'></td>";
 				}
 		echo '<td>'.$row['master_title'].'</td>';
-		
 		echo '</tr>';
+
 	}
+	
+	if($rows>$max && $min == '0')
+	{
+		$next_min = $min + 20;
+		$next_max = $max;
+		
+		echo '<table class="table_main"><tr>';
+		echo '<td style="text-align:left;width:100px;"></td>';
+		echo "<td style='text-align:center;'>Total Results: $rows</td>";
+		echo "<td style='text-align:right;width:100px;'><form method='POST' action='?p=vCMS'>";
+		echo "<input type='hidden' name='process' value='itemSearch'";
+		echo "<input type='hidden' name='parentSku' value='$parentSku'>";
+		echo "<input type='hidden' name='catPref' value='$catPref'>";
+		echo "<input type='hidden' name='itemType' value='$itemType'>";
+		echo "<input type='hidden' name='itemStatus' value='$itemStatus'>";
+		echo "<input type='hidden' name='min' value='$next_min'>";
+		echo "<input type='hidden' name='max' value='$next_max'>";
+		echo "<input type='submit' value='Next 20'></form>";
+		echo '</td></tr></table>';
+	}
+	if($min >'0')
+	{
+		$prev_min = $min - 20;
+		$prev_max = $max;
+		echo '<table class="table_main"><tr>';
+		echo '<td style="text-align:left;width:100px;">';
+		echo "<form method='POST' action='?p=vCMS'>";
+		echo "<input type='hidden' name='process' value='itemSearch'";
+		echo "<input type='hidden' name='parentSku' value='$parentSku'>";
+		echo "<input type='hidden' name='catPref' value='$catPref'>";
+		echo "<input type='hidden' name='itemType' value='$itemType'>";
+		echo "<input type='hidden' name='itemStatus' value='$itemStatus'>";
+		echo "<input type='hidden' name='min' value='$prev_min'>";
+		echo "<input type='hidden' name='max' value='$prev_max'>";
+		echo "<input type='submit' value='Previous 20'></form></td>";
+		
+		echo "<td style='text-align:center;'>Total Results: $rows</td>";
+		
+		if($max<=$rows)
+		{
+			$next_min=$min+20;
+			$next_max=$max;
+			
+			echo '<td style="text-align:right;width:100px;">';
+			echo "<form method='POST' action='?p=vCMS'>";
+			echo "<input type='hidden' name='process' value='itemSearch'";
+			echo "<input type='hidden' name='parentSku' value='$parentSku'>";
+			echo "<input type='hidden' name='catPref' value='$catPref'>";
+			echo "<input type='hidden' name='itemType' value='$itemType'>";
+			echo "<input type='hidden' name='itemStatus' value='$itemStatus'>";
+			echo "<input type='hidden' name='min' value='$next_min'>";
+			echo "<input type='hidden' name='max' value='$next_max'>";
+			echo "<input type='submit' value='Next 20'></form>";
+		}	echo '</td></tr></table>';
+	}
+	
 	
 }
 

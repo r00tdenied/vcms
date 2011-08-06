@@ -3,5 +3,5 @@
 include 'model/defines.php';
 //DB Connection functions
 include 'model/sql.php';
-//DB Queries
+
 ?>

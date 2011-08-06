@@ -9,7 +9,7 @@ if($_POST['process'] == 'generateSku')
 //Process for item search
 if($_POST['process'] == 'itemSearch') 
 {
-	item_search($_POST['parentSku'], $_POST['catPref'],$_POST['itemType'], $_POST['itemStatus']);
+	item_search($_POST['parentSku'], $_POST['catPref'],$_POST['itemType'], $_POST['itemStatus'], $_POST['min'], $_POST['max']);
 }
 
 //Process updates for individual item header
