@@ -3,12 +3,13 @@
 <td><h3>Generate New Skus</h3></td>
 </table>
 <table class="table_main">
-<tr><td colspan="12" style="text-align:center;"><b>Last Utilized Sku by Prefix</b></td></tr>
+<tr><td colspan="14" style="text-align:center;"><b>Last Utilized Sku by Prefix</b></td></tr>
 <tr>
 	<td><b>OS:</b></td><td><?php last_generated_sku('OS');?></td>
 	<td><b>AP:</b></td><td><?php last_generated_sku('AP');?></td>
 	<td><b>GT:</b></td><td><?php last_generated_sku('GT');?></td>
 	<td><b>GE:</b></td><td><?php last_generated_sku('GE');?></td>
+	<td><b>GH:</b></td><td><?php last_generated_sku('GH');?></td>
 	<td><b>TL:</b></td><td><?php last_generated_sku('TL');?></td>
 	<td><b>PS:</b></td><td><?php last_generated_sku('PS');?></td>
 </tr>

@@ -13,7 +13,7 @@ function item_prefix_select($allow_any_prefix)
 {
 	global $DbLink;
 	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
-	$item_prefix_query='SELECT * from item_prefix';
+	$item_prefix_query='SELECT * from item_prefix order by sku_prefix d';
 	$item_prefix=mysql_query($item_prefix_query,$DbLink);
 
 	echo '<select name="catPref">';
@@ -26,6 +26,26 @@ function item_prefix_select($allow_any_prefix)
 	}
 	echo '</select>';
 }
+
+//
+// Generates select options based on db populated vendors
+//
+function vendor_select()
+{
+	global $DbLink;
+	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
+	$vendor_query='SELECT * from vendor_detail order by vendor_code asc';
+	$vendor=mysql_query($vendor_query,$DbLink);
+
+	echo '<select name="vendorCode">';
+		echo '<option>--Select a Vendor--</option>';
+	while ($row = mysql_fetch_assoc($vendor)) 
+	{
+		echo '<option value="'. $row['vendor_code'] .'">' . $row['vendor_code'] .' - '. $row['vendor_name'] .'</option>';
+	}
+	echo '</select>';
+}
+
 
 //
 //Generates form select options based on db populated prefix types
@@ -370,8 +390,7 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max) {
 		echo '<td style="text-align:left;width:100px;"></td>';
 		echo "<td style='text-align:center;'>Total Results: $rows</td>";
 		echo "<td style='text-align:right;width:100px;'>";
-		echo "<form method='GET' action='?p=vCMS'>";
-		echo "<input type='hidden' name='p' value='vCMS'>";
+		echo "<form method='POST' action='?p=vCMS'>";
 		echo "<input type='hidden' name='process' value='itemSearch'>";
 		echo "<input type='hidden' name='parentSku' value='$parentSku'>";
 		echo "<input type='hidden' name='catPref' value='$catPref'>";
@@ -388,8 +407,7 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max) {
 		$prev_max = $max;
 		echo '<table class="table_main"><tr>';
 		echo '<td style="text-align:left;width:100px;">';
-		echo "<form method='GET' action='?p=vCMS'>";
-		echo "<input type='hidden' name='p' value='vCMS'>";
+		echo "<form method='POST' action='?p=vCMS'>";
 		echo "<input type='hidden' name='process' value='itemSearch'>";
 		echo "<input type='hidden' name='parentSku' value='$parentSku'>";
 		echo "<input type='hidden' name='catPref' value='$catPref'>";
@@ -407,8 +425,7 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max) {
 			$next_max=$max;
 			
 			echo '<td style="text-align:right;width:100px;">';
-			echo "<form method='GET' action='?p=vCMS'>";
-			echo "<input type='hidden' name='p' value='vCMS'>";
+			echo "<form method='POST' action='?p=vCMS'>";
 			echo "<input type='hidden' name='process' value='itemSearch'>";
 			echo "<input type='hidden' name='parentSku' value='$parentSku'>";
 			echo "<input type='hidden' name='catPref' value='$catPref'>";
@@ -430,7 +447,8 @@ function item_vendor_table($parent_sku)
 {
 	global $DbLink;
 	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
-	$item_vendor_query="SELECT 	iv.parent_sku,
+	$item_vendor_query="SELECT 	iv.item_vendor_id,
+								iv.parent_sku,
 								vd.vendor_name,
 								iv.vendor_code,
 								iv.vendor_sku,
@@ -441,7 +459,7 @@ function item_vendor_table($parent_sku)
 								iv.fulfillment_type
 						from item_vendor iv
 						join vendor_detail vd on iv.vendor_code = vd.vendor_code
-						where parent_sku='$parent_sku'";
+						where iv.parent_sku='$parent_sku'";
 	$item_vendor=mysql_query($item_vendor_query,$DbLink);
 ?>
 	<table class='table_window'>
@@ -485,8 +503,8 @@ function item_vendor_table($parent_sku)
 ?>	
 	
 		</table>
-		<table class='table_window'>
-    		<tr><td colspan='3'><h3>Item Vendor</h3></td></tr>
+		<table class='table_window' >
+    		<tr><td colspan='4'><h3>Item Vendor</h3></td></tr>
 			<tr>
 				<td style='text-align:center;'><b>Vendor Name</b></td>
 				<td style='text-align:center;'><b>Vendor Code</b></td>
@@ -499,13 +517,19 @@ function item_vendor_table($parent_sku)
 			<tr>
 				<td style='text-align:center;'><?php echo $row['vendor_name'] ?></td>
 				<td style='text-align:center;'>
-					<form method='post' url=''>
+					<form method='post' action='?p=vCMS-tab'>
 					<input type='hidden' name='update' value='itemVendor'/>
 					<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
-					<input type='text' size='3' name='vendorCode' value='<?php echo $row['vendor_code']?>'/>
+					<input type='text' size='3' name='newVendorCode' value='<?php echo $row['vendor_code']?>'/>
+					<input type='hidden' name='oldVendorCode' value='<?php echo $row['vendor_code']?>'/>
 				</td>
 				<td style='text-align:center;'>
-					<input type='text' size='10' name='vendorSku' value='<?php echo $row['vendor_sku']?>'/>
+					<input type='text' size='10' name='newVendorSku' value='<?php echo $row['vendor_sku']?>'/>
+					<input type='hidden' name='oldVendorSku' value='<?php echo $row['vendor_sku']?>'/>
+				</td>
+				<td style='text-align:center;'>
+					<input type='submit' value='Update Vendor'/>
+					</form>
 				</td>
 			</tr>
 <?php 
@@ -516,7 +540,7 @@ function item_vendor_table($parent_sku)
 			<tr>
 				<td style='text-align:center;'>---</td>
 				<td style='text-align:center;'>
-					<form method='post' url=''>
+					<form method='post' action='?p=vCMS-tab'>
 					<input type='hidden' name='insert' value='itemVendor'/>
 					<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
 					<input type='text' size='3' name='vendorCode'/>
@@ -524,11 +548,14 @@ function item_vendor_table($parent_sku)
 				<td style='text-align:center;'>
 					<input type='text' size='10' name='vendorSku'/>
 				</td>
+				<td style='text-align:center;'>
+					<input type='submit' value='Insert Vendor'/>
+					</form>
+				</td>
 			</tr>	
 <?php 
 	}	
 ?>
-	<tr><td></td><td></td><td style='text-align:right;'><input type='submit' value='Add Vendor'/></form></td></tr>
 	</table>
 <?php 
 }
