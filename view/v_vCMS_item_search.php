@@ -1,4 +1,4 @@
-<form action="?p=vCMS" method="post">
+<form action="?p=vCMS" method="GET">
 <table class="table_main">
 <td><h3>Item Search</h3></td>
 </table>
@@ -16,7 +16,8 @@
 <table class="table_main">
 <tr>
 	<td><b>Parent SKU:</b></td>
-	<td><input type="text" name="parentSku"></input></td>
+	<td><input type="hidden" name="p" value="vCMS">
+		<input type="text" name="parentSku"></input></td>
 
 	<td><b>Item Prefix:</b></td>
 	<td><?php item_prefix_select('1') ?></td>

@@ -192,92 +192,91 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max) {
 	$i=0;
 	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
 
-	$_POST['min'] = $min;
-	$_POST['max'] = $max;
-	
 	if(is_null($min)){$min = 0;}
 	if(is_null($max)){$max = 20;}
 	
-	
-	if($parentSku =='' && $catPref == '' && $itemType == '' && $itemStatus == ''){
-		//Row count
+	if($parentSku == '')
+	{
+		if($catPref == '' && $itemType == '' && $itemStatus == '')
+		{
+			//Row count
 
-		$item_count = 'SELECT * from item_alloc';
-		$item_count = mysql_query($item_count, $DbLink);
-		$rows = mysql_num_rows($item_count);
+			$item_count = 'SELECT * from item_alloc';
+			$item_count = mysql_query($item_count, $DbLink);
+			$rows = mysql_num_rows($item_count);
 					
-		//Query for all items EVER!
-		$item_query = "	SELECT 	im.parent_sku,
-							 	im.master_title, 
-							 	im.variant_flag,
-							 	alloc.status
-						from item_master im
-						join item_alloc alloc on im.parent_sku = alloc.parent_sku
-						limit $min , $max";
-		$item_data = mysql_query($item_query, $DbLink);
-	}
+			//Query for all items EVER!
+			$item_query = "	SELECT 	im.parent_sku,
+								 	im.master_title, 
+								 	im.variant_flag,
+								 	alloc.status
+							from item_master im
+							join item_alloc alloc on im.parent_sku = alloc.parent_sku
+							limit $min , $max";
+			$item_data = mysql_query($item_query, $DbLink);
+		}
 	
-	if($catPref != '' && $itemType == '' && $itemStatus ==''){
+		if($catPref != ''){
+			
+			$item_count = "SELECT * from item_alloc where sku_prefix ='$catPref'";
+			$item_count = mysql_query($item_count, $DbLink);
+			$rows = mysql_num_rows($item_count);
 		
-		$item_count = "SELECT * from item_alloc where sku_prefix ='$catPref'";
-		$item_count = mysql_query($item_count, $DbLink);
-		$rows = mysql_num_rows($item_count);
+			//Query for catPref only
+			$item_query = "	SELECT 	im.parent_sku,
+								 	im.master_title, 
+									im.variant_flag,
+								 	alloc.status
+							from item_master im
+							join item_alloc alloc on im.parent_sku = alloc.parent_sku
+							where alloc.sku_prefix ='$catPref'
+							limit $min , $max";
+			$item_data = mysql_query($item_query, $DbLink);
 		
-		//Query for catPref only
-		$item_query = "	SELECT 	im.parent_sku,
-							 	im.master_title, 
-							 	im.variant_flag,
-							 	alloc.status
-						from item_master im
-						join item_alloc alloc on im.parent_sku = alloc.parent_sku
-						where alloc.sku_prefix ='$catPref'
-						limit $min , $max";
-		$item_data = mysql_query($item_query, $DbLink);
-		
-	}
+		}
 	
-	if($catPref == '' && $itemType == '' && $itemStatus !=''){
+		if($itemStatus !=''){
 		
-		$item_count = "SELECT * from item_allow where status='$itemStatus'";
-		$item_count = mysql_query($item_count, $DbLink);
-		$rows = mysql_num_rows($item_count);
+			$item_count = "SELECT * from item_allow where status='$itemStatus'";
+			$item_count = mysql_query($item_count, $DbLink);
+			$rows = mysql_num_rows($item_count);
 		
-		//Query for itemStatus only
-		$item_query = "	SELECT 	im.parent_sku,
-							 	im.master_title, 
-							 	im.variant_flag,
-							 	alloc.status
-						from item_master im
-						join item_alloc alloc on im.parent_sku = alloc.parent_sku
-						where alloc.status ='$itemStatus'
-						limit $min , $max";
-		$item_data = mysql_query($item_query, $DbLink);
+			//Query for itemStatus only
+			$item_query = "	SELECT 	im.parent_sku,
+								 	im.master_title, 
+								 	im.variant_flag,
+								 	alloc.status
+							from item_master im
+							join item_alloc alloc on im.parent_sku = alloc.parent_sku
+							where alloc.status ='$itemStatus'
+							limit $min , $max";
+			$item_data = mysql_query($item_query, $DbLink);
 		
-	}
+		}
 	
-	if($catPref == '' && $itemType != '' && $itemStatus ==''){
+		if($itemType != ''){
 		
-		$item_count = "SELECT * from item_alloc alloc 
-						join item_prefix pref on alloc.sku_prefix = pre.sku_prefix
-						where pref.prefix_type='$itemType'";
-		$item_count = mysql_query($item_count, $DbLink);
-		$rows = mysql_num_rows($item_count);
+			$item_count = "SELECT * from item_alloc alloc 
+							join item_prefix pref on alloc.sku_prefix = pre.sku_prefix
+							where pref.prefix_type='$itemType'";
+			$item_count = mysql_query($item_count, $DbLink);
+			$rows = mysql_num_rows($item_count);
 		
-		//Query for itemType only
-		$item_query = "	SELECT 	im.parent_sku,
-							 	im.master_title, 
-							 	im.variant_flag,
-							 	alloc.status
-						from item_master im
-						join item_alloc alloc on im.parent_sku = alloc.parent_sku
-						join item_prefix pref on alloc.sku_prefix = pref.sku_prefix
-						where pref.prefix_type ='$itemType'
-						limit $min , $max";
-		$item_data = mysql_query($item_query, $DbLink);
+			//Query for itemType only
+			$item_query = "	SELECT 	im.parent_sku,
+								 	im.master_title, 
+								 	im.variant_flag,
+								 	alloc.status
+							from item_master im
+							join item_alloc alloc on im.parent_sku = alloc.parent_sku
+							join item_prefix pref on alloc.sku_prefix = pref.sku_prefix
+							where pref.prefix_type ='$itemType'
+							limit $min , $max";
+			$item_data = mysql_query($item_query, $DbLink);
 		
+		}
 	}
-	
-	if( $parentSku != '' && $catPref == '' && $itemType == '' && $itemStatus ==''){
+	if( $parentSku != ''){
 		
 		$item_count = "SELECT * from item_master where parent_sku like '%$parentSku%'";
 		$item_count = mysql_query($item_count, $DbLink);
@@ -370,8 +369,10 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max) {
 		echo '<table class="table_main"><tr>';
 		echo '<td style="text-align:left;width:100px;"></td>';
 		echo "<td style='text-align:center;'>Total Results: $rows</td>";
-		echo "<td style='text-align:right;width:100px;'><form method='POST' action='?p=vCMS'>";
-		echo "<input type='hidden' name='process' value='itemSearch'";
+		echo "<td style='text-align:right;width:100px;'>";
+		echo "<form method='GET' action='?p=vCMS'>";
+		echo "<input type='hidden' name='p' value='vCMS'>";
+		echo "<input type='hidden' name='process' value='itemSearch'>";
 		echo "<input type='hidden' name='parentSku' value='$parentSku'>";
 		echo "<input type='hidden' name='catPref' value='$catPref'>";
 		echo "<input type='hidden' name='itemType' value='$itemType'>";
@@ -387,8 +388,9 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max) {
 		$prev_max = $max;
 		echo '<table class="table_main"><tr>';
 		echo '<td style="text-align:left;width:100px;">';
-		echo "<form method='POST' action='?p=vCMS'>";
-		echo "<input type='hidden' name='process' value='itemSearch'";
+		echo "<form method='GET' action='?p=vCMS'>";
+		echo "<input type='hidden' name='p' value='vCMS'>";
+		echo "<input type='hidden' name='process' value='itemSearch'>";
 		echo "<input type='hidden' name='parentSku' value='$parentSku'>";
 		echo "<input type='hidden' name='catPref' value='$catPref'>";
 		echo "<input type='hidden' name='itemType' value='$itemType'>";
@@ -405,8 +407,9 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max) {
 			$next_max=$max;
 			
 			echo '<td style="text-align:right;width:100px;">';
-			echo "<form method='POST' action='?p=vCMS'>";
-			echo "<input type='hidden' name='process' value='itemSearch'";
+			echo "<form method='GET' action='?p=vCMS'>";
+			echo "<input type='hidden' name='p' value='vCMS'>";
+			echo "<input type='hidden' name='process' value='itemSearch'>";
 			echo "<input type='hidden' name='parentSku' value='$parentSku'>";
 			echo "<input type='hidden' name='catPref' value='$catPref'>";
 			echo "<input type='hidden' name='itemType' value='$itemType'>";
