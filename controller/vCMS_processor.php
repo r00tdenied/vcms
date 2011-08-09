@@ -35,13 +35,18 @@ if($_POST['update'] == 'itemMfg') {
 
 //Process inserts for item vendors
 if($_POST['insert'] == 'itemVendor') {
-		db_obj_insert_vendor($_POST['parent_sku'], $_POST['vendorCode'], $_POST['vendorSku']);
+		db_obj_insert_item_vendor($_POST['parent_sku'], $_POST['vendorCode'], $_POST['vendorSku']);
 		echo '<meta http-equiv="refresh" content=".5;url=?v=item_view&sku='.$_POST['parent_sku'].'&tab=item_vendor">';
 }
 
 if($_POST['update'] == 'itemVendor') {
-		db_obj_update_vendor($_POST['parent_sku'], $_POST['newVendorCode'], $_POST['oldVendorCode'], $_POST['newVendorSku'], $_POST['oldVendorSku']);
+		db_obj_update_item_vendor($_POST['parent_sku'], $_POST['newVendorCode'], $_POST['oldVendorCode'], $_POST['newVendorSku'], $_POST['oldVendorSku']);
 		echo '<meta http-equiv="refresh" content=".5;url=?v=item_view&sku='.$_POST['parent_sku'].'&tab=item_vendor">';		
+}
+
+if($_POST['delete'] == 'itemVendor') {
+		db_obj_delete_item_vendor($_POST['parent_sku'], $_POST['vendorCode'],$_POST['vendorSku']);
+		echo '<meta http-equiv="refresh" content=".5;url=?v=item_view&sku='.$_POST['parent_sku'].'&tab=item_vendor">';
 }
 
 

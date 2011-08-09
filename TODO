@@ -1,20 +1,18 @@
 TODO List
 -------------
-*This is a new line
 
 -=High Priority=-
+*Add item vendor update validation to check that Vendor code is valid and that vendor code is not duplicated!
 *Write function to identify what content is available for specific parent_sku
 *Continued work on vCMS_processor.php to accept form inputs and trigger actions based on hidden fields
 *Code normalization, restructure portions of f_vCMS_ui_core.php to meet coding standards
 *Determine/implement best method to lock and unlock items to prevent edit collisions
-*Item Search paging!!!11111one
 *Form validation(integer only, html allowed/disallowed, stripslashes, htmlspecialchars_encode/decode, etc)
 *Item search icon key table (right float??)
 *Add item header item status for discontinued items??? maybe add icon to item search for discontinued??
 
 *Item view tasks
 	|-Item alias form for Item vendor/alias tab 
-	|-Handling of updates for multiple vendors on Item vendor/alias tab
 	|-Implement tabbed view save state after submit (change active tab to keep them on the same one after form submit)
 	|-Deterministic channel tabs fields based off channel platform type
 	\-Move all styles to central css
@@ -43,6 +41,7 @@ TODO List
 	\-specific modules will pull data from channel and insert into MSSQL OM db via php odbc functions
 
 -=Completed Tasks=-
+*Item Search paging
 *Built controllers and views for sku generation.  Basic new sku data is auto-populated into the db.
 *Updated db schema so parent_sku is used in all major tables.  Parent_sku is used to join most tables.
 *Updated skugen to insert into all the necessary tables for item data based on parent_sku.  Variation data only matters in variant_header 
@@ -56,3 +55,5 @@ TODO List
 *Wrote function that will accept parent_sku, table, field and values to update specific fields in the db, used mainly by form processor
 *Restructured all individual functions by ui and logical functions, built f_vCMS_ui_core.php and f_vCMS_logic_core.php
 *Channel master select function is now more dynamic based on listed_item table for parent_sku
+*Handling of updates for multiple vendors on Item vendor/alias tab
+*Delete item vendor function

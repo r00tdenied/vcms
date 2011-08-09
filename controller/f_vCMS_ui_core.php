@@ -13,7 +13,7 @@ function item_prefix_select($allow_any_prefix)
 {
 	global $DbLink;
 	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
-	$item_prefix_query='SELECT * from item_prefix order by sku_prefix d';
+	$item_prefix_query='SELECT * from item_prefix order by sku_prefix asc';
 	$item_prefix=mysql_query($item_prefix_query,$DbLink);
 
 	echo '<select name="catPref">';
@@ -136,8 +136,24 @@ function item_view($parent_sku,$tab)
             <div class="st_slide_container">
             
                 <ul class="st_tabs">
-                    <li><a href="#st_content_1" rel="tab_1" class="st_tab st_tab_active">Item Header</a></li>
-                    <li><a href="#st_content_2" rel="tab_2" class="st_tab">Item Vendor/Alias</a></li>                                     
+                	<?php 
+                	if($tab == 'item_header' || $tab == '')
+                	{
+                		echo ' <li><a href="#st_content_1" rel="tab_1" class="st_tab st_tab_active">Item Header</a></li>';
+                	}
+                	elseif($tab != 'item_header')
+                	{
+                		echo ' <li><a href="#st_content_1" rel="tab_1" class="st_tab">Item Header</a></li>';
+                	}
+                	if($tab == 'item_vendor')
+                	{
+                		echo '<li><a href="#st_content_2" rel="tab_2" class="st_tab st_tab_active">Item Vendor/Alias</a></li>';
+                	}
+                	elseif($tab !='item_vendor')
+                	{
+                		echo '<li><a href="#st_content_2" rel="tab_2" class="st_tab">Item Vendor/Alias</a></li>';
+                	}
+                	?>                              
                     <li><a href="#st_content_3" rel="tab_3" class="st_tab">Image Repository</a></li>
                      <?php $chan_array = explode(':',db_obj_item_channels($parent_sku));
 							$tab_head = 0;
@@ -503,8 +519,8 @@ function item_vendor_table($parent_sku)
 ?>	
 	
 		</table>
-		<table class='table_window' >
-    		<tr><td colspan='4'><h3>Item Vendor</h3></td></tr>
+		<table class='table_window'>
+    		<tr><td colspan='5'><h3>Item Vendor</h3></td></tr>
 			<tr>
 				<td style='text-align:center;'><b>Vendor Name</b></td>
 				<td style='text-align:center;'><b>Vendor Code</b></td>
@@ -527,8 +543,17 @@ function item_vendor_table($parent_sku)
 					<input type='text' size='10' name='newVendorSku' value='<?php echo $row['vendor_sku']?>'/>
 					<input type='hidden' name='oldVendorSku' value='<?php echo $row['vendor_sku']?>'/>
 				</td>
-				<td style='text-align:center;'>
-					<input type='submit' value='Update Vendor'/>
+				<td style='text-align:right;width:15px;'>
+					<input type='submit' value='Update'/>
+					</form>
+				</td>
+				<td style='text-align:right;width:15px;'>
+					<form method='post' action='?p=vCMS-tab'>
+					<input type='hidden' name='delete' value='itemVendor'/>
+					<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
+					<input type='hidden' name='vendorCode' value='<?php echo $row['vendor_code']?>'/>
+					<input type='hidden' name='vendorSku' value='<?php echo $row['vendor_sku']?>'/>
+					<input type='submit' value='Delete'/>
 					</form>
 				</td>
 			</tr>
@@ -548,10 +573,11 @@ function item_vendor_table($parent_sku)
 				<td style='text-align:center;'>
 					<input type='text' size='10' name='vendorSku'/>
 				</td>
-				<td style='text-align:center;'>
-					<input type='submit' value='Insert Vendor'/>
+				<td colspan='2' style='text-align:center;width:15px;'>
+					<input type='submit' value='Add Vendor'/>
 					</form>
 				</td>
+
 			</tr>	
 <?php 
 	}	

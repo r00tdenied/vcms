@@ -56,14 +56,11 @@ if($_GET[v] != 'item_view' && $_GET[p] != 'vCMS-tab' & $_GET[p] !='OM-tab'){
 <!--  End Sliding Tabs script -->    
 </head>
 <body>
-
 <?php 
+
 // View Control
 switch ($_GET[v])
 {
-	//Portal
-	case '': include "view/portal.php"; break;
-
 	//Main Pages
 	case 'item_view'; include "view/v_vCMS_item_view.php"; break;
 	case 'generate_sku'; include "view/v_vCMS_generate_sku.php"; break;

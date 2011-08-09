@@ -114,14 +114,14 @@ function db_obj_item_update($parent_sku,$table,$field,$value)
 	
 }
 
-function db_obj_insert_vendor($parent_sku,$vendorCode,$vendorSku)
+function db_obj_insert_item_vendor($parent_sku,$vendorCode,$vendorSku)
 {
 	global $DbLink;
 	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
 	mysql_query("insert into item_vendor (parent_sku,vendor_code,vendor_sku) values ('$parent_sku','$vendorCode','$vendorSku')");		
 }
 
-function db_obj_update_vendor($parent_sku,$newVendorCode,$oldVendorCode, $newVendorSku, $oldVendorSku)
+function db_obj_update_item_vendor($parent_sku,$newVendorCode,$oldVendorCode, $newVendorSku, $oldVendorSku)
 {
 	global $DbLink;
 	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
@@ -131,6 +131,13 @@ function db_obj_update_vendor($parent_sku,$newVendorCode,$oldVendorCode, $newVen
 				where parent_sku='$parent_sku' 
 				and vendor_code = '$oldVendorCode'
 				and vendor_sku = '$oldVendorSku'");
+}
+
+function db_obj_delete_item_vendor($parent_sku,$vendorCode,$vendorSku)
+{
+	global $DbLink;
+	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
+	mysql_query("delete from item_vendor where parent_sku='$parent_sku' and vendor_code='$vendorCode' and vendor_sku='$vendorSku'");
 }
 
 //Based off the catPref variable, outputs the last used parent sku for that prefix
