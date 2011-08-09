@@ -13,7 +13,6 @@ TODO List
 
 *Item view tasks
 	|-Item alias form for Item vendor/alias tab 
-	|-Implement tabbed view save state after submit (change active tab to keep them on the same one after form submit)
 	|-Deterministic channel tabs fields based off channel platform type
 	\-Move all styles to central css
 
@@ -57,3 +56,4 @@ TODO List
 *Channel master select function is now more dynamic based on listed_item table for parent_sku
 *Handling of updates for multiple vendors on Item vendor/alias tab
 *Delete item vendor function
+*Implemented tabbed view save state after submit (change active tab to keep them on the same one after form submit)
