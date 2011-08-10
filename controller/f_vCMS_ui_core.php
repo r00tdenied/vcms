@@ -398,6 +398,10 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max, $
 				{
 					echo '<img src="view/images/pc.de/lock.png"/> Locked';
 				}
+			if($row['status'] == 'DISCONT')
+				{
+					echo '<img src="view/images/pc.de/busy.png"/>&nbsp;&nbsp;<a class="example7" href="?v=item_view&sku='.$row['parent_sku'].'">Edit Item</a>';
+				}
 		echo "</td>				
 			<td style='width:80px;'>".$row['parent_sku']."</td>";
 			if($row['variant_flag'] == '1')

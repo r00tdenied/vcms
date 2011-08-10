@@ -4,7 +4,6 @@ TODO List
 -=High Priority=-
 
 *Item view tasks
-	|-Item alias form for Item vendor/alias tab 
 	|-Deterministic channel tabs fields based off channel platform type
 	|-Write function to identify what content is available for specific parent_sku
 	\-Move all styles to central css
@@ -66,3 +65,5 @@ TODO List
 *Item Search parent_sku sort order
 *Converted item search to $_GET instead of post for easier flexibility
 *f_vCMS_ui_core.php code normalization
+*Item alias form for Item vendor/alias tab 
+*Split item mfg table from item_vendor_table added item_alias_table as its own function.  It is cleaner to treat them as sep. objects
