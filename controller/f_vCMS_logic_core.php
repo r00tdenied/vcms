@@ -32,7 +32,7 @@ function generate_sku($numSkus,$catPref,$varFlag)
 	{
 		include 'view/v_vCMS_generate_sku.php';
 		echo '<table class="table_main">';
-		echo '<td style="text-align:center;"><font color="green">Generated '. $numSkus .' SKUs for the '. $catPref .' prefix</td>';
+		echo '<tr><td style="text-align:center;"><font color="green">Generated '. $numSkus .' SKUs for the '. $catPref .' prefix</td></tr>';
 		echo '</table>';
 		$topPrefNum_check =  'Select parent_sku FROM item_alloc where sku_prefix ="'.$catPref.'" order by parent_sku desc limit 1';
 		$topPrefNum = mysql_query($topPrefNum_check, $DbLink);
@@ -56,6 +56,7 @@ function generate_sku($numSkus,$catPref,$varFlag)
 			$i++;
 		}
 		echo '</table>';
+		echo "<meta http-equiv='refresh' content='.01;url=?p=vCMS&parentSku=&catPref=$catPref&process=itemSearch&itemType=&itemStatus=NEW'>";
 	}
 }
 //Detect channels parent_sku is configured for in db

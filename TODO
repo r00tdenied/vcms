@@ -66,4 +66,6 @@ TODO List
 *Converted item search to $_GET instead of post for easier flexibility
 *f_vCMS_ui_core.php code normalization
 *Item alias form for Item vendor/alias tab 
+*Redirect from Sku generator to newly generated skus based on $catPref and status NEW to Item search
+*Decreased processor redirect timings on form updates
 *Split item mfg table from item_vendor_table added item_alias_table as its own function.  It is cleaner to treat them as sep. objects
