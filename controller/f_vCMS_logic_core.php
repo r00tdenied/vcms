@@ -51,7 +51,6 @@ function generate_sku($numSkus,$catPref,$varFlag)
 			mysql_query("INSERT INTO item_uom (parent_sku) VALUES ('$newSku')");
 			mysql_query("INSERT INTO listed_item (parent_sku) VALUES ('$newSku')");
 			mysql_query("INSERT INTO item_vendor (parent_sku) VALUES  ('$newSku')");
-			mysql_query("INSERT INTO item_alias  (parent_sku) VALUES  ('$newSku')");
 			mysql_query("INSERT INTO content_log (parent_sku,type,message,user) VALUES ('$newSku','item_created','Item inserted into vcms','admin')");
 						
 			$i++;
@@ -138,6 +137,33 @@ function db_obj_delete_item_vendor($parent_sku,$vendorCode,$vendorSku)
 	global $DbLink;
 	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
 	mysql_query("delete from item_vendor where parent_sku='$parent_sku' and vendor_code='$vendorCode' and vendor_sku='$vendorSku'");
+}
+
+
+function db_obj_insert_item_alias($parent_sku,$aliasType,$aliasSku)
+{
+	global $DbLink;
+	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
+	mysql_query("insert into item_alias (parent_sku,type,alias_sku) values ('$parent_sku','$aliasType','$aliasSku')");		
+}
+
+function db_obj_update_item_alias($parent_sku,$newAliasType,$oldAliasType, $newAliasSku, $oldAliasSku)
+{
+	global $DbLink;
+	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
+	mysql_query("update item_alias 
+					set type='$newAliasType',
+					alias_sku='$newAliasSku' 
+				where parent_sku='$parent_sku' 
+				and type = '$oldAliasType'
+				and alias_sku = '$oldAliasSku'");
+}
+
+function db_obj_delete_item_alias($parent_sku,$aliasType,$aliasSku)
+{
+	global $DbLink;
+	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
+	mysql_query("delete from item_alias where parent_sku='$parent_sku' and type='$aliasType' and alias_sku='$aliasSku'");
 }
 
 //Based off the catPref variable, outputs the last used parent sku for that prefix

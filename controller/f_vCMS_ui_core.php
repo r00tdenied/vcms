@@ -187,7 +187,9 @@ function item_view($parent_sku,$tab)
                 </div>
                 
                 <div id="st_content_2" class="st_tab_view">
+                	<?php item_mfg_table($parent_sku)?>
               		<?php item_vendor_table($parent_sku)?>
+              		<?php item_alias_table($parent_sku)?>
               		
                 </div>
                 
@@ -477,27 +479,11 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max, $
 }
 
 //
-//Generates item vendor table based on parent_sku
+//Generates item mfg table based on parent_sku
 //
-function item_vendor_table($parent_sku)
+function item_mfg_table($parent_sku)
 {
-	global $DbLink;
-	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
-	$item_vendor_query="SELECT 	iv.item_vendor_id,
-								iv.parent_sku,
-								vd.vendor_name,
-								iv.vendor_code,
-								iv.vendor_sku,
-								iv.cost,
-								iv.primary_vsku,
-								iv.mfg_name,
-								iv.mfg_upc,
-								iv.fulfillment_type
-						from item_vendor iv
-						join vendor_detail vd on iv.vendor_code = vd.vendor_code
-						where iv.parent_sku='$parent_sku'";
-	$item_vendor=mysql_query($item_vendor_query,$DbLink);
-?>
+	?>
 	<table class='table_window'>
 	<tr>
 		<td colspan='3'>
@@ -528,17 +514,106 @@ function item_vendor_table($parent_sku)
 			</form>
 		</td>
 	</tr>
+	</table>
+	<?php 
+}
+
+//
+// Generates item alias table based on parent_sku
+//
+function item_alias_table($parent_sku)
+{
+	global $DbLink;
+	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
+	$item_alias_query="SELECT type,alias_sku from item_alias where parent_sku ='$parent_sku'";
+	$item_alias=mysql_query($item_alias_query,$DbLink);
+?>
+	<table class='table_window'>
+	<tr><td colspan='5'><h3>Item Aliases</h3></td></tr>
+	<tr>
+		<td style='text-align:center;'><b>Parent Sku</b></td>
+		<td style='text-align:center;'><b>Alias Type</b></td>
+		<td style='text-align:center;'><b>Alias Sku</b></td>
+	</tr>
 <?php 
-	if(is_null(db_obj_item_view($parent_sku, 'item_vendor', 'mfg_name')))
+while ($row = mysql_fetch_assoc($item_alias)) 
 	{
 ?>
-		<tr>
-			<td colspan='3' style='text-align:center;'><i>No manufacturer data is specified. Please add it and insert</i></td></tr>
-<?php 			
+	<form method='post' action='?p=vCMS-tab'>
+	<tr>
+		<td style='text-align:center;'><?php echo $parent_sku; ?></td>
+		<td style='text-align:center;'><?php echo $row['type']?></td>
+		<td style='text-align:center;'>
+					<input type='hidden' name='update' value='itemAlias'/>
+					<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
+					<input type='text' size='10' name='newAliasSku' value='<?php echo $row['alias_sku']?>'/>
+					<input type='hidden' name='oldAliasType' value='<?php echo $row['type']?>'/>
+					<input type='hidden' name='oldAliasSku' value='<?php echo $row['alias_sku']?>'/></td>
+		<td style='text-align:right;width:15px;'>
+					<input type='submit' value='Update'/>
+					</form>
+		</td>
+		<td style='text-align:right;width:15px;'>
+					<form method='post' action='?p=vCMS-tab'>
+					<input type='hidden' name='delete' value='itemAlias'/>
+					<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
+					<input type='hidden' name='aliasType' value='<?php echo $tow['type']?>'/>
+					<input type='hidden' name='aliasSku' value='<?php echo $row['alias_sku']?>'/>
+					<input type='submit' value='Delete'/>
+					</form>
+		</td>
+	</tr>
+<?php 
 	}
-?>	
-	
-		</table>
+	if(is_null($row['alias_sku']))
+	{
+?>
+			<form method='post' action='?p=vCMS-tab'>
+			<input type='hidden' name='insert' value='itemAlias'/>
+			<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
+			<tr>
+				<td style='text-align:center;'><?php echo $parent_sku; ?></td>
+				<td style='text-align:center;'>Not Implemented</td>
+				<td style='text-align:center;'>
+					<input type='text' size='10' name='aliasSku'/>
+				</td>
+				<td colspan='2' style='text-align:center;width:15px;'>
+					<input type='submit' value='Add Alias'/>
+					</form>
+				</td>
+
+			</tr>	
+<?php 
+	}	
+?>
+	</table>	
+<?php 
+}
+
+
+
+//
+//Generates item vendor table based on parent_sku
+//
+function item_vendor_table($parent_sku)
+{
+	global $DbLink;
+	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
+	$item_vendor_query="SELECT 	iv.item_vendor_id,
+								iv.parent_sku,
+								vd.vendor_name,
+								iv.vendor_code,
+								iv.vendor_sku,
+								iv.cost,
+								iv.primary_vsku,
+								iv.mfg_name,
+								iv.mfg_upc,
+								iv.fulfillment_type
+						from item_vendor iv
+						join vendor_detail vd on iv.vendor_code = vd.vendor_code
+						where iv.parent_sku='$parent_sku'";
+	$item_vendor=mysql_query($item_vendor_query,$DbLink);
+?>
 		<table class='table_window'>
     		<tr><td colspan='5'><h3>Item Vendor</h3></td></tr>
 			<tr>
