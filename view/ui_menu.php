@@ -28,7 +28,7 @@
                     <a href="#">Item Management</a>
                 </li>
                 <li>
-                    <a href="?v=generate_sku" class="icon-database">Generate New Skus</a>
+                    <a href="?v=generate_sku" class="icon-archive">Generate New Skus</a>
                 </li>
                 <li>
             		<a href="?v=item_search" class="icon-zoom" title="Item Search">Item Search</a>

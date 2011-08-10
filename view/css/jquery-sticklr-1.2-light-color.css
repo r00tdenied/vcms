@@ -310,6 +310,10 @@
 	background-image: url('../images/pc.de/process.png');
 }
 
+.icon-archive {
+	background-image: url('../images/pc.de/archives.png');
+}
+
 .icon-database {
 	background-image: url('../images/pc.de/database.png');
 }

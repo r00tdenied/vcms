@@ -11,8 +11,10 @@
 <title><? SetPageTitle(); ?></title>
 
 <script type="text/javascript" src="view/js/jquery-1.4.3.min.js"></script>
+
 <?php 
-if($_GET[v] != 'item_view' && $_GET[p] != 'vCMS-tab' & $_GET[p] !='OM-tab'){
+//Disallow Sticklr navigation in tabbed views
+if($_GET[v] != 'item_view' && $_GET[v] != 'order_view' && $_GET[p] != 'vCMS-tab' && $_GET[p] !='OM-tab'){
 	echo '<script type="text/javascript" src="view/js/jquery-sticklr-1.2.min.js"></script>';
 	echo '<link rel="stylesheet" type="text/css" media="screen,projection" href="view/css/jquery-sticklr-1.2-light-color.css" />';
 	include "view/ui_menu.php";
@@ -57,6 +59,10 @@ if($_GET[v] != 'item_view' && $_GET[p] != 'vCMS-tab' & $_GET[p] !='OM-tab'){
 </head>
 <body>
 <?php 
+
+//Include portal if neither parameter for v or p is given
+if(isset($_GET[v])||isset($_GET[p])){}
+else { include "view/portal.php";}
 
 // View Control
 switch ($_GET[v])
