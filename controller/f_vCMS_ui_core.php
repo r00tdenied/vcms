@@ -491,10 +491,10 @@ function item_mfg_table($parent_sku)
 		</td>
 	</tr>
 	<tr>
-		<td style='text-align:center;'>
+		<td style='text-align:center;width:37.5%'>
 			<b>Mfg Name</b>
 		</td>
-		<td style='text-align:center;'>
+		<td style='text-align:center;width:37.5%'>
 			<b>Mfg UPC</b>
 		</td>
 	</tr>
@@ -509,7 +509,7 @@ function item_mfg_table($parent_sku)
 		<td style='text-align:center;'>
 			<input type='text' size='20' name='mfgUPC' value='<?php echo db_obj_item_view($parent_sku, 'item_vendor', 'mfg_upc')?>'/>
 		</td>
-		<td style='text-align:right;'>
+		<td style='text-align:center;'>
 			<input type='submit' value='Update Mfg'/>
 			</form>
 		</td>
