@@ -531,9 +531,9 @@ function item_alias_table($parent_sku)
 	<table class='table_window'>
 	<tr><td colspan='5'><h3>Item Aliases</h3></td></tr>
 	<tr>
-		<td style='text-align:center;'><b>Parent Sku</b></td>
-		<td style='text-align:center;'><b>Alias Type</b></td>
-		<td style='text-align:center;'><b>Alias Sku</b></td>
+		<td style='text-align:center;width:25%;'><b>Parent Sku</b></td>
+		<td style='text-align:center;width:25%;'><b>Alias Type</b></td>
+		<td style='text-align:center;width:25%;'><b>Alias Sku</b></td>
 	</tr>
 <?php 
 while ($row = mysql_fetch_assoc($item_alias)) 
@@ -553,7 +553,7 @@ while ($row = mysql_fetch_assoc($item_alias))
 					<input type='submit' value='Update'/>
 					</form>
 		</td>
-		<td style='text-align:right;width:15px;'>
+		<td style='text-align:left;width:15px;'>
 					<form method='post' action='?p=vCMS-tab'>
 					<input type='hidden' name='delete' value='itemAlias'/>
 					<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
@@ -617,9 +617,9 @@ function item_vendor_table($parent_sku)
 		<table class='table_window'>
     		<tr><td colspan='5'><h3>Item Vendor</h3></td></tr>
 			<tr>
-				<td style='text-align:center;'><b>Vendor Name</b></td>
-				<td style='text-align:center;'><b>Vendor Code</b></td>
- 				<td style='text-align:center;'><b>Vendor Sku</b></td>
+				<td style='text-align:center;width:25%;'><b>Vendor Name</b></td>
+				<td style='text-align:center;width:25%;'><b>Vendor Code</b></td>
+ 				<td style='text-align:center;width:25%;'><b>Vendor Sku</b></td>
 			</tr>
 <?php 
 	while ($row = mysql_fetch_assoc($item_vendor)) 
@@ -642,7 +642,7 @@ function item_vendor_table($parent_sku)
 					<input type='submit' value='Update'/>
 					</form>
 				</td>
-				<td style='text-align:right;width:15px;'>
+				<td style='text-align:left;width:15px;'>
 					<form method='post' action='?p=vCMS-tab'>
 					<input type='hidden' name='delete' value='itemVendor'/>
 					<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
