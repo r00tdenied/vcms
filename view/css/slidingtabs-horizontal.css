@@ -139,7 +139,8 @@ div.st_horizontal div.st_view_container { /* Main content container */
 	padding:20px; /* Set the padding for the content here */
 	border:1px solid #d4d4d4;
 	background-color:#fff;
-	overflow:scroll; /* To make the content scroll if Javascript is disabled, set to: auto */
+	overflow:auto; /* To make the content scroll if Javascript is disabled, set to: auto */
+	overflow-x:hidden;
 }
 
 div.st_horizontal div.st_view { /* Slide-container for the content */
