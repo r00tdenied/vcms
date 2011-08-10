@@ -7,9 +7,9 @@ if($_POST['process'] == 'generateSku')
 }
 
 //Process for item search
-if($_POST['process'] == 'itemSearch') 
+if($_GET['process'] == 'itemSearch') 
 {
-	item_search($_POST['parentSku'], $_POST['catPref'],$_POST['itemType'], $_POST['itemStatus'], $_POST['min'], $_POST['max']);
+	item_search($_GET['parentSku'], $_GET['catPref'],$_GET['itemType'], $_GET['itemStatus'], $_GET['min'], $_GET['max'], $_GET['sort']);
 
 }
 

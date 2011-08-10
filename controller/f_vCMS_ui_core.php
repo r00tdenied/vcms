@@ -223,11 +223,12 @@ function item_view($parent_sku,$tab)
 //
 //Accepts post input and generates item list table based on search criteria
 //
-function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max) {
+function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max, $sort) {
 	global $DbLink;
 	$i=0;
 	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
 
+	if(is_null($sort)){$sort = 'asc'; }
 	if(is_null($min)){$min = 0;}
 	if(is_null($max)){$max = 20;}
 	
@@ -248,6 +249,7 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max) {
 								 	alloc.status
 							from item_master im
 							join item_alloc alloc on im.parent_sku = alloc.parent_sku
+							order by im.parent_sku $sort
 							limit $min , $max";
 			$item_data = mysql_query($item_query, $DbLink);
 		}
@@ -266,6 +268,7 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max) {
 							from item_master im
 							join item_alloc alloc on im.parent_sku = alloc.parent_sku
 							where alloc.sku_prefix ='$catPref'
+							order by im.parent_sku $sort
 							limit $min , $max";
 			$item_data = mysql_query($item_query, $DbLink);
 		
@@ -285,6 +288,7 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max) {
 							from item_master im
 							join item_alloc alloc on im.parent_sku = alloc.parent_sku
 							where alloc.status ='$itemStatus'
+							order by im.parent_sku $sort
 							limit $min , $max";
 			$item_data = mysql_query($item_query, $DbLink);
 		
@@ -307,6 +311,7 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max) {
 							join item_alloc alloc on im.parent_sku = alloc.parent_sku
 							join item_prefix pref on alloc.sku_prefix = pref.sku_prefix
 							where pref.prefix_type ='$itemType'
+							order by im.parent_sku $sort
 							limit $min , $max";
 			$item_data = mysql_query($item_query, $DbLink);
 		
@@ -326,6 +331,7 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max) {
 						from item_master im
 						join item_alloc alloc on im.parent_sku = alloc.parent_sku
 						where im.parent_sku like'%$parentSku%'
+						order by im.parent_sku $sort
 						limit $min , $max";
 		$item_data = mysql_query($item_query, $DbLink);
 		
@@ -361,9 +367,17 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max) {
 	include 'view/v_vCMS_item_search.php';
 	echo '<table class="table_main">';
 	echo  "<tr>
-			<td><b>Actions</b></td>
-			<td><b>Sku</b></td>
-			<td><b>Variation</b></td>
+			<td><b>Actions</b></td>";
+			if($sort == 'asc')
+			{
+				echo "<td><a href='?p=vCMS&process=itemSearch&parentSku=$parentSku&catPref=$catPref&itemType=$itemType&itemStatus=$itemStatus&min=$min&max=$max&sort=desc'><b>Sku</b></a></td>";
+			}
+			if($sort == 'desc')
+			{
+				echo "<td><a href='?p=vCMS&process=itemSearch&parentSku=$parentSku&catPref=$catPref&itemType=$itemType&itemStatus=$itemStatus&min=$min&max=$max&sort=asc'><b>Sku</b></a></td>";
+			}
+			
+	echo 	"<td><b>Variation</b></td>
 			<td><b>Product Title</b></td>
 		</tr>";
 	while($row = mysql_fetch_assoc($item_data))
@@ -406,7 +420,8 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max) {
 		echo '<td style="text-align:left;width:100px;"></td>';
 		echo "<td style='text-align:center;'>Total Results: $rows</td>";
 		echo "<td style='text-align:right;width:100px;'>";
-		echo "<form method='POST' action='?p=vCMS'>";
+		echo "<form method='GET' action='?p=vCMS'>";
+		echo "<input type='hidden' name='p' value='vCMS'>";
 		echo "<input type='hidden' name='process' value='itemSearch'>";
 		echo "<input type='hidden' name='parentSku' value='$parentSku'>";
 		echo "<input type='hidden' name='catPref' value='$catPref'>";
@@ -414,6 +429,7 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max) {
 		echo "<input type='hidden' name='itemStatus' value='$itemStatus'>";
 		echo "<input type='hidden' name='min' value='$next_min'>";
 		echo "<input type='hidden' name='max' value='$next_max'>";
+		echo "<input type='hidden' name='sort' value='$sort'>";
 		echo "<input type='submit' value='Next 20'></form>";
 		echo '</td></tr></table>';
 	}
@@ -423,7 +439,8 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max) {
 		$prev_max = $max;
 		echo '<table class="table_main"><tr>';
 		echo '<td style="text-align:left;width:100px;">';
-		echo "<form method='POST' action='?p=vCMS'>";
+		echo "<form method='GET' action='?p=vCMS'>";
+		echo "<input type='hidden' name='p' value='vCMS'>";
 		echo "<input type='hidden' name='process' value='itemSearch'>";
 		echo "<input type='hidden' name='parentSku' value='$parentSku'>";
 		echo "<input type='hidden' name='catPref' value='$catPref'>";
@@ -431,6 +448,7 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max) {
 		echo "<input type='hidden' name='itemStatus' value='$itemStatus'>";
 		echo "<input type='hidden' name='min' value='$prev_min'>";
 		echo "<input type='hidden' name='max' value='$prev_max'>";
+		echo "<input type='hidden' name='sort' value='$sort'>";
 		echo "<input type='submit' value='Previous 20'></form></td>";
 		
 		echo "<td style='text-align:center;'>Total Results: $rows</td>";
@@ -441,7 +459,8 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max) {
 			$next_max=$max;
 			
 			echo '<td style="text-align:right;width:100px;">';
-			echo "<form method='POST' action='?p=vCMS'>";
+			echo "<form method='GET' action='?p=vCMS'>";
+			echo "<input type='hidden' name='p' value='vCMS'>";
 			echo "<input type='hidden' name='process' value='itemSearch'>";
 			echo "<input type='hidden' name='parentSku' value='$parentSku'>";
 			echo "<input type='hidden' name='catPref' value='$catPref'>";
@@ -449,6 +468,7 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max) {
 			echo "<input type='hidden' name='itemStatus' value='$itemStatus'>";
 			echo "<input type='hidden' name='min' value='$next_min'>";
 			echo "<input type='hidden' name='max' value='$next_max'>";
+			echo "<input type='hidden' name='sort' value='$sort'>";
 			echo "<input type='submit' value='Next 20'></form>";
 		}	echo '</td></tr></table>';
 	}

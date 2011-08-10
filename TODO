@@ -2,24 +2,30 @@ TODO List
 -------------
 
 -=High Priority=-
-*Add item vendor update validation to check that Vendor code is valid and that vendor code is not duplicated!
-*Write function to identify what content is available for specific parent_sku
-*Continued work on vCMS_processor.php to accept form inputs and trigger actions based on hidden fields
-*Code normalization, restructure portions of f_vCMS_ui_core.php to meet coding standards
-*Determine/implement best method to lock and unlock items to prevent edit collisions
-*Form validation(integer only, html allowed/disallowed, stripslashes, htmlspecialchars_encode/decode, etc)
-*Item search icon key table (right float??)
-*Add item header item status for discontinued items??? maybe add icon to item search for discontinued??
 
 *Item view tasks
 	|-Item alias form for Item vendor/alias tab 
 	|-Deterministic channel tabs fields based off channel platform type
+	|-Write function to identify what content is available for specific parent_sku
 	\-Move all styles to central css
+	
+*Item form logic tasks
+	|-Form validation(integer only, html allowed/disallowed, stripslashes, htmlspecialchars_encode/decode, etc)
+	\-Add item vendor update validation to check that Vendor code is valid and that vendor code is not duplicated!
+
+*Item Search view tasks
+	|-Rewrite paging to eliminate form buttons and use urls instead
+	|-Parent Sku sort order icon (alopez maybe?)
+	|-Listed channel icons in search view for immediate at a glance view of what items have content where(alopez maybe??)
+	|-Add item status icon for discontinued items??? Add ability to flag item as discontinued
+	\-Determine/implement best method to lock and unlock items to prevent edit collisions
+	
 
 -=Medium Priority=-
 *Research best method to implement user authentication and permission structure (assigned to zroed)
 *Determine file format export requirements based on channel platform type (assigned to zroed)
 *Examine channel api requirements based on platform type (assigned to zroed)
+*Item search icon key table (right float??)
 
 -=Low Priority=-
 *Create portal.php (assigned to zroed)
@@ -57,3 +63,6 @@ TODO List
 *Handling of updates for multiple vendors on Item vendor/alias tab
 *Delete item vendor function
 *Implemented tabbed view save state after submit (change active tab to keep them on the same one after form submit)
+*Item Search parent_sku sort order
+*Converted item search to $_GET instead of post for easier flexibility
+*f_vCMS_ui_core.php code normalization

@@ -1,4 +1,5 @@
-<form action="?p=vCMS" method="POST">
+<form action="?p=vCMS" method="GET">
+<input type="hidden" name="p" value="vCMS"/>
 <table class="table_main">
 <td><h3>Item Search</h3></td>
 </table>
