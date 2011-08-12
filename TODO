@@ -35,9 +35,12 @@ TODO List
 *Map out what item analytics type reports need to be built and what data is required
 
 -=LOL WUT Priority=-
+
 *InnovExport Utilities
 	|-Continual refinement of Fraud Check process for OM
 	|-Add AVS/CVV fields, modify SPROCs to trigger on AVS as well
+	|-Additional Order Search functions
+	|-Order Search paging
 	|-Order Viewer similiar for single item view w/ tabbed interface
 	\-Custom Reports
 	

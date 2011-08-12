@@ -332,7 +332,9 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max, $
 							 	alloc.status
 						from item_master im
 						join item_alloc alloc on im.parent_sku = alloc.parent_sku
+						join item_vendor iv on iv.parent_sku = im.parent_sku
 						where im.parent_sku like'%$parentSku%'
+						or iv.vendor_sku like'%$parentSku%'
 						order by im.parent_sku $sort
 						limit $min , $max";
 		$item_data = mysql_query($item_query, $DbLink);

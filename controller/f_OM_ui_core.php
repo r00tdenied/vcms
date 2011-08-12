@@ -103,7 +103,7 @@ function OM_InnovExport_Search($trigger)
   		  	   echo "<tr class='table_row" . ($i++ % 2) ."'>
   		  	   			<td>".odbc_result($result,'OrderNumber')."</td>
   		  	   			<td>".substr(odbc_result($result,'OrderDate'),0,-13)."</td>
-  		  	   			<td>".odbc_result($result,'SKU')."</td>
+  		  	   			<td><a href='?p=vCMS&process=itemSearch&parentSku=".odbc_result($result,'SKU')."'>".odbc_result($result,'SKU')."</a></td>
   		  	   		</tr>";
   		  	    
 			}

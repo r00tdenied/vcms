@@ -17,7 +17,7 @@
 </table>
 <table class="table_main">
 <tr>
-	<td><b>Parent SKU:</b></td>
+	<td><b>SKU:</b></td>
 	<td><input type="text" name="parentSku"></input></td>
 
 	<td><b>Item Prefix:</b></td>
