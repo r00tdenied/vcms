@@ -321,7 +321,10 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max, $
 	}
 	if( $parentSku != ''){
 		
-		$item_count = "SELECT * from item_master where parent_sku like '%$parentSku%'";
+		$item_count = "SELECT * from item_master im
+						join item_vendor iv on im.parent_sku = iv.parent_sku
+						where im.parent_sku like '%$parentSku%'
+						or iv.vendor_sku like '%$parentSku%'";
 		$item_count = mysql_query($item_count, $DbLink);
 		$rows = mysql_num_rows($item_count);
 		
@@ -333,8 +336,8 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max, $
 						from item_master im
 						join item_alloc alloc on im.parent_sku = alloc.parent_sku
 						join item_vendor iv on iv.parent_sku = im.parent_sku
-						where im.parent_sku like'%$parentSku%'
-						or iv.vendor_sku like'%$parentSku%'
+						where im.parent_sku like '%$parentSku%'
+						or iv.vendor_sku like '%$parentSku%'
 						order by im.parent_sku $sort
 						limit $min , $max";
 		$item_data = mysql_query($item_query, $DbLink);
@@ -419,7 +422,7 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max, $
 
 	}
 	
-	if($rows>$max && $min == '0')
+	if($rows>=$max && $min == '0')
 	{
 		$next_min = $min + 20;
 		$next_max = $max;

@@ -57,6 +57,7 @@ the incorrect QA Sku on other channels for future content revisions and to assis
 <li>Item Variation features are not yet programmed.  This system is designed to generate a parent sku, and if an item has a variation then children skus
 will be associated.</li>
 <li>The next button for item search results will display if there are no additional pages</li>
+<li>When multiple search result options are chosen and there are over 20 results, paging does not display</li>
 </ul>
 
 </table>
