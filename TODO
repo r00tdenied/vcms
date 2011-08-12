@@ -10,6 +10,7 @@ TODO List
 	
 *Item form logic tasks
 	|-Form validation(integer only, html allowed/disallowed, stripslashes, htmlspecialchars_encode/decode, etc)
+	|-Log different item update types into content_log
 	\-Add item vendor update validation to check that Vendor code is valid and that vendor code is not duplicated!
 
 *Item Search view tasks
@@ -39,6 +40,7 @@ TODO List
 	|-Add AVS/CVV fields, modify SPROCs to trigger on AVS as well
 	|-Order Viewer similiar for single item view w/ tabbed interface
 	\-Custom Reports
+	
 *Research best method to build multi-channel order import automation to supplant OM functionality
 	|-Per channel modules with configurable settings like timing, mode (manual, auto), etc
 	|-vCMS not designed to handle order data directly but modules with be controlled via vcms interface

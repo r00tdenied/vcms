@@ -477,9 +477,7 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max, $
 			echo "<input type='hidden' name='sort' value='$sort'>";
 			echo "<input type='submit' value='Next 20'></form>";
 		}	echo '</td></tr></table>';
-	}
-	
-	
+	}	
 }
 
 //
@@ -550,7 +548,7 @@ while ($row = mysql_fetch_assoc($item_alias))
 		<td style='text-align:center;'>
 					<input type='hidden' name='update' value='itemAlias'/>
 					<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
-					<input type='text' size='10' name='newAliasSku' value='<?php echo $row['alias_sku']?>'/>
+					<input type='text' size='12' name='newAliasSku' value='<?php echo $row['alias_sku']?>'/>
 					<input type='hidden' name='oldAliasType' value='<?php echo $row['type']?>'/>
 					<input type='hidden' name='oldAliasSku' value='<?php echo $row['alias_sku']?>'/></td>
 		<td style='text-align:right;width:15px;'>
@@ -579,7 +577,7 @@ while ($row = mysql_fetch_assoc($item_alias))
 				<td style='text-align:center;'><?php echo $parent_sku; ?></td>
 				<td style='text-align:center;'>Not Implemented</td>
 				<td style='text-align:center;'>
-					<input type='text' size='10' name='aliasSku'/>
+					<input type='text' size='12' name='aliasSku'/>
 				</td>
 				<td colspan='2' style='text-align:center;width:15px;'>
 					<input type='submit' value='Add Alias'/>
@@ -639,7 +637,7 @@ function item_vendor_table($parent_sku)
 					<input type='hidden' name='oldVendorCode' value='<?php echo $row['vendor_code']?>'/>
 				</td>
 				<td style='text-align:center;'>
-					<input type='text' size='10' name='newVendorSku' value='<?php echo $row['vendor_sku']?>'/>
+					<input type='text' size='12' name='newVendorSku' value='<?php echo $row['vendor_sku']?>'/>
 					<input type='hidden' name='oldVendorSku' value='<?php echo $row['vendor_sku']?>'/>
 				</td>
 				<td style='text-align:right;width:15px;'>
@@ -670,7 +668,7 @@ function item_vendor_table($parent_sku)
 					<input type='text' size='3' name='vendorCode'/>
 				</td>
 				<td style='text-align:center;'>
-					<input type='text' size='10' name='vendorSku'/>
+					<input type='text' size='12' name='vendorSku'/>
 				</td>
 				<td colspan='2' style='text-align:center;width:15px;'>
 					<input type='submit' value='Add Vendor'/>

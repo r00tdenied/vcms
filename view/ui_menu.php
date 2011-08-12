@@ -31,7 +31,7 @@
                     <a href="?v=generate_sku" class="icon-archive">Generate New Skus</a>
                 </li>
                 <li>
-            		<a href="?v=item_search" class="icon-zoom" title="Item Search">Item Search</a>
+            		<a href="?p=vCMS&parentSku=&catPref=&process=itemSearch&itemType=&itemStatus=" class="icon-zoom" title="Item Search">Item Search</a>
      			</li>
              </ul>
         </li>
