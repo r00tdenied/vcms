@@ -4,7 +4,7 @@
 <table class='table_main'>
 <td><h3>vCMS FAQ</h3><br/>
 <p><b><i>What is vCMS?</i></b><br/>
-The primary goal of vCMS is build an effective solution to managing the content for product across multiple market channels.
+The primary goal of vCMS is build an effective solution to managing content for products across multiple market channels.
 vCMS will also be built in a modular fashion to allow integration into ERP and WMS systems</p>
 <p><b><i>How do I generate new skus?</i></b><br/>
 Sku generation in vCMS is simple.  Just navigate to the Item Management menu via the <img src='view/images/pc.de/product.png'> icon on the left 
