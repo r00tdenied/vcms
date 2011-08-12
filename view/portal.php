@@ -4,7 +4,7 @@
 <table class='table_main'>
 <td><h3>vCMS FAQ</h3><br/>
 <p><b><i>What is vCMS?</i></b><br/>
-The primary goal of vCMS is build an effective solution to managing content for products across multiple market channels.
+The primary goal of vCMS is build an effective solution for managing the content of products across multiple market channels.
 vCMS will also be built in a modular fashion to allow integration into ERP and WMS systems</p>
 <p><b><i>How do I generate new skus?</i></b><br/>
 Sku generation in vCMS is simple.  Just navigate to the Item Management menu via the <img src='view/images/pc.de/product.png'> icon on the left 
@@ -39,7 +39,7 @@ These tabs organize specific parts of item data:
 <li>Item Header - All fields for the basic Item Title, an internal Item Description, and Basic Units of Measure</li>
 <li>Item Vendor/Alias - Edit item Mfg info including the orig. UPC, Editing Vendor information, Editing Item Aliases</li>
 </ul></p>
-<p><b><i>What are Item Aliases and how will the be used?</i></b><br/>
+<p><b><i>What are Item Aliases and how will they be used?</i></b><br/>
 Item Aliases will allow us to maintain data for mapping QA Skus to BOS Skus.  This is also an interim solution to store data for items with 
 the incorrect QA Sku on other channels for future content revisions and to assist with item mapping in Order Manager.</p>
 </td>
@@ -56,6 +56,7 @@ the incorrect QA Sku on other channels for future content revisions and to assis
 <li>Add item to Channel button is displayed but this function is not implemented yet and is still being planned</li>
 <li>Item Variation features are not yet programmed.  This system is designed to generate a parent sku, and if an item has a variation then children skus
 will be associated.</li>
+<li>The next button for item search results will display if there are no additional pages</li>
 </ul>
 
 </table>
