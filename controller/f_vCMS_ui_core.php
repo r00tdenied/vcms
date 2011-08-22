@@ -411,7 +411,7 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max, $
 			<td style='width:80px;'>".$row['parent_sku']."</td>";
 			if($row['variant_flag'] == '1')
 				{
-					echo "<td style='width:40px;'>Edit Variation</td>";
+					echo "<td style='width:80px;'>Edit Variation</td>";
 				}
 			elseif($row['variant_flag'] == '0') 
 				{
