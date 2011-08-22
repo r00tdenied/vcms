@@ -278,7 +278,7 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max, $
 	
 		if($itemStatus !=''){
 		
-			$item_count = "SELECT * from item_allow where status='$itemStatus'";
+			$item_count = "SELECT * from item_alloc where status='$itemStatus'";
 			$item_count = mysql_query($item_count, $DbLink);
 			$rows = mysql_num_rows($item_count);
 		
@@ -299,7 +299,7 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max, $
 		if($itemType != ''){
 		
 			$item_count = "SELECT * from item_alloc alloc 
-							join item_prefix pref on alloc.sku_prefix = pre.sku_prefix
+							join item_prefix pref on alloc.sku_prefix = pref.sku_prefix
 							where pref.prefix_type='$itemType'";
 			$item_count = mysql_query($item_count, $DbLink);
 			$rows = mysql_num_rows($item_count);
