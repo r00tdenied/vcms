@@ -123,7 +123,7 @@ function channel_master_select($parent_sku)
 //
 //Generates single item view tabbed ui
 //
-function item_view($parent_sku,$tab)
+function item_view($parent_sku,$variant,$tab)
 {
 ?>
     <!-- Start HTML - Horizontal tabs -->
@@ -145,16 +145,27 @@ function item_view($parent_sku,$tab)
                 	{
                 		echo ' <li><a href="#st_content_1" rel="tab_1" class="st_tab">Item Header</a></li>';
                 	}
+                	if($variant == 1)
+                	{
+                		if($tab == 'item_variant')
+                		{
+                			echo '<li><a href="#st_content_2" rel="tab_2" class="st_tab st_tab_active">Item Variation</a></li>';
+                		}
+                		elseif($tab != 'item_variant')
+                		{
+                			echo '<li><a href="#st_content_2" rel="tab_2" class="st_tab">Item Variation</a></li>';
+                		}
+                	}
                 	if($tab == 'item_vendor')
                 	{
-                		echo '<li><a href="#st_content_2" rel="tab_2" class="st_tab st_tab_active">Item Vendor/Alias</a></li>';
+                		echo '<li><a href="#st_content_3" rel="tab_3" class="st_tab st_tab_active">Item Vendor/Alias</a></li>';
                 	}
                 	elseif($tab !='item_vendor')
                 	{
-                		echo '<li><a href="#st_content_2" rel="tab_2" class="st_tab">Item Vendor/Alias</a></li>';
+                		echo '<li><a href="#st_content_3" rel="tab_3" class="st_tab">Item Vendor/Alias</a></li>';
                 	}
                 	?>                              
-                    <li><a href="#st_content_3" rel="tab_3" class="st_tab">Image Repository</a></li>
+                    <li><a href="#st_content_4" rel="tab_4" class="st_tab">Image Repository</a></li>
                      <?php $chan_array = explode(':',db_obj_item_channels($parent_sku));
 							$tab_head = 0;
 							$array_count = count($chan_array);
@@ -163,7 +174,7 @@ function item_view($parent_sku,$tab)
 							{
 								while($tab_head<$array_count)
 								{
-									$cont = $tab_head+4;
+									$cont = $tab_head+5;
 									echo '<li><a href="#st_content_'.$cont.'" rel="tab_'.$cont.'" class="st_tab">'.$chan_array[$tab_head].'</a></li>';
 									$tab_head++;
 		
@@ -187,13 +198,17 @@ function item_view($parent_sku,$tab)
                 </div>
                 
                 <div id="st_content_2" class="st_tab_view">
+                   <h2>Item Variation placeholder</h2>                     
+                </div>
+                
+                <div id="st_content_3" class="st_tab_view">
                 	<?php item_mfg_table($parent_sku)?>
               		<?php item_vendor_table($parent_sku)?>
               		<?php item_alias_table($parent_sku)?>
               		
                 </div>
                 
-                <div id="st_content_3" class="st_tab_view">
+                <div id="st_content_4" class="st_tab_view">
                     <h2>Image Repo Placeholder</h2>
                </div>
                <?php $chan_array = explode(':',db_obj_item_channels($parent_sku));
@@ -202,7 +217,7 @@ function item_view($parent_sku,$tab)
 	
 							while($tab_div<$array_count)
 							{
-								$tab_cont = $tab_div+4;
+								$tab_cont = $tab_div+5;
 								echo '<div id="st_content_'.$tab_cont.'" class="st_tab_view">';
 								echo "<h2>Placeholder</h2>";
 								echo "</div>";
@@ -393,11 +408,11 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max, $
 		echo 	"<td style='width:80px;'>";
 			if($row['status'] == 'NEW')
 				{
-					echo '<img alt="New Item" src="view/images/pc.de/sign-in.png"/>&nbsp;&nbsp;<a class="example7" href="?v=item_view&sku='.$row['parent_sku'].'">Edit Item</a>';
+					echo '<img alt="New Item" src="view/images/pc.de/sign-in.png"/>&nbsp;&nbsp;<a class="example7" href="?v=item_view&sku='.$row['parent_sku'].'&variant='.$row['variant_flag'].'">Edit Item</a>';
 				}
 			if($row['status'] == 'USED')
 			{
-					echo '<img src="view/images/pc.de/issue.png"/>&nbsp;&nbsp;<a class="example7" href="?v=item_view&sku='.$row['parent_sku'].'">Edit Item</a>';
+					echo '<img src="view/images/pc.de/issue.png"/>&nbsp;&nbsp;<a class="example7" href="?v=item_view&sku='.$row['parent_sku'].'&variant='.$row['variant_flag'].'">Edit Item</a>';
 			}
 			if($row['status'] == 'LOCKED' || $row['status'] == 'RESERVED')
 				{
@@ -405,13 +420,13 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max, $
 				}
 			if($row['status'] == 'DISCONT')
 				{
-					echo '<img src="view/images/pc.de/busy.png"/>&nbsp;&nbsp;<a class="example7" href="?v=item_view&sku='.$row['parent_sku'].'">Edit Item</a>';
+					echo '<img src="view/images/pc.de/busy.png"/>&nbsp;&nbsp;<a class="example7" href="?v=item_view&sku='.$row['parent_sku'].'&variant='.$row['variant_flag'].'">Edit Item</a>';
 				}
 		echo "</td>				
 			<td style='width:80px;'>".$row['parent_sku']."</td>";
 			if($row['variant_flag'] == '1')
 				{
-					echo "<td style='width:80px;'>Edit Variation</td>";
+					echo '<td style="width:80px;"><a class="example7" href="?v=item_view&sku='.$row['parent_sku'].'&variant='.$row['variant_flag'].'&tab=item_variant">Edit Variation</a></td>';
 				}
 			elseif($row['variant_flag'] == '0') 
 				{
