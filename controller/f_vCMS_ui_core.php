@@ -198,7 +198,7 @@ function item_view($parent_sku,$variant,$tab)
                 </div>
                 
                 <div id="st_content_2" class="st_tab_view">
-                   <h2>Item Variation placeholder</h2>                     
+                   <?php item_variation_table($parent_sku)?>                   
                 </div>
                 
                 <div id="st_content_3" class="st_tab_view">
@@ -781,3 +781,93 @@ function item_header_table($parent_sku)
 <?php	
 }
 
+//
+// Generates item variation table based on parent_sku
+//
+function item_variation_table($parent_sku)
+{
+	global $DbLink;
+	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
+	$item_variant_query="SELECT * from variant_header where parent_sku ='$parent_sku'";
+	$item_variant=mysql_query($item_variant_query,$DbLink);
+?>
+	<table class='table_window'>
+	<tr><td colspan='5'><h3>Item Variations</h3></td></tr>
+	<tr>
+		<td style='text-align:center;width:25%;'><b>Child Sku</b></td>
+		<td style='text-align:center;width:25%;'><b>Variant Sku</b></td>
+		<td style='text-align:center;width:25%;'><b>Variant Desc</b></td>
+		<td style='text-align:center;width:25%;'><b>Variant Type</b></td>
+	</tr>
+<?php 
+while ($row = mysql_fetch_assoc($item_variant)) 
+	{
+?>
+	<form method='post' action='?p=vCMS-tab'>
+	<input type='hidden' name='update' value='itemVariant'/>
+	<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
+	<input type='hidden' name='item_sku' value='<?php echo $row['item_sku'];?>'/>
+
+	<tr>
+		<td style='text-align:center;'><?php echo $row['item_sku']; ?></td>
+		<td style='text-align:center;'><input type='text' size='6' name='newVarSku' value='<?php echo $row['variant_sku']?>'/></td>
+		<td style='text-align:center;'><input type='text' size='20' name='newVarDesc' value='<?php echo $row['variant_desc']?>'/></td>
+		<td style='text-align:center;'><select name='newVarType'>
+								<?php 	
+									if($row['variant_type'] == 'Size'){echo '<option value="Size" selected="selected">Size</option>';}
+									else {echo '<option value="Size">Size</option>';}
+									if($row['variant_type'] == 'Color'){echo '<option value="Color" selected="selected">Color</option>';}
+									else {echo '<option value="Color">Color</option>';}
+									if($row['variant_type'] == 'Style'){echo '<option value="Style" selected="selected">Style</option>';}
+									else {echo '<option value="Style">Style</option>';}
+									if($row['variant_type'] == 'Size/Color'){echo '<option value="Size/Color" selected="selected">Size/Color</option>';}
+									else {echo '<option value="Size/Color">Size/Color</option>';}
+									if($row['variant_type'] == 'Size/Style'){echo '<option value="Size/Style" selected="selected">Size/Style</option>';}
+									else {echo '<option value="Size/Style">Size/Style</option>';}
+								?>
+										</select>
+		<td style='text-align:right;width:15px;'>
+					<input type='submit' value='Update'/>
+					</form>
+		</td>
+		<td style='text-align:left;width:15px;'>
+					<form method='post' action='?p=vCMS-tab'>
+					<input type='hidden' name='delete' value='itemVariant'/>
+					<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
+					<input type='hidden' name='item_sku' value='<?php echo $row['item_sku']; ?>'/>
+					<input type='submit' value='Delete'/>
+					</form>
+		</td>
+	</tr>
+<?php 
+	}
+	if(is_null($row['alias_sku']))
+	{
+?>
+			<form method='post' action='?p=vCMS-tab'>
+			<input type='hidden' name='insert' value='itemVariant'/>
+			<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
+			<tr>
+				<td style='text-align:center;'><?php echo $parent_sku; ?></td>
+				<td style='text-align:center;'><input type='text' size='6' name='varSku'/></td>
+				<td style='text-align:center;'><input type='text' size='20' name='varDesc'/></td>
+				<td style='text-align:center;'><select name='varType'>
+										<option value='Size'>Size</option>
+										<option value='Color'>Color</option>
+										<option value='Style'>Style</option>
+										<option value='Size/Color'>Size/Color</option>
+										<option value='Size/Style'>Size/Style</option>
+										</select></td>
+		
+				<td colspan='2' style='text-align:center;width:15px;'>
+					<input type='submit' value='Add Variant'/>
+					</form>
+				</td>
+
+			</tr>	
+<?php 
+	}	
+?>
+	</table>	
+<?php 
+}

@@ -167,6 +167,33 @@ function db_obj_delete_item_alias($parent_sku,$aliasType,$aliasSku)
 	mysql_query("delete from item_alias where parent_sku='$parent_sku' and type='$aliasType' and alias_sku='$aliasSku'");
 }
 
+function db_obj_insert_item_variant($parent_sku,$item_sku,$variant_sku,$variant_desc,$variant_type)
+{
+	global $DbLink;
+	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
+	mysql_query("insert into variant_header (parent_sku,item_sku,variant_sku,variant_desc,variant_type) 
+									values ('$parent_sku','$item_sku','$variant_sku','$variant_desc','$variant_type')");
+}
+
+function db_obj_update_item_variant($item_sku,$variant_sku,$variant_desc,$variant_type){
+	global $DbLink;
+	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
+	mysql_query("update variant_header 
+				set variant_sku = '$variant_sku', 
+				variant_desc='$variant_desc', 
+				variant_type='$variant_type'
+				where item_sku = '$item_sku'");
+}
+
+
+function db_obj_delete_item_variant($item_sku)
+{
+	global $DbLink;
+	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
+	mysql_query("delete from variant_header where item_sku = '$item_sku'");
+}
+
+
 //Based off the catPref variable, outputs the last used parent sku for that prefix
 function last_generated_sku($catPref)
 {

@@ -71,4 +71,26 @@ if($_POST['delete'] == 'itemAlias') {
 		echo '<meta http-equiv="refresh" content=".01;url=?v=item_view&sku='.$_POST['parent_sku'].'&tab=item_vendor">';
 }
 
+//Process for item variations insert, update delete
+if($_POST['insert'] == 'itemVariant'){
+		//Create item sku based on parent_sku and variant_sku
+		$parent_sku = $_POST['parent_sku'];
+		$varSku = $_POST['varSku'];
+		$item_sku_arr = array($parent_sku,$varSku);
+		$item_sku = join(" ",$item_sku_arr);
+		db_obj_insert_item_variant($_POST['parent_sku'], $item_sku, $_POST['varSku'], $_POST['varDesc'], $_POST['varType']);
+		echo '<meta http-equiv="refresh" content=".01;url=?v=item_view&sku='.$_POST['parent_sku'].'&tab=item_variant&variant=1">';
+}
+
+if($_POST['delete'] == 'itemVariant'){
+		db_obj_delete_item_variant($_POST['item_sku']);
+		echo '<meta http-equiv="refresh" content=".01;url=?v=item_view&sku='.$_POST['parent_sku'].'&tab=item_variant&variant=1">';
+}
+
+if($_POST['update'] == 'itemVariant'){
+		db_obj_update_item_variant($_POST['item_sku'],$_POST['newVarSku'],$_POST['newVarDesc'],$_POST['newVarType']);
+		echo '<meta http-equiv="refresh" content=".01;url=?v=item_view&sku='.$_POST['parent_sku'].'&tab=item_variant&variant=1">';
+}
+
+
 ?>
