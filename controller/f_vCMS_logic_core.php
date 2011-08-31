@@ -108,6 +108,7 @@ function db_obj_item_update($parent_sku,$table,$field,$value)
 {
 	global $DbLink;
 	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
+	$value = htmlspecialchars($value,ENT_QUOTES);
 	
 	$query = "update ".$table." set ".$field." = '".$value."' where parent_sku='".$parent_sku."'";
 	$exec_query = mysql_query($query, $DbLink);
@@ -118,6 +119,9 @@ function db_obj_insert_item_vendor($parent_sku,$vendorCode,$vendorSku)
 {
 	global $DbLink;
 	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
+	$vendorCode = htmlspecialchars($vendorCode,ENT_QUOTES);
+	$vendorSku = htmlspecialchars($vendorSku,ENT_QUOTES);
+		
 	mysql_query("insert into item_vendor (parent_sku,vendor_code,vendor_sku) values ('$parent_sku','$vendorCode','$vendorSku')");		
 }
 
@@ -125,6 +129,11 @@ function db_obj_update_item_vendor($parent_sku,$newVendorCode,$oldVendorCode, $n
 {
 	global $DbLink;
 	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
+	$newVendorCode = htmlspecialchars($newVendorCode,ENT_QUOTES);
+	$oldVendorCode = htmlspecialchars($oldVendorCode,ENT_QUOTES);
+	$newVendorSku = htmlspecialchars($newVendorSku,ENT_QUOTES);
+	$oldVendorSku = htmlspecialchars($oldVendorSku,ENT_QUOTES);
+	
 	mysql_query("update item_vendor 
 					set vendor_code='$newVendorCode',
 					vendor_sku='$newVendorSku' 
@@ -137,6 +146,9 @@ function db_obj_delete_item_vendor($parent_sku,$vendorCode,$vendorSku)
 {
 	global $DbLink;
 	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
+	$vendorCode = htmlspecialchars($vendorCode,ENT_QUOTES);
+	$vendorSku = htmlspecialchars($vendorSku,ENT_QUOTES);
+	
 	mysql_query("delete from item_vendor where parent_sku='$parent_sku' and vendor_code='$vendorCode' and vendor_sku='$vendorSku'");
 }
 
@@ -145,6 +157,7 @@ function db_obj_insert_item_alias($parent_sku,$aliasType,$aliasSku)
 {
 	global $DbLink;
 	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
+	$aliasSku = htmlspecialchars($aliasSku,ENT_QUOTES);
 	mysql_query("insert into item_alias (parent_sku,type,alias_sku) values ('$parent_sku','$aliasType','$aliasSku')");		
 }
 
@@ -164,6 +177,7 @@ function db_obj_delete_item_alias($parent_sku,$aliasType,$aliasSku)
 {
 	global $DbLink;
 	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
+	$aliasSku = htmlspecialchars($aliasSku,ENT_QUOTES);
 	mysql_query("delete from item_alias where parent_sku='$parent_sku' and type='$aliasType' and alias_sku='$aliasSku'");
 }
 
@@ -171,6 +185,7 @@ function db_obj_insert_item_variant($parent_sku,$item_sku,$variant_sku,$variant_
 {
 	global $DbLink;
 	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
+	$variant_desc = htmlspecialchars($variant_desc,ENT_QUOTES);	
 	mysql_query("insert into variant_header (parent_sku,item_sku,variant_sku,variant_desc,variant_type) 
 									values ('$parent_sku','$item_sku','$variant_sku','$variant_desc','$variant_type')");
 }
@@ -178,6 +193,7 @@ function db_obj_insert_item_variant($parent_sku,$item_sku,$variant_sku,$variant_
 function db_obj_update_item_variant($item_sku,$variant_sku,$variant_desc,$variant_type){
 	global $DbLink;
 	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
+	$variant_desc = htmlspecialchars($variant_desc,ENT_QUOTES);
 	mysql_query("update variant_header 
 				set variant_sku = '$variant_sku', 
 				variant_desc='$variant_desc', 

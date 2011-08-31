@@ -6,17 +6,23 @@ TODO List
 *Item view tasks
 	|-Deterministic channel tabs fields based off channel platform type
 	|-Write function to identify what content is available for specific parent_sku
+	|-Update item alias system to check and handle variations
+		*If item is configured for variation, select variation from dropdown list to associate w/ other alias
+	|-Discontinue/Undiscontinue item button and function
+	|-Update Update Item function to check if item is discontinued and if so leave it at that status
+	|-IMAGE REPOSITORY!!!!111one...
 	\-Move all styles to central css
 	
 *Item form logic tasks
-	|-Form validation(integer only, html allowed/disallowed, stripslashes, htmlspecialchars_encode/decode, etc)
+	|-Form validation(integer/numbers only, stripslashes, etc)
 	|-Log different item update types into content_log
-	\-Add item vendor update validation to check that Vendor code is valid and that vendor code is not duplicated!
+	\-Add item vendor update validation to check that Vendor code is valid and that vendor code/sku is not duplicated!
 
 *Item Search view tasks
-	|-Rewrite paging to eliminate form buttons and use urls instead
+	|-Rewrite paging to eliminate form buttons and use urls instead(maybe??)
+	|-Display current page #
 	|-Parent Sku sort order icon (alopez maybe?)
-	|-Listed channel icons in search view for immediate at a glance view of what items have content where(alopez maybe??)
+	|-Listed channel icons in search view for immediate at a glance view of what items have content where (alopez maybe??)
 	|-Add item status icon for discontinued items??? Add ability to flag item as discontinued
 	\-Determine/implement best method to lock and unlock items to prevent edit collisions
 	
@@ -74,3 +80,5 @@ TODO List
 *Redirect from Sku generator to newly generated skus based on $catPref and status NEW to Item search
 *Decreased processor redirect timings on form updates
 *Split item mfg table from item_vendor_table added item_alias_table as its own function.  It is cleaner to treat them as sep. objects
+*Fixed item search bug with pagination count queries
+*Added htmlspecialchars on most item view fields and assoc functions/processes to prevent sqli and query breaks

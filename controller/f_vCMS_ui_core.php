@@ -433,7 +433,7 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max, $
 					echo "<td style='width:80px;'></td>";
 				}
 		
-		echo '<td>'.$row['master_title'].'</td>';
+		echo '<td>'.htmlspecialchars_decode($row['master_title']).'</td>';
 		echo '</tr>';
 
 	}
@@ -442,6 +442,7 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max, $
 	{
 		$next_min = $min + 20;
 		$next_max = $max;
+		$tot_pages = $rows/20;
 		
 		echo '<table class="table_main"><tr>';
 		echo '<td style="text-align:left;width:100px;"></td>';
@@ -464,6 +465,8 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max, $
 	{
 		$prev_min = $min - 20;
 		$prev_max = $max;
+		$tot_pages = $rows/20;
+		
 		echo '<table class="table_main"><tr>';
 		echo '<td style="text-align:left;width:100px;">';
 		echo "<form method='GET' action='?p=vCMS'>";
@@ -484,6 +487,7 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max, $
 		{
 			$next_min=$min+20;
 			$next_max=$max;
+			$tot_pages = $rows/20;
 			
 			echo '<td style="text-align:right;width:100px;">';
 			echo "<form method='GET' action='?p=vCMS'>";
@@ -527,10 +531,10 @@ function item_mfg_table($parent_sku)
 			<form method='post' action='?p=vCMS-tab'>
 			<input type='hidden' name='update' value='itemMfg'/>
 			<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
-			<input type='text' size='20' name='mfgName' value='<?php echo db_obj_item_view($parent_sku, 'item_vendor', 'mfg_name')?>'/>
+			<input type='text' size='20' name='mfgName' value='<?php echo htmlspecialchars_decode(db_obj_item_view($parent_sku, 'item_vendor', 'mfg_name'), ENT_NOQUOTES);?>'/>
 		</td>
 		<td style='text-align:center;'>
-			<input type='text' size='20' name='mfgUPC' value='<?php echo db_obj_item_view($parent_sku, 'item_vendor', 'mfg_upc')?>'/>
+			<input type='text' size='20' name='mfgUPC' value='<?php echo htmlspecialchars_decode(db_obj_item_view($parent_sku, 'item_vendor', 'mfg_upc'), ENT_NOQUOTES);?>'/>
 		</td>
 		<td style='text-align:center;'>
 			<input type='submit' value='Update Mfg'/>
@@ -569,9 +573,9 @@ while ($row = mysql_fetch_assoc($item_alias))
 		<td style='text-align:center;'>
 					<input type='hidden' name='update' value='itemAlias'/>
 					<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
-					<input type='text' size='12' name='newAliasSku' value='<?php echo $row['alias_sku']?>'/>
-					<input type='hidden' name='oldAliasType' value='<?php echo $row['type']?>'/>
-					<input type='hidden' name='oldAliasSku' value='<?php echo $row['alias_sku']?>'/></td>
+					<input type='text' size='12' name='newAliasSku' value='<?php echo htmlspecialchars_decode($row['alias_sku'], ENT_NOQUOTES);?>'/>
+					<input type='hidden' name='oldAliasType' value='<?php echo htmlspecialchars_decode($row['type'], ENT_NOQUOTES);?>'/>
+					<input type='hidden' name='oldAliasSku' value='<?php echo htmlspecialchars_decode($row['alias_sku'], ENT_NOQUOTES);?>'/></td>
 		<td style='text-align:right;width:15px;'>
 					<input type='submit' value='Update'/>
 					</form>
@@ -580,8 +584,8 @@ while ($row = mysql_fetch_assoc($item_alias))
 					<form method='post' action='?p=vCMS-tab'>
 					<input type='hidden' name='delete' value='itemAlias'/>
 					<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
-					<input type='hidden' name='aliasType' value='<?php echo $tow['type']?>'/>
-					<input type='hidden' name='aliasSku' value='<?php echo $row['alias_sku']?>'/>
+					<input type='hidden' name='aliasType' value='<?php echo htmlspecialchars_decode($row['type']);?>'/>
+					<input type='hidden' name='aliasSku' value='<?php echo htmlspecialchars_decode($row['alias_sku']);?>'/>
 					<input type='submit' value='Delete'/>
 					</form>
 		</td>
@@ -654,12 +658,12 @@ function item_vendor_table($parent_sku)
 					<form method='post' action='?p=vCMS-tab'>
 					<input type='hidden' name='update' value='itemVendor'/>
 					<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
-					<input type='text' size='3' name='newVendorCode' value='<?php echo $row['vendor_code']?>'/>
-					<input type='hidden' name='oldVendorCode' value='<?php echo $row['vendor_code']?>'/>
+					<input type='text' size='3' name='newVendorCode' value='<?php echo htmlspecialchars_decode($row['vendor_code']);?>'/>
+					<input type='hidden' name='oldVendorCode' value='<?php echo htmlspecialchars_decode($row['vendor_code']);?>'/>
 				</td>
 				<td style='text-align:center;'>
-					<input type='text' size='12' name='newVendorSku' value='<?php echo $row['vendor_sku']?>'/>
-					<input type='hidden' name='oldVendorSku' value='<?php echo $row['vendor_sku']?>'/>
+					<input type='text' size='12' name='newVendorSku' value='<?php echo htmlspecialchars_decode($row['vendor_sku']);?>'/>
+					<input type='hidden' name='oldVendorSku' value='<?php echo htmlspecialchars_decode($row['vendor_sku']);?>'/>
 				</td>
 				<td style='text-align:right;width:15px;'>
 					<input type='submit' value='Update'/>
@@ -669,8 +673,8 @@ function item_vendor_table($parent_sku)
 					<form method='post' action='?p=vCMS-tab'>
 					<input type='hidden' name='delete' value='itemVendor'/>
 					<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
-					<input type='hidden' name='vendorCode' value='<?php echo $row['vendor_code']?>'/>
-					<input type='hidden' name='vendorSku' value='<?php echo $row['vendor_sku']?>'/>
+					<input type='hidden' name='vendorCode' value='<?php echo htmlspecialchars_decode($row['vendor_code']);?>'/>
+					<input type='hidden' name='vendorSku' value='<?php echo htmlspecialchars_decode($row['vendor_sku']);?>'/>
 					<input type='submit' value='Delete'/>
 					</form>
 				</td>
@@ -720,8 +724,8 @@ function item_header_table($parent_sku)
 						<tr>
 							<td><form method="post" action="?p=vCMS-tab"><?php echo $parent_sku; ?>
 							<input type="hidden" name="parent_sku" value="<?php echo $parent_sku; ?>"/></td>
-							<td><?php echo db_obj_item_view($parent_sku,'item_master','variant_flag')?></td>
-							<td><input size= "100" type="text" name="master_title" value="<?php echo db_obj_item_view($parent_sku,'item_master','master_title')?>"/>
+							<td><?php echo htmlspecialchars_decode(db_obj_item_view($parent_sku,'item_master','variant_flag'), ENT_NOQUOTES);?></td>
+							<td><input size= "100" type="text" name="master_title" value="<?php echo htmlspecialchars_decode(db_obj_item_view($parent_sku,'item_master','master_title'), ENT_NOQUOTES);?>"/>
 							</td>
 						</tr>
 					</table>
@@ -732,7 +736,7 @@ function item_header_table($parent_sku)
 						</tr>
 						<tr>
 							<td>
-								<textarea rows="3" cols="95" name="master_desc"><?php echo db_obj_item_view($parent_sku,'item_master','master_desc')?></textarea>
+								<textarea rows="3" cols="95" name="master_desc"><?php echo htmlspecialchars_decode(db_obj_item_view($parent_sku,'item_master','master_desc'), ENT_NOQUOTES);?></textarea>
 							</td>
 						</tr>
 					</table>
@@ -749,16 +753,16 @@ function item_header_table($parent_sku)
 						</tr>
 						<tr>
 							<td style="text-align:center;">
-								<input size="3" name="length" value="<?php echo db_obj_item_view($parent_sku, 'item_uom', 'length')?>"/>
+								<input size="3" name="length" value="<?php echo htmlspecialchars_decode(db_obj_item_view($parent_sku, 'item_uom', 'length'), ENT_NOQUOTES); ?>"/>
 							</td>
 							<td style="text-align:center;">
-								<input size="3" name="width" value="<?php echo db_obj_item_view($parent_sku, 'item_uom', 'width')?>"/>
+								<input size="3" name="width" value="<?php echo htmlspecialchars_decode(db_obj_item_view($parent_sku, 'item_uom', 'width'), ENT_NOQUOTES);?>"/>
 							</td>
 							<td style="text-align:center;">
-								<input size="3" name="height" value="<?php echo db_obj_item_view($parent_sku, 'item_uom', 'height')?>"/>
+								<input size="3" name="height" value="<?php echo htmlspecialchars_decode(db_obj_item_view($parent_sku, 'item_uom', 'height'), ENT_NOQUOTES);?>"/>
 							</td>
 							<td style="text-align:center;">
-								<input size="3" name="weight" value="<?php echo db_obj_item_view($parent_sku, 'item_uom', 'weight')?>"/>
+								<input size="3" name="weight" value="<?php echo htmlspecialchars_decode(db_obj_item_view($parent_sku, 'item_uom', 'weight'), ENT_NOQUOTES);?>"/>
 							</td>
 						</tr>
 					</table>
@@ -811,8 +815,8 @@ while ($row = mysql_fetch_assoc($item_variant))
 
 	<tr>
 		<td style='text-align:center;'><?php echo $row['item_sku']; ?></td>
-		<td style='text-align:center;'><input type='text' size='6' name='newVarSku' value='<?php echo $row['variant_sku']?>'/></td>
-		<td style='text-align:center;'><input type='text' size='20' name='newVarDesc' value='<?php echo $row['variant_desc']?>'/></td>
+		<td style='text-align:center;'><input type='text' size='6' name='newVarSku' value='<?php echo htmlspecialchars_decode($row['variant_sku']);?>'/></td>
+		<td style='text-align:center;'><input type='text' size='20' name='newVarDesc' value='<?php echo htmlspecialchars_decode($row['variant_desc']);?>'/></td>
 		<td style='text-align:center;'><select name='newVarType'>
 								<?php 	
 									if($row['variant_type'] == 'Size'){echo '<option value="Size" selected="selected">Size</option>';}
@@ -825,6 +829,8 @@ while ($row = mysql_fetch_assoc($item_variant))
 									else {echo '<option value="Size/Color">Size/Color</option>';}
 									if($row['variant_type'] == 'Size/Style'){echo '<option value="Size/Style" selected="selected">Size/Style</option>';}
 									else {echo '<option value="Size/Style">Size/Style</option>';}
+									if($row['variant_type'] == 'Weight'){echo '<option value="Weight" selected="selected">Weight</option>';}
+									else {echo '<option value="Weight">Weight</option>';}
 								?>
 										</select>
 		<td style='text-align:right;width:15px;'>
@@ -858,6 +864,7 @@ while ($row = mysql_fetch_assoc($item_variant))
 										<option value='Style'>Style</option>
 										<option value='Size/Color'>Size/Color</option>
 										<option value='Size/Style'>Size/Style</option>
+										<option value="Weight">Weight</option>
 										</select></td>
 		
 				<td colspan='2' style='text-align:center;width:15px;'>
