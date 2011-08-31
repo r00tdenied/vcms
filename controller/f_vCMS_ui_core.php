@@ -428,10 +428,11 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max, $
 				{
 					echo '<td style="width:80px;"><a class="example7" href="?v=item_view&sku='.$row['parent_sku'].'&variant='.$row['variant_flag'].'&tab=item_variant">Edit Variation</a></td>';
 				}
-			elseif($row['variant_flag'] == '0') 
+			if($row['variant_flag'] == '0') 
 				{
 					echo "<td style='width:80px;'></td>";
 				}
+		
 		echo '<td>'.$row['master_title'].'</td>';
 		echo '</tr>';
 
