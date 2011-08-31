@@ -194,7 +194,7 @@ function item_view($parent_sku,$variant,$tab)
             <div class="st_view">
                         
                 <div id="st_content_1" class="st_tab_view">
-                   <?php item_header_table($parent_sku)?>                      
+                   <?php item_header_table($parent_sku,$variant)?>                      
                 </div>
                 
                 <div id="st_content_2" class="st_tab_view">
@@ -202,9 +202,9 @@ function item_view($parent_sku,$variant,$tab)
                 </div>
                 
                 <div id="st_content_3" class="st_tab_view">
-                	<?php item_mfg_table($parent_sku)?>
-              		<?php item_vendor_table($parent_sku)?>
-              		<?php item_alias_table($parent_sku)?>
+                	<?php item_mfg_table($parent_sku,$variant)?>
+              		<?php item_vendor_table($parent_sku,$variant)?>
+              		<?php item_alias_table($parent_sku,$variant)?>
               		
                 </div>
                 
@@ -508,7 +508,7 @@ function item_search($parentSku, $catPref, $itemType, $itemStatus, $min, $max, $
 //
 //Generates item mfg table based on parent_sku
 //
-function item_mfg_table($parent_sku)
+function item_mfg_table($parent_sku,$variant)
 {
 	?>
 	<table class='table_window'>
@@ -531,6 +531,7 @@ function item_mfg_table($parent_sku)
 			<form method='post' action='?p=vCMS-tab'>
 			<input type='hidden' name='update' value='itemMfg'/>
 			<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
+			<input type="hidden" name="variant" value="<?php echo $variant; ?>"/>
 			<input type='text' size='20' name='mfgName' value='<?php echo htmlspecialchars_decode(db_obj_item_view($parent_sku, 'item_vendor', 'mfg_name'), ENT_NOQUOTES);?>'/>
 		</td>
 		<td style='text-align:center;'>
@@ -548,7 +549,7 @@ function item_mfg_table($parent_sku)
 //
 // Generates item alias table based on parent_sku
 //
-function item_alias_table($parent_sku)
+function item_alias_table($parent_sku,$variant)
 {
 	global $DbLink;
 	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
@@ -569,10 +570,12 @@ while ($row = mysql_fetch_assoc($item_alias))
 	<form method='post' action='?p=vCMS-tab'>
 	<tr>
 		<td style='text-align:center;'><?php echo $parent_sku; ?></td>
+		
 		<td style='text-align:center;'><?php echo $row['type']?></td>
 		<td style='text-align:center;'>
 					<input type='hidden' name='update' value='itemAlias'/>
 					<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
+					<input type="hidden" name="variant" value="<?php echo $variant; ?>"/>
 					<input type='text' size='12' name='newAliasSku' value='<?php echo htmlspecialchars_decode($row['alias_sku'], ENT_NOQUOTES);?>'/>
 					<input type='hidden' name='oldAliasType' value='<?php echo htmlspecialchars_decode($row['type'], ENT_NOQUOTES);?>'/>
 					<input type='hidden' name='oldAliasSku' value='<?php echo htmlspecialchars_decode($row['alias_sku'], ENT_NOQUOTES);?>'/></td>
@@ -584,6 +587,7 @@ while ($row = mysql_fetch_assoc($item_alias))
 					<form method='post' action='?p=vCMS-tab'>
 					<input type='hidden' name='delete' value='itemAlias'/>
 					<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
+					<input type="hidden" name="variant" value="<?php echo $variant; ?>"/>
 					<input type='hidden' name='aliasType' value='<?php echo htmlspecialchars_decode($row['type']);?>'/>
 					<input type='hidden' name='aliasSku' value='<?php echo htmlspecialchars_decode($row['alias_sku']);?>'/>
 					<input type='submit' value='Delete'/>
@@ -598,6 +602,7 @@ while ($row = mysql_fetch_assoc($item_alias))
 			<form method='post' action='?p=vCMS-tab'>
 			<input type='hidden' name='insert' value='itemAlias'/>
 			<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
+			<input type="hidden" name="variant" value="<?php echo $variant; ?>"/>
 			<tr>
 				<td style='text-align:center;'><?php echo $parent_sku; ?></td>
 				<td style='text-align:center;'>Not Implemented</td>
@@ -622,7 +627,7 @@ while ($row = mysql_fetch_assoc($item_alias))
 //
 //Generates item vendor table based on parent_sku
 //
-function item_vendor_table($parent_sku)
+function item_vendor_table($parent_sku,$variant)
 {
 	global $DbLink;
 	dbconn(DB_ADDRESS, DB_NAME, DB_USER, DB_PASSWORD);
@@ -658,6 +663,7 @@ function item_vendor_table($parent_sku)
 					<form method='post' action='?p=vCMS-tab'>
 					<input type='hidden' name='update' value='itemVendor'/>
 					<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
+					<input type="hidden" name="variant" value="<?php echo $variant; ?>"/>
 					<input type='text' size='3' name='newVendorCode' value='<?php echo htmlspecialchars_decode($row['vendor_code']);?>'/>
 					<input type='hidden' name='oldVendorCode' value='<?php echo htmlspecialchars_decode($row['vendor_code']);?>'/>
 				</td>
@@ -673,6 +679,7 @@ function item_vendor_table($parent_sku)
 					<form method='post' action='?p=vCMS-tab'>
 					<input type='hidden' name='delete' value='itemVendor'/>
 					<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
+					<input type="hidden" name="variant" value="<?php echo $variant; ?>"/>
 					<input type='hidden' name='vendorCode' value='<?php echo htmlspecialchars_decode($row['vendor_code']);?>'/>
 					<input type='hidden' name='vendorSku' value='<?php echo htmlspecialchars_decode($row['vendor_sku']);?>'/>
 					<input type='submit' value='Delete'/>
@@ -690,6 +697,7 @@ function item_vendor_table($parent_sku)
 					<form method='post' action='?p=vCMS-tab'>
 					<input type='hidden' name='insert' value='itemVendor'/>
 					<input type='hidden' name='parent_sku' value='<?php echo $parent_sku; ?>'/>
+					<input type="hidden" name="variant" value="<?php echo $variant; ?>"/>
 					<input type='text' size='3' name='vendorCode'/>
 				</td>
 				<td style='text-align:center;'>
@@ -711,7 +719,7 @@ function item_vendor_table($parent_sku)
 //
 //Generates item header table based on parent_sku
 //
-function item_header_table($parent_sku)
+function item_header_table($parent_sku,$variant)
 {
 ?>	
 	 <table class="table_window">
@@ -723,8 +731,9 @@ function item_header_table($parent_sku)
 						</tr>
 						<tr>
 							<td><form method="post" action="?p=vCMS-tab"><?php echo $parent_sku; ?>
-							<input type="hidden" name="parent_sku" value="<?php echo $parent_sku; ?>"/></td>
-							<td><?php echo htmlspecialchars_decode(db_obj_item_view($parent_sku,'item_master','variant_flag'), ENT_NOQUOTES);?></td>
+							<input type="hidden" name="parent_sku" value="<?php echo $parent_sku; ?>"/>
+							<input type="hidden" name="variant" value="<?php echo $variant; ?>"/></td>
+							<td><?php echo $variant;?></td>
 							<td><input size= "100" type="text" name="master_title" value="<?php echo htmlspecialchars_decode(db_obj_item_view($parent_sku,'item_master','master_title'), ENT_NOQUOTES);?>"/>
 							</td>
 						</tr>

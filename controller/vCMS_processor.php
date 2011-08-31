@@ -22,7 +22,7 @@ if($_POST['update'] == 'itemHeader') {
 	db_obj_item_update($_POST['parent_sku'], 'item_uom', 'height', $_POST['height']);
 	db_obj_item_update($_POST['parent_sku'], 'item_uom', 'weight', $_POST['weight']);
 	db_obj_item_update($_POST['parent_sku'], 'item_alloc', 'status', 'USED');
-	echo '<meta http-equiv="refresh" content=".01;url=?v=item_view&sku='.$_POST['parent_sku'].'&tab=item_header">';
+	echo '<meta http-equiv="refresh" content=".01;url=?v=item_view&sku='.$_POST['parent_sku'].'&tab=item_header&variant='.$_POST['variant'].'">';
 }
 
 //Process updates for individual item mfg
@@ -30,14 +30,14 @@ if($_POST['update'] == 'itemMfg') {
 	db_obj_item_update($_POST['parent_sku'], 'item_vendor', 'mfg_name', $_POST['mfgName']);
 	db_obj_item_update($_POST['parent_sku'], 'item_vendor', 'mfg_upc', $_POST['mfgUPC']);
 	db_obj_item_update($_POST['parent_sku'], 'item_alloc', 'status', 'USED');
-	echo '<meta http-equiv="refresh" content=".01;url=?v=item_view&sku='.$_POST['parent_sku'].'&tab=item_vendor">';
+	echo '<meta http-equiv="refresh" content=".01;url=?v=item_view&sku='.$_POST['parent_sku'].'&tab=item_vendor&variant='.$_POST['variant'].'">';
 }
 
 //Processes for item vendor insert,update,delete
 if($_POST['insert'] == 'itemVendor') {
 		db_obj_insert_item_vendor($_POST['parent_sku'], $_POST['vendorCode'], $_POST['vendorSku']);
 		db_obj_item_update($_POST['parent_sku'], 'item_alloc', 'status', 'USED');
-		echo '<meta http-equiv="refresh" content=".01;url=?v=item_view&sku='.$_POST['parent_sku'].'&tab=item_vendor">';
+		echo '<meta http-equiv="refresh" content=".01;url=?v=item_view&sku='.$_POST['parent_sku'].'&tab=item_vendor&variant='.$_POST['variant'].'">';
 }
 
 if($_POST['update'] == 'itemVendor') {
@@ -62,13 +62,13 @@ if($_POST['insert'] == 'itemAlias') {
 if($_POST['update'] == 'itemAlias') {
 		db_obj_update_item_alias($_POST['parent_sku'], $_POST['newAliasType'], $_POST['oldAliasType'], $_POST['newAliasSku'], $_POST['oldAliasSku']);
 		db_obj_item_update($_POST['parent_sku'], 'item_alloc', 'status', 'USED');
-		echo '<meta http-equiv="refresh" content=".01;url=?v=item_view&sku='.$_POST['parent_sku'].'&tab=item_vendor">';		
+		echo '<meta http-equiv="refresh" content=".01;url=?v=item_view&sku='.$_POST['parent_sku'].'&tab=item_vendor&variant='.$_POST['variant'].'">';		
 }
 
 if($_POST['delete'] == 'itemAlias') {
 		db_obj_delete_item_alias($_POST['parent_sku'], $_POST['aliasType'],$_POST['aliasSku']);
 		db_obj_item_update($_POST['parent_sku'], 'item_alloc', 'status', 'USED');
-		echo '<meta http-equiv="refresh" content=".01;url=?v=item_view&sku='.$_POST['parent_sku'].'&tab=item_vendor">';
+		echo '<meta http-equiv="refresh" content=".01;url=?v=item_view&sku='.$_POST['parent_sku'].'&tab=item_vendor&variant='.$_POST['variant'].'">';
 }
 
 //Process for item variations insert, update delete
