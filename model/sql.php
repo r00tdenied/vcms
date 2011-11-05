@@ -2,19 +2,8 @@
 
 function dbconn($strHostName, $strDbName, $strUserName, $strPassword) {
 
-   //
-   // MYSQL CONNECTION FUNCTION
-   //
-   // 2006-08, 2008-09 http://kimbriggs.com/computers/
-   //
-   // Parameters: Host Name, Database Name, Username and Password for MySQL.
-   //
-   // Provides: MySQL Connection Resource and Database Selection.
-   //
-
-   // Make the connection global. Return it if it exists.
-   // Pilfered from the PHP online manual page:
-   // http://www.php.net/function.mysql-connect
+	// Function to handle mysql db connections
+	
    global $DbLink;
    if($DbLink) {
       return $DbLink;

@@ -12,7 +12,7 @@ function OM_InnovExport_Fraud_Release($OrderNumber)
 		if (!$connect)
   		{exit("Connection Failed: " . $connect);}
 
-		$sql = "update Orders set InnovExport = '0', FraudScore = '0' where OrderNumber = '$OrderNumber'";
+		$sql = "use QAData update Orders set InnovExport = '0', FraudScore = '0' where OrderNumber = '$OrderNumber'";
 
 		$result=odbc_exec($connect,$sql);
 		if (!$result)
@@ -34,7 +34,7 @@ function OM_InnovExport_Fraud_Cancel($OrderNumber)
 		if (!$connect)
   		{exit("Connection Failed: " . $connect);}
 
-		$sql = "update Orders set FraudScore = '1', Cancelled = '1' where OrderNumber = '$OrderNumber'";
+		$sql = "use QAData update Orders set FraudScore = '1', Cancelled = '1' where OrderNumber = '$OrderNumber'";
 
 		$result=odbc_exec($connect,$sql);
 		if (!$result)

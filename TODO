@@ -9,7 +9,7 @@ TODO List
 	|-Update item alias system to check and handle variations
 		*If item is configured for variation, select variation from dropdown list to associate w/ other alias
 	|-Discontinue/Undiscontinue item button and function
-	|-Update Update Item function to check if item is discontinued and if so leave it at that status
+	|-Update "Update Item" function to check if item is discontinued and if so leave it at that status
 	|-IMAGE REPOSITORY!!!!111one...
 	\-Move all styles to central css
 	
