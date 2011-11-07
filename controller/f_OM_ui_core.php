@@ -83,7 +83,7 @@ function OM_InnovExport_Search($trigger)
 			$sql = "use QAData select * from Orders ord 
 					join [Order Details] od on ord.OrderNumber = od.OrderNumber
 					where ord.InnovExport ='2'
-					and od.SKU not in ('Shipping','Sales Tax 1','Product','Sales Tax 3')
+					and od.SKU not in ('Shipping','Sales Tax 1','Product','Sales Tax 3','Sales Tax 2')
 					order by OrderDate desc ";
 
 			$result=odbc_exec($connect,$sql);
