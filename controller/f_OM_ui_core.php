@@ -207,7 +207,7 @@ function OM_InnovExport_Search($trigger)
 	if($trigger=='7'){
 			$sql = "use QAData select * from Orders ord
 					where InnovExport = '7' 
-					and FraudScore is NULL
+					and FraudScore = '0'
 					and OrderNumber not in (select OrderNum from Tracking)
 					order by OrderDate desc";
 
