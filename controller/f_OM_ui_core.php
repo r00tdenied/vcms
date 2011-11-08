@@ -97,6 +97,7 @@ function OM_InnovExport_Search($trigger)
   		  			<td><b>Ref #</b></td>
   		  			<td><b>Order Date</b></td>
   		  			<td><b>QA Sku</b></td>
+  		  			<td></td>
   		  		  </tr>";
 			while (odbc_fetch_row($result))
 			{
@@ -104,6 +105,11 @@ function OM_InnovExport_Search($trigger)
   		  	   			<td>".odbc_result($result,'OrderNumber')."</td>
   		  	   			<td>".substr(odbc_result($result,'OrderDate'),0,-13)."</td>
   		  	   			<td><a href='?p=vCMS&process=itemSearch&parentSku=".odbc_result($result,'SKU')."'>".odbc_result($result,'SKU')."</a></td>
+  		  	   			<td><form class='table_row_button' method='post' action='?p=OM'>
+  		  	   				<input type='hidden' name='process' value='omOrderReset'/>
+  		  	   				<input type='hidden' name='orderNumber' value='".odbc_result($result,'OrderNumber')."'/>
+  		  	   				<input type='submit' name='submit' value='Reset'/></form></td>
+  		  	   			
   		  	   		</tr>";
   		  	    
 			}
@@ -208,7 +214,6 @@ function OM_InnovExport_Search($trigger)
 			$sql = "use QAData select * from Orders ord
 					where InnovExport = '7' 
 					and FraudScore = '0'
-					and OrderSource in ('SS')
 					and OrderNumber not in (select OrderNum from Tracking)
 					order by OrderDate desc";
 
