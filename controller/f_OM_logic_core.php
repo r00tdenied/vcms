@@ -84,7 +84,8 @@ function OM_QA_Sears_Import($trigger)
 	if($trigger=='2'){
 		include '/scripts/QA-Sears/sears_order_fetcher.php';
 	}
-	
+}	
+
 //Trigger Sears import scripts
 function OM_CAL_Sears_Import($trigger)
 {
@@ -98,5 +99,6 @@ function OM_CAL_Sears_Import($trigger)
 	if($trigger=='2'){
 		include '/scripts/CAL-Sears/sears_order_fetcher.php';
 	}	
-	
 }
+
+	?>
