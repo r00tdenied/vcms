@@ -38,11 +38,11 @@ elseif($_POST['process']=='QAsearsFetch') {
 }	
 
 elseif($_POST['process']=='CALsearsScan') {
-	OM_QA_Sears_Import('1');
+	OM_CAL_Sears_Import('1');
 	}
 
 elseif($_POST['process']=='CALsearsFetch') {
-	OM_QA_Sears_Import('2');
+	OM_CAL_Sears_Import('2');
 }	
 
 else {
