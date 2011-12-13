@@ -4,24 +4,45 @@
 <table class="table_main">
 <tr>
 		<td style="text-align: center;"><form url="" method="post">
-											<input type=hidden name='process' value='searsScan'></input>
-											<input type=submit name='submit' value='Scan for Orders'></input>
+											<input type=hidden name='process' value='QAsearsScan'></input>
+											<input type=submit name='submit' value='Scan for QA Orders'></input>
 										</form>
 		</td>
 		<td style="text-align: center;"><form url="" method="post">
-											<input type=hidden name='process' value='searsFetch'></input>
-											<input type=submit name='submit' value='Fetch Scanned Orders'></input>
+											<input type=hidden name='process' value='QAsearsFetch'></input>
+											<input type=submit name='submit' value='Fetch Scanned QA Orders'></input>
+										</form>
+		</td>
+</tr>
+
+<tr>
+		<td style="text-align: center;"><form url="" method="post">
+											<input type=hidden name='process' value='CALsearsScan'></input>
+											<input type=submit name='submit' value='Scan for CAL Orders'></input>
+										</form>
+		</td>
+		<td style="text-align: center;"><form url="" method="post">
+											<input type=hidden name='process' value='CALsearsFetch'></input>
+											<input type=submit name='submit' value='Fetch Scanned CAL Orders'></input>
 										</form>
 		</td>
 </tr>
 </form>
 <?php 
-if($_POST['process']=='searsScan') {
-	OM_Sears_Import('1');
+if($_POST['process']=='QAsearsScan') {
+	OM_QA_Sears_Import('1');
 	}
 
-elseif($_POST['process']=='searsFetch') {
-	OM_Sears_Import('2');
+elseif($_POST['process']=='QAsearsFetch') {
+	OM_QA_Sears_Import('2');
+}	
+
+elseif($_POST['process']=='CALsearsScan') {
+	OM_QA_Sears_Import('1');
+	}
+
+elseif($_POST['process']=='CALsearsFetch') {
+	OM_QA_Sears_Import('2');
 }	
 
 else {

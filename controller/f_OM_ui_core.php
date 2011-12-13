@@ -4,12 +4,17 @@
  */
 
 //Search and build tables based on InnovExport flag
-function OM_InnovExport_Search($trigger)
+function OM_InnovExport_Search($trigger,$min,$max,$sort_field,$sort_order)
 {
 	$i=0;
 	$connect=odbc_connect("qa-om","sa","systemop",SQL_CUR_USE_ODBC);
 	if (!$connect)
   	{exit("Connection Failed: " . $connect);}
+  	
+	if(is_null($sort_order)){$sort_order = 'asc'; }
+	if(is_null($sort_field)){$sort_field = 'OrderDate';}
+	if(is_null($min)){$min = 0;}
+	if(is_null($max)){$max = 20;}
 
 	if($trigger==''){
 			include 'view/v_OM_innovexport_order_search.php';
@@ -18,7 +23,7 @@ function OM_InnovExport_Search($trigger)
 	}
 	
 	if($trigger=='0'){
-			$sql = "use QAData select * from Orders where InnovExport ='0' order by OrderDate desc";
+			$sql = "use QAData select * from Orders where InnovExport ='0' order by $sort_field $sort limit $min ,$max";
 
 			$result=odbc_exec($connect,$sql);
 			if (!$result)
@@ -49,7 +54,10 @@ function OM_InnovExport_Search($trigger)
 	}
 	
 	if($trigger=='1'){
-			$sql = "select * from Orders where InnovExport ='1' order by OrderDate desc";
+			$sql = "select * from Orders 
+					where InnovExport ='1' 
+					order by $sort_field $sort_order 
+					limit $min,$max";
 
 			$result=odbc_exec($connect,$sql);
 			if (!$result)
@@ -84,7 +92,8 @@ function OM_InnovExport_Search($trigger)
 					join [Order Details] od on ord.OrderNumber = od.OrderNumber
 					where ord.InnovExport ='2'
 					and od.SKU not in ('Shipping','Sales Tax 1','Product','Sales Tax 3','Sales Tax 2')
-					order by OrderDate desc ";
+					order by $sort_field $sort_order
+					limit $min,$max";
 
 			$result=odbc_exec($connect,$sql);
 			if (!$result)
@@ -117,7 +126,10 @@ function OM_InnovExport_Search($trigger)
 	}
 	
 	if($trigger=='3'){
-			$sql = "use QAData select TOP 20 * from Orders where InnovExport ='3' and Cancelled = '0' order by OrderDate desc";
+			$sql = "use QAData select TOP 20 * from Orders 
+					where InnovExport ='3' and Cancelled = '0' 
+					order by $sort_field $sort_order
+					limit $min,$max";
 
 			$result=odbc_exec($connect,$sql);
 			if (!$result)
@@ -148,7 +160,10 @@ function OM_InnovExport_Search($trigger)
 	
 	}
 	if($trigger=='4'){
-			$sql = "use QAData select top 20 * from Orders where InnovExport ='4' order by OrderDate desc";
+			$sql = "use QAData select top 20 * from Orders 
+					where InnovExport ='4' 
+					order by $sort_field $sort_order
+					limit $min,$max";
 
 			$result=odbc_exec($connect,$sql);
 			if (!$result)
@@ -180,7 +195,10 @@ function OM_InnovExport_Search($trigger)
 	}
 	
 	if($trigger=='5'){
-			$sql = "use QAData select top 20 * from Orders where InnovExport ='5' order by OrderDate desc";
+			$sql = "use QAData select top 20 * from Orders 
+					where InnovExport ='5'
+					order by $sort_field $sort_order
+					limit $min,$max";
 
 			$result=odbc_exec($connect,$sql);
 			if (!$result)
@@ -215,7 +233,8 @@ function OM_InnovExport_Search($trigger)
 					where InnovExport = '7' 
 					and FraudScore = '0'
 					and OrderNumber not in (select OrderNum from Tracking)
-					order by OrderDate desc";
+					order by $sort_field $sort_order
+					limit $min,$max";
 
 			$result=odbc_exec($connect,$sql);
 			if (!$result)
