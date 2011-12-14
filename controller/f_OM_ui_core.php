@@ -4,7 +4,7 @@
  */
 
 //Search and build tables based on InnovExport flag
-function OM_InnovExport_Search($trigger,$min,$max,$sort_field,$sort_order)
+function OM_InnovExport_Search($trigger)
 {
 	$i=0;
 	$connect=odbc_connect("qa-om","sa","systemop",SQL_CUR_USE_ODBC);
@@ -23,7 +23,7 @@ function OM_InnovExport_Search($trigger,$min,$max,$sort_field,$sort_order)
 	}
 	
 	if($trigger=='0'){
-			$sql = "use QAData select * from Orders where InnovExport ='0' order by $sort_field $sort limit $min ,$max";
+			$sql = "use QAData select * from Orders where InnovExport ='0'";
 
 			$result=odbc_exec($connect,$sql);
 			if (!$result)
