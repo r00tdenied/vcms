@@ -101,4 +101,19 @@ function OM_CAL_Sears_Import($trigger)
 	}	
 }
 
+//Trigger Sears import scripts
+function OM_BOS_Sears_Import($trigger)
+{
+	if($trigger==''){
+		echo 'Please select an option';
+	}
+	
+	if($trigger=='1'){
+		include '/scripts/BOS-Sears/sears_order_scanner.php';
+	}
+	if($trigger=='2'){
+		include '/scripts/BOS-Sears/sears_order_fetcher.php';
+	}	
+}
+
 	?>

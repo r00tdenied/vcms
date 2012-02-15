@@ -27,6 +27,19 @@
 										</form>
 		</td>
 </tr>
+
+<tr>
+		<td style="text-align: center;"><form url="" method="post">
+											<input type=hidden name='process' value='BOSsearsScan'></input>
+											<input type=submit name='submit' value='Scan for BOS Orders'></input>
+										</form>
+		</td>
+		<td style="text-align: center;"><form url="" method="post">
+											<input type=hidden name='process' value='BOSsearsFetch'></input>
+											<input type=submit name='submit' value='Fetch Scanned BOS Orders'></input>
+										</form>
+		</td>
+</tr>
 </form>
 <?php 
 if($_POST['process']=='QAsearsScan') {
@@ -43,6 +56,14 @@ elseif($_POST['process']=='CALsearsScan') {
 
 elseif($_POST['process']=='CALsearsFetch') {
 	OM_CAL_Sears_Import('2');
+}	
+
+elseif($_POST['process']=='BOSsearsScan') {
+	OM_BOS_Sears_Import('1');
+	}
+
+elseif($_POST['process']=='BOSsearsFetch') {
+	OM_BOS_Sears_Import('2');
 }	
 
 else {
